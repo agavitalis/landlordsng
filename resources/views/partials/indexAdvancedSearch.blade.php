@@ -6,7 +6,7 @@
       <li><a href="submit_property.html"><i class="icon-icons215"></i>Submit Property</a></li>
       <li><a href="my_properties.html"><i class="icon-icons215"></i>My Property</a></li>
       <li><a href="profile.html"><i class="icon-icons230"></i>Profile</a></li>
-      <li><a href="login.html"><i class="icon-icons179"></i>Login / Register</a></li>
+      <li><a href="/login"><i class="icon-icons179"></i>Login / Register</a></li>
       <li class="last-icon"><i class="icon-icons215"></i></li>
     </ul>
   </div>

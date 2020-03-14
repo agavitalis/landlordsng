@@ -39,7 +39,7 @@
 <!--Slider ends-->
 
 <!--Header-->
-@yield('indexHeader')
+@yield('header')
 <!--Header Ends-->
 
 <!--IndexAdvancedSearch-->

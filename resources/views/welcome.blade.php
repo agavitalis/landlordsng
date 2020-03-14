@@ -4,7 +4,7 @@
     @include('partials.indexSlider')
 @endsection
 
-@section('indexHeader')
+@section('header')
     @include('partials.indexHeader')
 @endsection
 
