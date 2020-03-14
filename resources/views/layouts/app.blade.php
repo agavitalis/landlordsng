@@ -1,80 +1,86 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+ <!-- CSRF Token -->
+ <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<title>{{ config('app.name', 'Laravel') }}</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/reality-icon.css">
+<link rel="stylesheet" type="text/css" href="css/bootsnav.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css">
+<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="css/owl.transitions.css">
+<link rel="stylesheet" type="text/css" href="css/cubeportfolio.min.css">
+<link rel="stylesheet" type="text/css" href="css/settings.css">
+<link rel="stylesheet" type="text/css" href="css/range-Slider.min.css">
+<link rel="stylesheet" type="text/css" href="css/search.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="icon" href="images/icon.png">
+@yield('styles')
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
 
-                    </ul>
+<!--Loader-->
+<!-- <div class="loader">
+  <div class="span">
+    <div class="location_indicator"></div>
+  </div>
+</div> -->
+ <!--Loader-->               
+                
+<!--Slider-->
+@yield('indexSlider')
+<!--Slider ends-->
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+<!--Header-->
+@yield('indexHeader')
+<!--Header Ends-->
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+<!--IndexAdvancedSearch-->
+@yield('indexAdvancedSearch')
+<!--IndexAdvancedSearch Ends-->
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<!--Content-->
+@yield('content')
+<!--Content Ends-->
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+<!--Partners-->
+@yield('partners')
+<!--Partners Ends-->
+
+<!--Footer-->
+@yield('footer')
+<!--Footer Ends-->
+<script src="js/jquery-2.1.4.js"></script> 
+<script src="js/bootstrap.min.js"></script> 
+<script src="js/jquery.appear.js"></script>
+<script src="js/jquery-countTo.js"></script>
+<script src="js/bootsnav.js"></script>
+<script src="js/masonry.pkgd.min.js"></script>
+<script src="js/jquery.parallax-1.1.3.js"></script>
+<script src="js/jquery.cubeportfolio.min.js"></script>
+<script src="js/range-Slider.min.js"></script>
+<script src="js/owl.carousel.min.js"></script> 
+<script src="js/selectbox-0.2.min.js"></script>
+<script src="js/zelect.js"></script>
+<script src="js/jquery.fancybox.js"></script>
+<script src="js/jquery.themepunch.tools.min.js"></script>
+<script src="js/jquery.themepunch.revolution.min.js"></script>
+<script src="js/revolution.extension.actions.min.js"></script>
+<script src="js/revolution.extension.layeranimation.min.js"></script>
+<script src="js/revolution.extension.navigation.min.js"></script>
+<script src="js/revolution.extension.parallax.min.js"></script>
+<script src="js/revolution.extension.slideanims.min.js"></script>
+<script src="js/revolution.extension.video.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/functions.js"></script>
+@yield('scripts')
 </body>
 </html>
+
