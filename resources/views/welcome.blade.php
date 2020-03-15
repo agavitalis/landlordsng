@@ -353,13 +353,13 @@
 </section>
 <!-- Gallery End -->
 
-<!--Agents and Testinomials-->
+<!--Agencies -->
 <section id="testinomialBg" class="padding bg_light">
   
   <div class="container">
     <div class="row">
       <div class="col-xs-12 text-center">
-        <h2 class="uppercase">agents you can trust</h2>
+        <h2 class="uppercase">Agencies you can trust</h2>
         <p class="heading_space">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec viverra erat Aenean elit tellus.</p>
       </div>
     </div>
@@ -479,7 +479,7 @@
     </div>
   </div>
 </section>
-<!--Testinomials ends-->
+<!--Agencies ends-->
 
 <!--Parallax-->
 <section id="parallax_four" class="padding">
@@ -508,13 +508,13 @@
 <!--About Owner ends-->
 
 
-<!--Testinomials-->
+<!--Agents-->
 <section id="testinomialBg" class="padding bg_light">
   <div id="agent-2" class="padding_bottom">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 text-center">
-        <h2 class="uppercase">AGENCIES YOU CAN TRUST</h2>
+        <h2 class="uppercase">AGENTS YOU CAN TRUST</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec viverra erat Aenean elit tellus.</p>
       </div>
     </div>
@@ -606,10 +606,9 @@
     </div>
   </div>
 </div>
-  
 </section>
+<!--Agents ends-->
 
-<!--Testinomials ends-->
 <!--Parallax-->
 <section id="parallax_four" class="padding">
   <div class="container">
