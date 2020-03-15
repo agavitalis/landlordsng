@@ -25,7 +25,7 @@
 +footer_panel
 +social_share
 +copyright 
-
++ media query for the slider 
 */
 
 
@@ -4269,6 +4269,45 @@ ul.social_share {
   text-align: center;
   font-size: 12px;
 }
+}
+/* media query for the slider */
+@media screen and (max-width: 780px){
+  .tp-parallax-wrap:nth-child(1){
+    visibility: visible !important;
+    top: 153px !important;
+    z-index: 5 !important;
+  }
+
+  #rev_overlaped p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px){ 
+  .t_white{
+    margin-bottom: 1em;
+  }
+  #rev_overlaped h1 {
+    font-size: 32px;
+    margin-bottom: 1em;
+  }
+  #rev_overlaped p {
+    font-size: 14px;
+  }
+  .tp-parallax-wrap:nth-child(1){
+    visibility: visible !important;
+    left: 22px !important;
+    top: 220px !important;
+    z-index: 5 !important;
+  }
+
+  .tp-parallax-wrap:nth-child(2){
+    position: absolute !important;
+    visibility: visible !important;
+    left: 22px !important;
+    top: 303px !important;
+    z-index: 5 !important;
+  }
 }
 
 
