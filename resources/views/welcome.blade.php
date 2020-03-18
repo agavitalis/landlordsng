@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('indexSlider')
-    @include('partials.indexSlider')
+    @include('partials.user.indexSlider')
 @endsection
 
 @section('header')
-    @include('partials.indexHeader')
+    @include('partials.user.indexHeader')
 @endsection
 
 @section('indexAdvancedSearch')
-    @include('partials.indexAdvancedSearch')
+    @include('partials.user.indexAdvancedSearch')
 @endsection
 
 @section('content')
@@ -627,9 +627,9 @@
 @endsection
 
 @section('partners')
-    @include('partials.partners')
+    @include('partials.user.partners')
 @endsection
 
 @section('footer')
-    @include('partials.footer')
+    @include('partials.user.footer')
 @endsection
