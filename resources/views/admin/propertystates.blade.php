@@ -21,7 +21,7 @@
 
                 <div class="col-lg-5">
                     <div class="card m-b-20">
-                        <div class="card-body">
+                        <div class="card-body">    
 
                             <h4 class="mt-0 header-title">Property States</h4>
                             <p class="text-muted m-b-30 ">
