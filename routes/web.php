@@ -36,5 +36,6 @@ Route::group(['namespace'=>"Admin"],function(){
     
     Route::match(['GET','POST'],'/admin_dashboard','DashboardController@dashboard')->name('admin_dashboard');
     Route::match(['GET','POST'],'/admin_propertytypes/{id?}','PropertyTypesController@propertytypes')->name('admin_propertytypes');
+    Route::match(['GET','POST'],'/admin_propertystates/{id?}','PropertyStatesController@propertystates')->name('admin_propertystates');
  
 });

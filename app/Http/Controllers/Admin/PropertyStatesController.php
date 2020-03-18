@@ -13,7 +13,7 @@ class PropertyStatesController extends Controller
         //$this->middleware('adminGuard');
     }
 
-    public function propertytypes()
+    public function propertystates()
     {
         // $users_count = User::count();
         // $series_count = Series::count();
