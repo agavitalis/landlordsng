@@ -69,7 +69,7 @@
         <script src="../plugins/raphael/raphael-min.js"></script>
 
         <script src="assets/pages/dashboard.js"></script>
-
+        @yield('scripts')
         <!-- App js -->
         <script src="assets/js/app.js"></script>
 

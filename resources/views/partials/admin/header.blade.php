@@ -4,10 +4,10 @@
                 <div class="topbar-left">
                     <a href="index.html" class="logo">
                         <span>
-                            <img src="assets/images/logo.png" alt="" height="24">
+                            <img src="assets/images/logo.png" alt="">
                         </span>
                         <i>
-                            <img src="assets/images/logo-sm.png" alt="" height="22">
+                            <img src="assets/images/logo-sm.png" alt="" >
                         </i>
                     </a>
                 </div>

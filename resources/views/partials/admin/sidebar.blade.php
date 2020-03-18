@@ -13,25 +13,19 @@
                             </li>
 
                             <li>
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-email"></i><span> Email <span class="float-right menu-arrow"><i class="mdi mdi-plus"></i></span> </span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-cogs"></i><span> Configurations <span class="float-right menu-arrow"><i class="mdi mdi-plus"></i></span> </span></a>
                                 <ul class="submenu">
-                                    <li><a href="email-inbox.html">Inbox</a></li>
-                                    <li><a href="email-read.html">Email Read</a></li>
-                                    <li><a href="email-compose.html">Email Compose</a></li>
+                                    <li><a href="/admin_propertytypes">Property Types</a></li>
+                                    
                                 </ul>
                             </li>
 
-                          
-               
-                            <li class="menu-title">Extras</li>
-
-                            
-
+                            <li class="menu-title">Auth</li>
                             <li>
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-google-pages"></i><span> Pages <span class="float-right menu-arrow"><i class="mdi mdi-plus"></i></span> </span></a>
                                 <ul class="submenu">
-                                    <li><a href="pages-login.html">Login</a></li>
-                                    <li><a href="pages-register.html">Register</a></li>
+                                    <li><a href="#">Login</a></li>
+                                    <li><a href="#">Register</a></li>
                                    
                                 </ul>
                             </li>
