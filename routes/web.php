@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::group([],function(){
+Route::group(['namespace'=>"User"],function(){
 
     Route::get('/', function () {
         return view('welcome');
@@ -27,7 +27,8 @@ Route::group([],function(){
     
     Auth::routes();
     
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::match(['GET','POST'],'/home','HomeController@index')->name('home');
+
     
 });
 
