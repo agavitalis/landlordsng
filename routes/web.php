@@ -2,34 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
-
+//User routes guarded by tha auth and user middleware when necessary
 Route::group(['namespace'=>"User"],function(){
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
-    
-    Route::get('/listing', function () {
-        return view('listing');
-    });
-    
-    Route::get('/agencies', function () {
-        return view('agencies');
-    });
-    
-    Route::get('/agents', function () {
-        return view('agents');
-    });
-    
-    Route::get('/contact', function () {
-        return view('contact');
-    });
-    
-    Auth::routes();
-    
+    Route::match(['GET','POST'],'/','HomeController@index')->name('welcome');
+    Route::match(['GET','POST'],'/listing','ListingController@index')->name('listing');
+    Route::match(['GET','POST'],'/agencies','AgencyController@index')->name('agencies');
+    Route::match(['GET','POST'],'/agents','AgentController@index')->name('agents');
+    Route::match(['GET','POST'],'/contact','ContactController@contact')->name('contact');
+
     Route::match(['GET','POST'],'/home','HomeController@index')->name('home');
 
-    
 });
 
 //Admin routes guarded by tha auth and admin middleware
@@ -42,3 +25,5 @@ Route::group(['namespace'=>"Admin"],function(){
     Route::match(['GET','POST'],'/admin_propertystates/{id?}','PropertyStatesController@propertystates')->name('admin_propertystates');
  
 });
+
+Auth::routes();
