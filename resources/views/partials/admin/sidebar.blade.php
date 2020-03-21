@@ -17,7 +17,15 @@
                                 <ul class="submenu">
                                     <li><a href="/admin_propertytypes">Property Types</a></li>
                                     <li><a href="/admin_propertystates">Property States</a></li>
-                                    
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-cogs"></i><span> Agencies <span class="float-right menu-arrow"><i class="mdi mdi-plus"></i></span> </span></a>
+                                <ul class="submenu">
+                                    <li><a href="/create_agencies">Create Agencies</a></li>
+                                    <li><a href="/manage_agencies">Manage Agencies</a></li>
+
                                 </ul>
                             </li>
 
@@ -27,7 +35,7 @@
                                 <ul class="submenu">
                                     <li><a href="#">Login</a></li>
                                     <li><a href="#">Register</a></li>
-                                   
+
                                 </ul>
                             </li>
                         </ul>
@@ -40,4 +48,3 @@
                 <!-- Sidebar -left -->
 
             </div>
-            

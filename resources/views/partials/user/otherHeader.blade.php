@@ -71,7 +71,7 @@
           </div> <!-- End Header Navigation -->
           <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav" data-in="fadeIn" data-out="fadeOut">
-                @include("partials.navigationContent")             
+                @include("partials.user.navigationContent")             
             </ul>
           </div>
         </div>

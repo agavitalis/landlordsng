@@ -1409,6 +1409,9 @@ button{
 .tp_overlay .leftLabel, .tp_overlay .rightLabel{ 
   color:#fff;
 }
+.text-white{
+  color:#fff!important;
+}
  .blue_navi .more-filter .fa, .tp_overlay .more-filter .fa{
 	color:#222222 !important;
 }
