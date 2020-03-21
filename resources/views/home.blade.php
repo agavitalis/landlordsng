@@ -3,7 +3,7 @@
 @section('header')
     @include("partials.user.otherHeader")
 @endsection
- 
+
 @section('content')
 <!-- Page Banner Start-->
 <section class="page-banner padding">
@@ -14,7 +14,7 @@
         <p>Serving you since 1999. Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
         <ol class="breadcrumb text-center">
           <li><a href="#">Home</a></li>
-        
+
           <li class="active">Profile</li>
         </ol>
       </div>
@@ -23,8 +23,6 @@
 </section>
 <!-- Page Banner End -->
 
-
-<!-- Profile Start -->
 <section id="agent-2-peperty" class="profile padding">
   <div class="container">
     <div class="row">
@@ -35,6 +33,7 @@
           <li><a href="submit_property.html"><i class="icon-icons215"></i> Submit Property</a></li>
           <li><a href="favorite_properties.html"><i class="icon-icons43"></i> Favorite Properties</a></li>
           <li><a href="login.html"><i class="icon-lock-open3"></i>Logout</a></li>
+
         </ul>
       </div>
     </div>
@@ -93,16 +92,7 @@
                   <input type="text" placeholder="bohdan@realtyhomes.com" class="keyword-input">
                 </div>
               </div>
-              <div class="col-sm-4">
-                <div class="single-query">
-                  <label>Skype:</label>
-                </div>
-              </div>
-              <div class="col-sm-8">
-                <div class="single-query form-group">
-                  <input type="text" placeholder="bohdan.kononets" class="keyword-input">
-                </div>
-              </div>
+
               <div class="col-sm-4">
                 <div class="single-query">
                   <label>About:</label>
@@ -148,7 +138,7 @@
                 <input type="text" placeholder="http://twitter.com" class="keyword-input">
               </div>
             </div>
-           
+
             <div class="col-sm-4">
               <div class="single-query">
                 <label>Linkedin:</label>
@@ -209,8 +199,6 @@
     </div>
   </div>
 </section>
-<!-- Profile end -->
-
 
 
 @endsection

@@ -33,18 +33,19 @@
               <li>+1 900 234 567 - 68</li>
             </ul>
           </div>
-          <div class="info-box">
-            <div class="icons"><i class="icon-icons74"></i></div>
-            <ul>
-              <li><strong>Manhattan Hall,</strong></li>
-              <li>Castle Melbourne, australia</li>
-            </ul>
-          </div>
+          
           <div class="info-box">
             <div class="icons"><i class="icon-icons142"></i></div>
             <ul>
               <li><strong>Email Address</strong></li>
               <li><a href="javascript:void(0)">info@landlordsng.com</a></li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <div class="icons"><i class="icon-icons230"></i></div>
+            <ul>
+              <li><strong>Become an Agent</strong></li>
+              <li><a href="javascript:void(0)">Register Now</a></li>
             </ul>
           </div>
         </div>
