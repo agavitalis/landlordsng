@@ -1947,15 +1947,93 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       property_type: "",
       property_name: "",
-      msg: ""
+      msg: "",
+      pagination: {},
+      showModal: false,
+      properties: {
+        property_type: "",
+        property_name: ""
+      }
     };
   },
   mounted: function mounted() {
+    this.getPropertyTypes();
     console.log("Type component is mounted");
   },
   methods: {
@@ -1972,6 +2050,49 @@ __webpack_require__.r(__webpack_exports__);
         _this.property_type = "";
       })["catch"](function (err) {
         console.log(err);
+      });
+    },
+    getPropertyTypes: function getPropertyTypes(url) {
+      var _this2 = this;
+
+      url = url || "api/admin_getpropertytype";
+      var vm = this;
+      fetch(url).then(function (response) {
+        return response.json();
+      }).then(function (response) {
+        _this2.properties = response.data; // console.log("Successfully fetched")
+
+        vm.makePagination(response.meta, response.links);
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    },
+    makePagination: function makePagination(meta, links) {
+      var pagination = {
+        current_page: meta.current_page,
+        last_page: meta.last_page,
+        next_page: meta.next_page,
+        next_page_url: links.next,
+        prev_page_url: links.prev
+      };
+      this.pagination = pagination;
+    },
+    setVal: function setVal(id, property_type, property_name) {
+      this.id = id;
+      this.property_type = property_type;
+      this.property_name = property_name;
+    },
+    updatePropertyType: function updatePropertyType() {
+      var _this3 = this;
+
+      var id = document.getElementById('id').value;
+      var property_type = document.getElementById('property_type').value;
+      var property_name = document.getElementById('property_name').value;
+      axios.put("api/updatepropertytype/", {
+        property_type: property_type,
+        id: id
+      }).then(function (res) {
+        _this3.getPropertyTypes();
       });
     }
   }
@@ -19579,6 +19700,114 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", {}, [
+    _c("table", { staticClass: "table" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.properties, function(property, key) {
+          return _c("tr", [
+            _c("td", [_vm._v(_vm._s(property.property_name))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(property.property_type))]),
+            _vm._v(" "),
+            _c("td", [
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-primary btn-sm",
+                  attrs: {
+                    type: "button",
+                    id: "show-modal",
+                    "data-toggle": "modal",
+                    "data-target": "#editproperty"
+                  },
+                  on: {
+                    click: function($event) {
+                      _vm.showModal = true
+                      _vm.setVal(
+                        property.id,
+                        property.property_type,
+                        property.property_name
+                      )
+                    }
+                  }
+                },
+                [_vm._v("Edit\n          ")]
+              )
+            ])
+          ])
+        }),
+        0
+      )
+    ]),
+    _vm._v(" "),
+    _c("nav", [
+      _c("ul", { staticClass: "pagination" }, [
+        _c(
+          "li",
+          {
+            staticClass: "page-item",
+            class: [{ disabled: !_vm.pagination.prev_page_url }]
+          },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "page-link",
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    return _vm.getPropertyTypes(_vm.pagination.prev_page_url)
+                  }
+                }
+              },
+              [_vm._v(" Prev")]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("li", { staticClass: "page-item disabled" }, [
+          _c(
+            "a",
+            { staticClass: "page-link text-dark", attrs: { href: "#" } },
+            [
+              _vm._v(
+                "\n        Page " +
+                  _vm._s(_vm.pagination.current_page) +
+                  " of " +
+                  _vm._s(_vm.pagination.last_page) +
+                  "\n        "
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "li",
+          {
+            staticClass: "page-item",
+            class: [{ disabled: !_vm.pagination.next_page_url }]
+          },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "page-link",
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    return _vm.getPropertyTypes(_vm.pagination.next_page_url)
+                  }
+                }
+              },
+              [_vm._v(" next")]
+            )
+          ]
+        )
+      ])
+    ]),
+    _vm._v(" "),
     _c("div", {}, [
       _c("p", { staticClass: "text-success" }, [_vm._v(_vm._s(_vm.msg))])
     ]),
@@ -19671,7 +19900,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("\n                  Submit\n              ")]
+              [_vm._v("\n                    Submit\n                ")]
             ),
             _vm._v(" "),
             _c(
@@ -19680,15 +19909,174 @@ var render = function() {
                 staticClass: "btn btn-secondary waves-effect m-l-5",
                 attrs: { type: "reset" }
               },
-              [_vm._v("\n                  Cancel\n              ")]
+              [_vm._v("\n                    Cancel\n                ")]
             )
           ])
         ])
       ]
-    )
+    ),
+    _vm._v(" "),
+    _vm.showModal
+      ? _c("div", [
+          _c(
+            "div",
+            {
+              staticClass: "modal fade",
+              attrs: {
+                id: "editproperty",
+                tabindex: "-1",
+                role: "dialog",
+                "aria-labelledby": "exampleModalCenterTitle",
+                "aria-hidden": "true"
+              }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "modal-dialog modal-dialog-centered",
+                  attrs: { role: "document" }
+                },
+                [
+                  _c("div", { staticClass: "modal-content" }, [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-body" }, [
+                      _c(
+                        "form",
+                        {
+                          on: {
+                            submit: function($event) {
+                              $event.preventDefault()
+                            }
+                          }
+                        },
+                        [
+                          _c("div", { attrs: { slot: "body" }, slot: "body" }, [
+                            _c("h6", { staticClass: "text-bold mt-2 dark" }, [
+                              _vm._v("Property Name")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              staticClass: "form-control mt-1",
+                              attrs: {
+                                type: "text",
+                                name: "",
+                                id: "property_name"
+                              },
+                              domProps: { value: this.property_name }
+                            }),
+                            _vm._v(" "),
+                            _c("h6", { staticClass: "text-bold mt-2 dark" }, [
+                              _vm._v("Property Type")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "text",
+                                name: "",
+                                id: "property_type"
+                              },
+                              domProps: { value: this.property_type }
+                            }),
+                            _vm._v(" "),
+                            _c("input", {
+                              staticClass: "form-control",
+                              attrs: { type: "hidden", name: "", id: "id" },
+                              domProps: { value: this.id }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "mt-1 form-control btn btn-outline-success btn-sm",
+                                attrs: { "data-dismiss": "modal" },
+                                on: {
+                                  click: [
+                                    function($event) {
+                                      $event.preventDefault()
+                                    },
+                                    function($event) {
+                                      return _vm.updatePropertyType()
+                                    }
+                                  ]
+                                }
+                              },
+                              [_vm._v("Update")]
+                            )
+                          ])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(2)
+                  ])
+                ]
+              )
+            ]
+          )
+        ])
+      : _vm._e()
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Property Name")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Property Type")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Action")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLongTitle" } },
+        [_c("a", { attrs: { href: "#" } }, [_vm._v("Edit Property Type")])]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Close")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 

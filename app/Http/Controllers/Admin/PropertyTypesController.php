@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Resources\PropertyTypeResource;
 use App\Models\PropertyType;
 
 class PropertyTypesController extends Controller
@@ -35,5 +36,23 @@ class PropertyTypesController extends Controller
       $type->property_name = $request->input('property_name');
       $type->save();
       return response($type);
+    }
+
+    public function getTypes(){
+      $types =PropertyType::paginate(3);
+      return PropertyTypeResource::collection($types);
+    }
+
+    public function updatePropertyType(Request $request){
+      $this->validate($request,[
+        'id'=>'required',
+        'property_type'=>'required'
+      ]);
+
+      $id = $request->input('id');
+      $type = PropertyType::findOrFail($id);
+      $type->property_type =$request->input('property_type');
+      $type->save();
+      return $type;
     }
 }

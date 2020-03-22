@@ -19,3 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/admin_addpropertytype','Admin\PropertyTypesController@create');
+Route::get('/admin_getpropertytype','Admin\PropertyTypesController@getTypes');
+Route::put('/updatepropertytype','Admin\PropertyTypesController@updatePropertyType');
