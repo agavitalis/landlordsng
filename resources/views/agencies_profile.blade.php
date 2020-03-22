@@ -10,7 +10,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
-        <h1 class="text-uppercase">Agency Profile</h1>
+        <h1 class="text-uppercase">{{$agency->agency_name}} Profile</h1>
         <p>Serving you since 1999. Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
         <ol class="breadcrumb text-center ">
           <li><a href="#">Home</a></li>     

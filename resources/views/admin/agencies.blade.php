@@ -81,7 +81,7 @@
                                         </div>
                                        
                                         <div class="form-group">
-                                            <label>Profile Picture</label>
+                                            <label>Profile Picture(294 * 286)</label>
                                             <div>
                                                 <input type="file" class="form-control" required name="profile_picture"/>
                                             </div>

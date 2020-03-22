@@ -22,7 +22,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3 col-sm-12">
-          <div class="logo"><a href="/"><img alt="" src="images/logo.png"></a></div>
+          <div class="logo"><a href="/"><img alt="" src="../../images/logo.png"></a></div>
         </div>
         <!--Info Box-->
         <div class="col-md-9 col-sm-12 right">
@@ -68,7 +68,7 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
             <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand sticky_logo" href="/"><img src="images/logo-white.png" class="logo" alt=""></a>
+            <a class="navbar-brand sticky_logo" href="/"><img src="{{asset('images/logo-white.png')}}" class="logo" alt=""></a>
           </div> <!-- End Header Navigation -->
           <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav" data-in="fadeIn" data-out="fadeOut">

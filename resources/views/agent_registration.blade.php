@@ -10,8 +10,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1 class="p-white text-uppercase">Agent Registration</h1>
-        <p class="p-white">Complete the registration process to become a LandlordsNG agent.</p>
+        <h1 class="p-white text-uppercase">{{$agency->agency_name}} Agency Registration</h1>
+        <p class="p-white">Complete the registration process to become a {{$agency->agency_name}} agent.</p>
       </div>
     </div>
   </div>
@@ -34,13 +34,13 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Name">
+                <input type="text" class="form-control" Placeholder="Name" value="{{Auth::user()->name}}">
               </div>
               <div class="form-group">
-                <input type="tel" class="form-control" placeholder="Phone Number">
+                <input type="tel" class="form-control"  Placeholder="Phone" value="{{Auth::user()->phone}}">
               </div>
               <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email">
+                <input type="email" class="form-control"  Placeholder="Email" value="{{Auth::user()->email}}">
               </div>
             </div>
             <div class="col-sm-6">
@@ -61,20 +61,20 @@
       <div class="col-sm-5 margin40">
         <div class="agent-p-contact">
           <div class="our-agent-box bottom30">
-            <h2>Agenct Details</h2>
+            <h2>{{$agency->agency_name}}  Details</h2>
           </div>
           <div class="agetn-contact-2 bottom30">
-            <p><i class="icon-telephone114"></i> (+01) 34 56 7890</p>
-            <p><i class=" icon-icons142"></i> info@castle.com</p>
-            <p><i class="icon-browser2"></i>www.castle.com</p>
-            <p><i class="icon-icons74"></i> Advisor Melbourne, Merrick Way, FL 12345 Australia</p>
+            <p><i class="icon-telephone114"></i>{{$agency->phone}}</p>
+            <p><i class=" icon-icons142"></i> {{$agency->email}}</p>
+            <p><i class="icon-browser2"></i>{{$agency->website}}</p>
+            <p><i class="icon-icons74"></i>{{$agency->address}}</p>
           </div>
           <ul class="social_share bottom20">
-            <li><a href="javascript:void(0)" class="facebook"><i class="icon-facebook-1"></i></a></li>
-            <li><a href="javascript:void(0)" class="twitter"><i class="icon-twitter-1"></i></a></li>
-            <li><a href="javascript:void(0)" class="google"><i class="icon-google4"></i></a></li>
+            <li><a href="{{$agency->facebook}}" class="facebook"><i class="icon-facebook-1"></i></a></li>
+            <li><a href="{{$agency->twitter}}" class="twitter"><i class="icon-twitter-1"></i></a></li>
+            <li><a href="{{$agency->instagram}}" class="google"><i class="icon-google4"></i></a></li>
             <li><a href="javascript:void(0)" class="linkden"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="javascript:void(0)" class="vimo"><i class="icon-vimeo3"></i></a></li>
+            
           </ul>
         </div>
       </div>

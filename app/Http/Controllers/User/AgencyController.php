@@ -9,7 +9,7 @@ use App\Models\Agency;
 class AgencyController extends Controller
 {
     public function index(){
-        $agencies = Agency::all();
+        $agencies = Agency::paginate(100);
         return view('agencies',compact('agencies'));
     }
 
