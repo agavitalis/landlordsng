@@ -45,7 +45,7 @@
             <div class="icons"><i class="icon-icons230"></i></div>
             <ul>
               <li><strong>Become an Agent</strong></li>
-              <li><a href="javascript:void(0)">Register Now</a></li>
+              <li><a href="/agencies">Register Now</a></li>
             </ul>
           </div>
         </div>
