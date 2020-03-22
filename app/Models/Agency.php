@@ -8,7 +8,7 @@ class Agency extends Model
 {
     protected $fillable = [
         'agency_name', 'founder', 'email','phone', 'biography', 'address','profile_picture', 
-        'instagram', 'twitter','facebook', 'website','user_id'
+        'instagram', 'twitter','facebook', 'linkedin','website','user_id'
     
     ];
 }

@@ -30,22 +30,24 @@
         <div class="our-agent-box bottom30">
           <h2>Your Bio</h2>
         </div>
-        <form class="callus">
+      <form class="callus" action="/become_an_agent" method="post">
+         @csrf
+         <input type="hidden" name="agency_id" value="{{$agency->id}}">
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="text" class="form-control" Placeholder="Name" value="{{Auth::user()->name}}">
+                <input type="text" class="form-control" Placeholder="Name" name="name" value="{{Auth::user()->name}}">
               </div>
               <div class="form-group">
-                <input type="tel" class="form-control"  Placeholder="Phone" value="{{Auth::user()->phone}}">
+                <input type="tel" class="form-control"  Placeholder="Phone"  name="phone" value="{{Auth::user()->phone}}">
               </div>
               <div class="form-group">
-                <input type="email" class="form-control"  Placeholder="Email" value="{{Auth::user()->email}}">
+                <input type="email" class="form-control"  Placeholder="Email"  name="email" value="{{Auth::user()->email}}">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <textarea class="form-control" placeholder="Message"></textarea>
+                <textarea class="form-control"  name="message" placeholder="Message"></textarea>
               </div>
             </div>
             <div class="col-sm-12 row">
