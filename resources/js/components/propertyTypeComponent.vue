@@ -19,6 +19,7 @@
             setVal(property.id, property.property_type,property.property_name)"
             class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editproperty">Edit
           </a></td>
+          <td><a type="button" class="btn btn-danger btn-sm" @click="deteleType(property.id, key)"> Delete</a></td>
           </tr>
       </tbody>
     </table>
@@ -185,6 +186,27 @@ export default {
               this.getPropertyTypes()
             }
           )
+          .catch(err=>{
+            console.log(err);
+          })
+      },
+      deteleType(id,key){
+        if (confirm('Are you sure you want to delete')){
+          axios.delete(`api/deletetype/${id}`)
+          .then(response =>{
+            console.log(response)
+            // remove the room type with a given key binding
+            this.properties.splice(key, 1)
+            this.getPropertyTypes()
+            this.msg ="Successfully Deleted"
+          })
+          .catch(err=>{
+            console.log(err)
+          })
+        }
+        else{
+          console.log('thanks for not deleting me')
+        }
       }
     }
 }

@@ -2018,6 +2018,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2093,7 +2094,28 @@ __webpack_require__.r(__webpack_exports__);
         id: id
       }).then(function (res) {
         _this3.getPropertyTypes();
+      })["catch"](function (err) {
+        console.log(err);
       });
+    },
+    deteleType: function deteleType(id, key) {
+      var _this4 = this;
+
+      if (confirm('Are you sure you want to delete')) {
+        axios["delete"]("api/deletetype/".concat(id)).then(function (response) {
+          console.log(response); // remove the room type with a given key binding
+
+          _this4.properties.splice(key, 1);
+
+          _this4.getPropertyTypes();
+
+          _this4.msg = "Successfully Deleted";
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      } else {
+        console.log('thanks for not deleting me');
+      }
     }
   }
 });
@@ -19734,6 +19756,22 @@ var render = function() {
                   }
                 },
                 [_vm._v("Edit\n          ")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-danger btn-sm",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      return _vm.deteleType(property.id, key)
+                    }
+                  }
+                },
+                [_vm._v(" Delete")]
               )
             ])
           ])

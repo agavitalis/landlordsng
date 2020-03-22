@@ -55,4 +55,13 @@ class PropertyTypesController extends Controller
       $type->save();
       return $type;
     }
+
+    public function destroy($id)
+    {
+        //find and delete a Room with a particular id
+        $type =PropertyType::find($id);
+        $type->delete();
+
+        return response()->json(['status'=>'ok'], 200);
+    }
 }
