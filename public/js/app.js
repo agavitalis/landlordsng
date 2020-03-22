@@ -2017,19 +2017,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      property_type: "",
-      property_name: "",
+      type_name: "",
       msg: "",
       pagination: {},
       showModal: false,
       properties: {
-        property_type: "",
-        property_name: ""
+        type_name: ""
       }
     };
   },
@@ -2078,19 +2074,17 @@ __webpack_require__.r(__webpack_exports__);
       };
       this.pagination = pagination;
     },
-    setVal: function setVal(id, property_type, property_name) {
+    setVal: function setVal(id, type_name) {
       this.id = id;
-      this.property_type = property_type;
-      this.property_name = property_name;
+      this.type_name = type_name;
     },
     updatePropertyType: function updatePropertyType() {
       var _this3 = this;
 
       var id = document.getElementById('id').value;
-      var property_type = document.getElementById('property_type').value;
-      var property_name = document.getElementById('property_name').value;
+      var type_name = document.getElementById('type_name').value;
       axios.put("api/updatepropertytype/", {
-        property_type: property_type,
+        type_name: type_name,
         id: id
       }).then(function (res) {
         _this3.getPropertyTypes();
@@ -19729,9 +19723,7 @@ var render = function() {
         "tbody",
         _vm._l(_vm.properties, function(property, key) {
           return _c("tr", [
-            _c("td", [_vm._v(_vm._s(property.property_name))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(property.property_type))]),
+            _c("td", [_vm._v(_vm._s(property.type_name))]),
             _vm._v(" "),
             _c("td", [
               _c(
@@ -19747,11 +19739,7 @@ var render = function() {
                   on: {
                     click: function($event) {
                       _vm.showModal = true
-                      _vm.setVal(
-                        property.id,
-                        property.property_type,
-                        property.property_name
-                      )
+                      _vm.setVal(property.id, property.type_name)
                     }
                   }
                 },
@@ -19992,21 +19980,7 @@ var render = function() {
                         [
                           _c("div", { attrs: { slot: "body" }, slot: "body" }, [
                             _c("h6", { staticClass: "text-bold mt-2 dark" }, [
-                              _vm._v("Property Name")
-                            ]),
-                            _vm._v(" "),
-                            _c("input", {
-                              staticClass: "form-control mt-1",
-                              attrs: {
-                                type: "text",
-                                name: "",
-                                id: "property_name"
-                              },
-                              domProps: { value: this.property_name }
-                            }),
-                            _vm._v(" "),
-                            _c("h6", { staticClass: "text-bold mt-2 dark" }, [
-                              _vm._v("Property Type")
+                              _vm._v("Type Name")
                             ]),
                             _vm._v(" "),
                             _c("input", {
@@ -20014,9 +19988,9 @@ var render = function() {
                               attrs: {
                                 type: "text",
                                 name: "",
-                                id: "property_type"
+                                id: "type_name"
                               },
-                              domProps: { value: this.property_type }
+                              domProps: { value: this.type_name }
                             }),
                             _vm._v(" "),
                             _c("input", {
@@ -20066,9 +20040,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Property Name")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Property Type")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Type name")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Action")])
       ])

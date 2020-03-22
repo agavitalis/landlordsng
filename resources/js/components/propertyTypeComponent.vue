@@ -4,19 +4,18 @@
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Property Name</th>
 
-          <th scope="col">Property Type</th>
+          <th scope="col">Type name</th>
           <th scope="col">Action</th>
           <!-- <th></th> -->
         </tr>
       </thead>
       <tbody>
         <tr v-for="property,key in properties">
-          <td>{{property.property_name}}</td>
-          <td>{{property.property_type}}</td>
+
+          <td>{{property.type_name}}</td>
           <td><a type="button" id="show-modal" @click="showModal=true;
-            setVal(property.id, property.property_type,property.property_name)"
+            setVal(property.id, property.type_name)"
             class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editproperty">Edit
           </a></td>
           <td><a type="button" class="btn btn-danger btn-sm" @click="deteleType(property.id, key)"> Delete</a></td>
@@ -89,10 +88,9 @@
         <div class="modal-body">
           <form v-on:submit.prevent>
             <div class="" slot="body">
-              <h6 class="text-bold mt-2 dark">Property Name</h6>
-              <input type="text" name="" class="form-control mt-1" :value="this.property_name" id="property_name">
-              <h6 class="text-bold mt-2 dark">Property Type</h6>
-              <input type="text" name="" class="form-control" :value="this.property_type" id="property_type">
+
+              <h6 class="text-bold mt-2 dark">Type Name</h6>
+              <input type="text" name="" class="form-control" :value="this.type_name" id="type_name">
               <input type="hidden" name="" class="form-control" :value="this.id" id="id">
               <button v-on:click.prevent class="mt-1 form-control btn btn-outline-success btn-sm"
                data-dismiss="modal" @click="updatePropertyType()">Update</button>
@@ -113,16 +111,14 @@
 export default {
   data(){
     return{
-      property_type:"",
-      property_name:"",
+      type_name:"",
       msg:"",
       pagination:{
 
       },
       showModal:false,
       properties:{
-        property_type:"",
-        property_name:""
+        type_name:""
       }
     }
   },
@@ -167,18 +163,16 @@ export default {
         };
         this.pagination = pagination;
       },
-        setVal(id, property_type, property_name){
+        setVal(id, type_name){
           this.id=id
-          this.property_type= property_type
-          this.property_name=property_name
+          this.type_name= type_name
       },
       updatePropertyType(){
         var id = document.getElementById('id').value
-        var property_type= document.getElementById('property_type').value
-        var property_name = document.getElementById('property_name').value
+        var type_name= document.getElementById('type_name').value
         axios.put(`api/updatepropertytype/`,
           {
-            property_type:property_type,
+            type_name:type_name,
             id:id
           })
           .then(

@@ -27,13 +27,11 @@ class PropertyTypesController extends Controller
 
     public function create(Request $request){
       $this->validate($request,[
-        'property_name'=>'required',
-        'property_type'=>'required'
+        'type_name'=>'required|string'
       ]);
 
       $type =new PropertyType;
-      $type->property_type = $request->input('property_type');
-      $type->property_name = $request->input('property_name');
+      $type->type_name = $request->input('type_name');
       $type->save();
       return response($type);
     }
@@ -46,12 +44,12 @@ class PropertyTypesController extends Controller
     public function updatePropertyType(Request $request){
       $this->validate($request,[
         'id'=>'required',
-        'property_type'=>'required'
+        'type_name'=>'required'
       ]);
 
       $id = $request->input('id');
       $type = PropertyType::findOrFail($id);
-      $type->property_type =$request->input('property_type');
+      $type->type_name =$request->input('type_name');
       $type->save();
       return $type;
     }
