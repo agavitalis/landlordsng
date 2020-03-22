@@ -1943,12 +1943,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {};
+    return {
+      property_type: "",
+      property_name: "",
+      msg: ""
+    };
   },
   mounted: function mounted() {
     console.log("Type component is mounted");
+  },
+  methods: {
+    addType: function addType() {
+      var _this = this;
+
+      axios.post("/api/admin_addpropertytype", {
+        property_name: this.property_name,
+        property_type: this.property_type
+      }).then(function (response) {
+        console.log(response.data);
+        _this.msg = "Successfully added type";
+        _this.property_name = "";
+        _this.property_type = "";
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
   }
 });
 
@@ -19553,42 +19578,81 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", {}, [
-      _c("form", { attrs: { action: "#" } }, [
+  return _c("div", {}, [
+    _c("div", {}, [
+      _c("p", { staticClass: "text-success" }, [_vm._v(_vm._s(_vm.msg))])
+    ]),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        attrs: { action: "#" },
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+          }
+        }
+      },
+      [
         _c("div", { staticClass: "form-group" }, [
-          _c("label", [_vm._v("Min Length")]),
+          _c("label", [_vm._v("Property Name")]),
           _vm._v(" "),
           _c("div", [
             _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.property_name,
+                  expression: "property_name"
+                }
+              ],
               staticClass: "form-control",
               attrs: {
                 type: "text",
                 required: "",
-                "data-parsley-minlength": "6",
-                placeholder: "Min 6 chars."
+                placeholder: "Property Name."
+              },
+              domProps: { value: _vm.property_name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.property_name = $event.target.value
+                }
               }
             })
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", [_vm._v("Max Length")]),
+          _c("label", [_vm._v("Property Type")]),
           _vm._v(" "),
           _c("div", [
             _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.property_type,
+                  expression: "property_type"
+                }
+              ],
               staticClass: "form-control",
               attrs: {
                 type: "text",
                 required: "",
-                "data-parsley-maxlength": "6",
-                placeholder: "Max 6 chars."
+                placeholder: "Property Type."
+              },
+              domProps: { value: _vm.property_type },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.property_type = $event.target.value
+                }
               }
             })
           ])
@@ -19600,7 +19664,12 @@ var staticRenderFns = [
               "button",
               {
                 staticClass: "btn btn-primary waves-effect waves-light",
-                attrs: { type: "submit" }
+                attrs: { type: "submit" },
+                on: {
+                  click: function($event) {
+                    return _vm.addType()
+                  }
+                }
               },
               [_vm._v("\n                  Submit\n              ")]
             ),
@@ -19615,10 +19684,11 @@ var staticRenderFns = [
             )
           ])
         ])
-      ])
-    ])
-  }
-]
+      ]
+    )
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
