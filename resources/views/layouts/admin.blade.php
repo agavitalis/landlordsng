@@ -16,6 +16,7 @@
         <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css">
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
 
     <body>
@@ -23,6 +24,7 @@
         <!-- Begin page -->
         <div id="wrapper">
 
+          <div id="app">
             <!-- Top Bar Start -->
             @yield('header')
             <!-- Top Bar End -->
@@ -39,10 +41,11 @@
                 @yield('content')
                 <!-- content -->
 
-                
+
                 @yield('footer')
             </div>
 
+          </div>
 
             <!-- ============================================================== -->
             <!-- End Right content here -->
@@ -51,7 +54,7 @@
 
         </div>
         <!-- END wrapper -->
-            
+
 
         <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
