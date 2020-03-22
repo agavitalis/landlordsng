@@ -23,8 +23,8 @@
                             <li>
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-cogs"></i><span> Agencies <span class="float-right menu-arrow"><i class="mdi mdi-plus"></i></span> </span></a>
                                 <ul class="submenu">
-                                    <li><a href="/create_agencies">Create Agencies</a></li>
-                                    <li><a href="/manage_agencies">Manage Agencies</a></li>
+                                    <li><a href="/admin_create_agencies">Create Agencies</a></li>
+                                    <li><a href="/admin_manage_agencies">Manage Agencies</a></li>
 
                                 </ul>
                             </li>

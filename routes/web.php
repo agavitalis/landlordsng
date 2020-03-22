@@ -26,7 +26,7 @@ Route::group(['namespace'=>"Admin"],function(){
     Route::match(['GET','POST'],'/admin_propertytypes/{id?}','PropertyTypesController@propertytypes')->name('admin_propertytypes');
     Route::match(['GET','POST'],'/admin_propertystates/{id?}','PropertyStatesController@propertystates')->name('admin_propertystates');
     
-    Route::match(['GET','POST'],'/admin_propertystates/{id?}','PropertyStatesController@propertystates')->name('admin_propertystates');
+    Route::match(['GET','POST'],'/admin_create_agencies/{id?}','AgencyController@create')->name('admin_create_agencies');
  
 });
 
