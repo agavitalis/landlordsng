@@ -5,7 +5,7 @@
       <thead>
         <tr>
 
-          <th scope="col">Type name</th>
+          <th scope="col">Status name</th>
           <th scope="col">Action</th>
           <!-- <th></th> -->
         </tr>
@@ -13,19 +13,19 @@
       <tbody>
         <tr v-for="property,key in properties">
 
-          <td>{{property.type_name}}</td>
+          <td>{{property.property_status_name}}</td>
           <td><a type="button" id="show-modal" @click="showModal=true;
-            setVal(property.id, property.type_name)"
+            setVal(property.id, property.property_status_name)"
             class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editproperty">Edit
           </a></td>
-          <td><a type="button" class="btn btn-danger btn-sm" @click="deteleType(property.id, key)"> Delete</a></td>
+          <td><a type="button" class="btn btn-danger btn-sm" @click="deteleStatus(property.id, key)"> Delete</a></td>
           </tr>
       </tbody>
     </table>
     <nav>
     <ul class="pagination">
       <li v-bind:class="[{disabled: !pagination.prev_page_url}]" class="page-item">
-      <a href="#" class="page-link" @click="getPropertyTypes(pagination.prev_page_url)"> Prev</a>
+      <a href="#" class="page-link" @click="getPropertyStauses(pagination.prev_page_url)"> Prev</a>
       </li>
       <li class="page-item disabled">
         <a class="page-link text-dark" href="#">
@@ -33,7 +33,7 @@
         </a>
       </li>
       <li v-bind:class="[{disabled: !pagination.next_page_url}]" class="page-item">
-      <a href="#" class="page-link" @click="getPropertyTypes(pagination.next_page_url)"> next</a>
+      <a href="#" class="page-link" @click="getPropertyStatuses(pagination.next_page_url)"> next</a>
       </li>
     </ul>
     </nav>
@@ -46,10 +46,10 @@
     <form action="#" @submit.prevent>
 
         <div class="form-group">
-            <label>Property Type</label>
+            <label>Property Status</label>
             <div>
                 <input type="text" class="form-control" required
-                         placeholder="Type Name." v-model="type_name"/>
+                         placeholder="Type Name." v-model="property_status_name"/>
             </div>
         </div>
 
@@ -57,7 +57,7 @@
         <div class="form-group m-b-0">
             <div>
                 <button type="submit" class="btn btn-primary waves-effect waves-light"
-                @click="addType()">
+                @click="addStatus()">
                     Submit
                 </button>
                 <button type="reset" class="btn btn-secondary waves-effect m-l-5">
@@ -73,7 +73,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle"><a href="#">Edit Property Type</a></h5>
+          <h5 class="modal-title" id="exampleModalLongTitle"><a href="#">Edit Property Status</a></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -83,10 +83,10 @@
             <div class="" slot="body">
 
               <h6 class="text-bold mt-2 dark">Type Name</h6>
-              <input type="text" name="" class="form-control" :value="this.type_name" id="type_name">
+              <input type="text" name="" class="form-control" :value="this.property_status_name" id="property_status_name">
               <input type="hidden" name="" class="form-control" :value="this.id" id="id">
               <button v-on:click.prevent class="mt-1 form-control btn btn-outline-success btn-sm"
-               data-dismiss="modal" @click="updatePropertyType()">Update</button>
+               data-dismiss="modal" @click="updatePropertyStatus()">Update</button>
             </div>
           </form>
         </div>
@@ -104,40 +104,40 @@
 export default {
   data(){
     return{
-      type_name:"",
+      property_status_name:"",
       msg:"",
       pagination:{
 
       },
       showModal:false,
       properties:{
-        type_name:""
+        property_status_name:""
       }
     }
   },
   mounted(){
-    this.getPropertyTypes()
-    console.log("Type component is mounted");
+    this.getPropertyStauses()
+    console.log("Status component is mounted");
   },
   methods:{
-    addType(){
-      axios.post(`/api/admin_addpropertytype`,{
-        type_name:this.type_name,
+    addStatus(){
+      axios.post(`/api/admin_addpropertystatus`,{
+        property_status_name:this.property_status_name,
 
       })
       .then(response=>{
         console.log(response.data)
-        this.msg="Successfully added type"
-        this.type_name=""
-        this.getPropertyTypes()
+        this.msg="Successfully added property status"
+        this.property_status_name=""
+        this.getPropertyStauses()
 
       })
       .catch(err=>{
         console.log(err);
       })
     },
-    getPropertyTypes(url){
-      url = url||"api/admin_getpropertytype"
+    getPropertyStauses(url){
+      url = url||"api/admin_getpropertystatus"
     let vm = this;
       fetch(url).then(response=>response.json())
       .then(response=>{
@@ -157,35 +157,35 @@ export default {
         };
         this.pagination = pagination;
       },
-        setVal(id, type_name){
+        setVal(id, property_status_name){
           this.id=id
-          this.type_name= type_name
+          this.property_status_name= property_status_name
       },
-      updatePropertyType(){
+      updatePropertyStatus(){
         var id = document.getElementById('id').value
-        var type_name= document.getElementById('type_name').value
-        axios.put(`api/updatepropertytype/`,
+        var property_status_name= document.getElementById('property_status_name').value
+        axios.put(`api/updatepropertystatus/`,
           {
-            type_name:type_name,
+            property_status_name:property_status_name,
             id:id
           })
           .then(
             res =>{
-              this.getPropertyTypes()
+              this.getPropertyStauses()
             }
           )
           .catch(err=>{
             console.log(err);
           })
       },
-      deteleType(id,key){
+      deteleStatus(id,key){
         if (confirm('Are you sure you want to delete')){
-          axios.delete(`api/deletetype/${id}`)
+          axios.delete(`api/deletestatus/${id}`)
           .then(response =>{
             console.log(response)
             // remove the room type with a given key binding
             this.properties.splice(key, 1)
-            this.getPropertyTypes()
+            this.getPropertyStauses()
             this.msg ="Successfully Deleted"
           })
           .catch(err=>{
