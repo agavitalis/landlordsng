@@ -16,12 +16,18 @@ class CreateAgenciesTable extends Migration
         Schema::create('agencies', function (Blueprint $table) {
             $table->id();
             $table->string('agency_name');
-            $table->string('biography');            
-            $table->string('profile_picture');
-            $table->string('cover_picture');
-            $table->string('office_address');
-            $table->string('state');
-            
+            $table->string('founder');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('biography'); 
+            $table->string('address'); 
+            $table->string('profile_picture'); 
+            $table->string('instagram')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('website')->nullable();
+
+            $table->string('user_id');
             $table->timestamps();
         });
     }
