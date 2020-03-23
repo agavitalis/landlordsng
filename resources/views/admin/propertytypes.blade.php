@@ -17,9 +17,8 @@
 
         <div class="page-content-wrapper">
             <div class="row">
-
-
-                <div class="col-lg-5">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
                     <div class="card m-b-20">
                         <div class="card-body">
 
