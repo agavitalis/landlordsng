@@ -20083,7 +20083,7 @@ var render = function() {
             _vm._v(" "),
             _c("p", { staticClass: "text-muted m-b-30 " }, [
               _vm._v(
-                "\r\n                        Impedit ad eius est perferendis consequuntur commodi\r\n                        et vero neque at, dignissimos magni iure similique unde\r\n                        cum doloribus quia aliquid ut excepturi?.\r\n                    "
+                "\r\n                        Impedit ad eius est perferendis consequuntur commodi\r\n                        et vero neque at, dignissimos magni iure similique unde\r\n                        cum doloribus quia aliquid ut excepturi?.              \r\n                    "
               )
             ]),
             _vm._v(" "),
