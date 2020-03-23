@@ -50,7 +50,7 @@
                     <p class="text-muted m-b-30 ">
                         Impedit ad eius est perferendis consequuntur commodi
                         et vero neque at, dignissimos magni iure similique unde
-                        cum doloribus quia aliquid ut excepturi?.
+                        cum doloribus quia aliquid ut excepturi?.              
                     </p>
                     <!-- types table -->
                     <!-- types table -->
