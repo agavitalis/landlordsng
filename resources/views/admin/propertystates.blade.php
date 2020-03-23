@@ -16,25 +16,7 @@
         <!-- end row -->
 
         <div class="page-content-wrapper">
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-                    <div class="card m-b-20">
-                        <div class="card-body">
-
-                            <h4 class="mt-0 header-title">Property States</h4>
-                            <p class="text-muted m-b-30 ">
-                                 Impedit ad eius est perferendis consequuntur commodi
-                                  et vero neque at, dignissimos magni iure similique unde
-                                  cum doloribus quia aliquid ut excepturi?.
-                            </p>
-
-                            <status-component></status-component>
-
-                        </div>
-                    </div>
-                </div> <!-- end col -->
-            </div> <!-- end row -->
+            <status-component></status-component>
         </div>
         <!-- end page content-->
 

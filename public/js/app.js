@@ -2010,6 +2010,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2118,6 +2145,31 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -19919,195 +19971,253 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", {}, [
-    _c("table", { staticClass: "table" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.properties, function(property, key) {
-          return _c("tr", [
-            _c("td", [_vm._v(_vm._s(property.property_status_name))]),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-lg-4" }, [
+        _c("div", { staticClass: "card m-b-20" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("h4", { staticClass: "mt-0 header-title" }, [
+              _vm._v(" Create Property Types")
+            ]),
             _vm._v(" "),
-            _c("td", [
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-primary btn-sm",
-                  attrs: {
-                    type: "button",
-                    id: "show-modal",
-                    "data-toggle": "modal",
-                    "data-target": "#editproperty"
-                  },
-                  on: {
-                    click: function($event) {
-                      _vm.showModal = true
-                      _vm.setVal(property.id, property.property_status_name)
-                    }
-                  }
-                },
-                [_vm._v("Edit\n          ")]
+            _c("p", { staticClass: "text-muted m-b-30 " }, [
+              _vm._v(
+                "\r\n                        Impedit ad eius est perferendis consequuntur commodi\r\n                        et vero neque at, dignissimos magni iure similique unde\r\n                        cum doloribus quia aliquid ut excepturi?.\r\n                    "
               )
             ]),
             _vm._v(" "),
-            _c("td", [
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-danger btn-sm",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      return _vm.deteleStatus(property.id, key)
-                    }
-                  }
-                },
-                [_vm._v(" Delete")]
-              )
-            ])
-          ])
-        }),
-        0
-      )
-    ]),
-    _vm._v(" "),
-    _c("nav", [
-      _c("ul", { staticClass: "pagination" }, [
-        _c(
-          "li",
-          {
-            staticClass: "page-item",
-            class: [{ disabled: !_vm.pagination.prev_page_url }]
-          },
-          [
-            _c(
-              "a",
-              {
-                staticClass: "page-link",
-                attrs: { href: "#" },
-                on: {
-                  click: function($event) {
-                    return _vm.getPropertyStauses(_vm.pagination.prev_page_url)
-                  }
-                }
-              },
-              [_vm._v(" Prev")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item disabled" }, [
-          _c(
-            "a",
-            { staticClass: "page-link text-dark", attrs: { href: "#" } },
-            [
-              _vm._v(
-                "\n        Page " +
-                  _vm._s(_vm.pagination.current_page) +
-                  " of " +
-                  _vm._s(_vm.pagination.last_page) +
-                  "\n        "
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "li",
-          {
-            staticClass: "page-item",
-            class: [{ disabled: !_vm.pagination.next_page_url }]
-          },
-          [
-            _c(
-              "a",
-              {
-                staticClass: "page-link",
-                attrs: { href: "#" },
-                on: {
-                  click: function($event) {
-                    return _vm.getPropertyStatuses(_vm.pagination.next_page_url)
-                  }
-                }
-              },
-              [_vm._v(" next")]
-            )
-          ]
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", {}, [
-      _c("p", { staticClass: "text-success" }, [_vm._v(_vm._s(_vm.msg))])
-    ]),
-    _vm._v(" "),
-    _c(
-      "form",
-      {
-        attrs: { action: "#" },
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-          }
-        }
-      },
-      [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", [_vm._v("Property Status")]),
-          _vm._v(" "),
-          _c("div", [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.property_status_name,
-                  expression: "property_status_name"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text", required: "", placeholder: "Type Name." },
-              domProps: { value: _vm.property_status_name },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.property_status_name = $event.target.value
-                }
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group m-b-0" }, [
-          _c("div", [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary waves-effect waves-light",
-                attrs: { type: "submit" },
-                on: {
-                  click: function($event) {
-                    return _vm.addStatus()
-                  }
-                }
-              },
-              [_vm._v("\n                    Submit\n                ")]
-            ),
+            _c("div", {}, [
+              _c("p", { staticClass: "text-success" }, [
+                _vm._v(_vm._s(_vm.msg))
+              ])
+            ]),
             _vm._v(" "),
             _c(
-              "button",
+              "form",
               {
-                staticClass: "btn btn-secondary waves-effect m-l-5",
-                attrs: { type: "reset" }
+                attrs: { action: "#" },
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                  }
+                }
               },
-              [_vm._v("\n                    Cancel\n                ")]
+              [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Property Status")]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.property_status_name,
+                          expression: "property_status_name"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        required: "",
+                        placeholder: "Type Name."
+                      },
+                      domProps: { value: _vm.property_status_name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.property_status_name = $event.target.value
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group m-b-0" }, [
+                  _c("div", [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary waves-effect waves-light",
+                        attrs: { type: "submit" },
+                        on: {
+                          click: function($event) {
+                            return _vm.addStatus()
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n                                    Submit\r\n                                "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-secondary waves-effect m-l-5",
+                        attrs: { type: "reset" }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n                                    Cancel\r\n                                "
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              ]
             )
           ])
         ])
-      ]
-    ),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-8" }, [
+        _c("div", { staticClass: "card m-b-20" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("h4", { staticClass: "mt-0 header-title" }, [
+              _vm._v("Property Types")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-muted m-b-30 " }, [
+              _vm._v(
+                "\r\n                        Impedit ad eius est perferendis consequuntur commodi\r\n                        et vero neque at, dignissimos magni iure similique unde\r\n                        cum doloribus quia aliquid ut excepturi?.\r\n                    "
+              )
+            ]),
+            _vm._v(" "),
+            _c("table", { staticClass: "table" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.properties, function(property, key) {
+                  return _c("tr", [
+                    _c("td", [_vm._v(_vm._s(property.property_status_name))]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-primary btn-sm",
+                          attrs: {
+                            type: "button",
+                            id: "show-modal",
+                            "data-toggle": "modal",
+                            "data-target": "#editproperty"
+                          },
+                          on: {
+                            click: function($event) {
+                              _vm.showModal = true
+                              _vm.setVal(
+                                property.id,
+                                property.property_status_name
+                              )
+                            }
+                          }
+                        },
+                        [_vm._v("Edit\r\n                                    ")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-danger btn-sm",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deteleStatus(property.id, key)
+                            }
+                          }
+                        },
+                        [_vm._v(" Delete")]
+                      )
+                    ])
+                  ])
+                }),
+                0
+              )
+            ]),
+            _vm._v(" "),
+            _c("nav", [
+              _c("ul", { staticClass: "pagination" }, [
+                _c(
+                  "li",
+                  {
+                    staticClass: "page-item",
+                    class: [{ disabled: !_vm.pagination.prev_page_url }]
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "page-link",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            return _vm.getPropertyStauses(
+                              _vm.pagination.prev_page_url
+                            )
+                          }
+                        }
+                      },
+                      [_vm._v(" Prev")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("li", { staticClass: "page-item disabled" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link text-dark",
+                      attrs: { href: "#" }
+                    },
+                    [
+                      _vm._v(
+                        "\r\n                                    Page " +
+                          _vm._s(_vm.pagination.current_page) +
+                          " of " +
+                          _vm._s(_vm.pagination.last_page) +
+                          "\r\n                                "
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass: "page-item",
+                    class: [{ disabled: !_vm.pagination.next_page_url }]
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "page-link",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            return _vm.getPropertyStatuses(
+                              _vm.pagination.next_page_url
+                            )
+                          }
+                        }
+                      },
+                      [_vm._v(" next")]
+                    )
+                  ]
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
+    ]),
     _vm._v(" "),
     _vm.showModal
       ? _c("div", [
@@ -20209,7 +20319,9 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Status name")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Action")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Edit")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Delete")])
       ])
     ])
   },
@@ -20276,195 +20388,250 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", {}, [
-    _c("table", { staticClass: "table" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.properties, function(property, key) {
-          return _c("tr", [
-            _c("td", [_vm._v(_vm._s(property.type_name))]),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-lg-4" }, [
+        _c("div", { staticClass: "card m-b-20" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("h4", { staticClass: "mt-0 header-title" }, [
+              _vm._v(" Create Property Types")
+            ]),
             _vm._v(" "),
-            _c("td", [
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-primary btn-sm",
-                  attrs: {
-                    type: "button",
-                    id: "show-modal",
-                    "data-toggle": "modal",
-                    "data-target": "#editproperty"
-                  },
-                  on: {
-                    click: function($event) {
-                      _vm.showModal = true
-                      _vm.setVal(property.id, property.type_name)
-                    }
-                  }
-                },
-                [_vm._v("Edit\n          ")]
+            _c("p", { staticClass: "text-muted m-b-30 " }, [
+              _vm._v(
+                "\r\n                        Impedit ad eius est perferendis consequuntur commodi\r\n                        et vero neque at, dignissimos magni iure similique unde\r\n                        cum doloribus quia aliquid ut excepturi?.\r\n                    "
               )
             ]),
             _vm._v(" "),
-            _c("td", [
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-danger btn-sm",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      return _vm.deteleType(property.id, key)
-                    }
-                  }
-                },
-                [_vm._v(" Delete")]
-              )
-            ])
-          ])
-        }),
-        0
-      )
-    ]),
-    _vm._v(" "),
-    _c("nav", [
-      _c("ul", { staticClass: "pagination" }, [
-        _c(
-          "li",
-          {
-            staticClass: "page-item",
-            class: [{ disabled: !_vm.pagination.prev_page_url }]
-          },
-          [
-            _c(
-              "a",
-              {
-                staticClass: "page-link",
-                attrs: { href: "#" },
-                on: {
-                  click: function($event) {
-                    return _vm.getPropertyTypes(_vm.pagination.prev_page_url)
-                  }
-                }
-              },
-              [_vm._v(" Prev")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item disabled" }, [
-          _c(
-            "a",
-            { staticClass: "page-link text-dark", attrs: { href: "#" } },
-            [
-              _vm._v(
-                "\n        Page " +
-                  _vm._s(_vm.pagination.current_page) +
-                  " of " +
-                  _vm._s(_vm.pagination.last_page) +
-                  "\n        "
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "li",
-          {
-            staticClass: "page-item",
-            class: [{ disabled: !_vm.pagination.next_page_url }]
-          },
-          [
-            _c(
-              "a",
-              {
-                staticClass: "page-link",
-                attrs: { href: "#" },
-                on: {
-                  click: function($event) {
-                    return _vm.getPropertyTypes(_vm.pagination.next_page_url)
-                  }
-                }
-              },
-              [_vm._v(" next")]
-            )
-          ]
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", {}, [
-      _c("p", { staticClass: "text-success" }, [_vm._v(_vm._s(_vm.msg))])
-    ]),
-    _vm._v(" "),
-    _c(
-      "form",
-      {
-        attrs: { action: "#" },
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-          }
-        }
-      },
-      [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", [_vm._v("Property Type")]),
-          _vm._v(" "),
-          _c("div", [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.type_name,
-                  expression: "type_name"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text", required: "", placeholder: "Type Name." },
-              domProps: { value: _vm.type_name },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.type_name = $event.target.value
-                }
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group m-b-0" }, [
-          _c("div", [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary waves-effect waves-light",
-                attrs: { type: "submit" },
-                on: {
-                  click: function($event) {
-                    return _vm.addType()
-                  }
-                }
-              },
-              [_vm._v("\n                    Submit\n                ")]
-            ),
+            _c("div", {}, [
+              _c("p", { staticClass: "text-success" }, [
+                _vm._v(_vm._s(_vm.msg))
+              ])
+            ]),
             _vm._v(" "),
             _c(
-              "button",
+              "form",
               {
-                staticClass: "btn btn-secondary waves-effect m-l-5",
-                attrs: { type: "reset" }
+                attrs: { action: "#" },
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                  }
+                }
               },
-              [_vm._v("\n                    Cancel\n                ")]
+              [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Property Type")]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.type_name,
+                          expression: "type_name"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        required: "",
+                        placeholder: "Type Name."
+                      },
+                      domProps: { value: _vm.type_name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.type_name = $event.target.value
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group m-b-0" }, [
+                  _c("div", [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary waves-effect waves-light",
+                        attrs: { type: "submit" },
+                        on: {
+                          click: function($event) {
+                            return _vm.addType()
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n                                    Register\r\n                                "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-secondary waves-effect m-l-5",
+                        attrs: { type: "reset" }
+                      },
+                      [
+                        _vm._v(
+                          "\r\n                                    Cancel\r\n                                "
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              ]
             )
           ])
         ])
-      ]
-    ),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-lg-8" }, [
+        _c("div", { staticClass: "card m-b-20" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("h4", { staticClass: "mt-0 header-title" }, [
+              _vm._v("Property Types")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-muted m-b-30 " }, [
+              _vm._v(
+                "\r\n                        Impedit ad eius est perferendis consequuntur commodi\r\n                        et vero neque at, dignissimos magni iure similique unde\r\n                        cum doloribus quia aliquid ut excepturi?.\r\n                    "
+              )
+            ]),
+            _vm._v(" "),
+            _c("table", { staticClass: "table" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.properties, function(property, key) {
+                  return _c("tr", [
+                    _c("td", [_vm._v(_vm._s(property.type_name))]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-primary btn-sm",
+                          attrs: {
+                            type: "button",
+                            id: "show-modal",
+                            "data-toggle": "modal",
+                            "data-target": "#editproperty"
+                          },
+                          on: {
+                            click: function($event) {
+                              _vm.showModal = true
+                              _vm.setVal(property.id, property.type_name)
+                            }
+                          }
+                        },
+                        [_vm._v("Edit\r\n                                    ")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-danger btn-sm",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deteleType(property.id, key)
+                            }
+                          }
+                        },
+                        [_vm._v(" Delete")]
+                      )
+                    ])
+                  ])
+                }),
+                0
+              )
+            ]),
+            _vm._v(" "),
+            _c("nav", [
+              _c("ul", { staticClass: "pagination" }, [
+                _c(
+                  "li",
+                  {
+                    staticClass: "page-item",
+                    class: [{ disabled: !_vm.pagination.prev_page_url }]
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "page-link",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            return _vm.getPropertyTypes(
+                              _vm.pagination.prev_page_url
+                            )
+                          }
+                        }
+                      },
+                      [_vm._v(" Prev")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("li", { staticClass: "page-item disabled" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link text-dark",
+                      attrs: { href: "#" }
+                    },
+                    [
+                      _vm._v(
+                        "\r\n                                    Page " +
+                          _vm._s(_vm.pagination.current_page) +
+                          " of " +
+                          _vm._s(_vm.pagination.last_page) +
+                          "\r\n                                "
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass: "page-item",
+                    class: [{ disabled: !_vm.pagination.next_page_url }]
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "page-link",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            return _vm.getPropertyTypes(
+                              _vm.pagination.next_page_url
+                            )
+                          }
+                        }
+                      },
+                      [_vm._v(" next")]
+                    )
+                  ]
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
+    ]),
     _vm._v(" "),
     _vm.showModal
       ? _c("div", [
@@ -20566,7 +20733,9 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Type name")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Action")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Edit")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Delete")])
       ])
     ])
   },
