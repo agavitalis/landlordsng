@@ -12,5 +12,20 @@ class PropertyStatusSeeder extends Seeder
     public function run()
     {
         //
+        DB::table("property_statuses")->insert([
+
+        [
+              "property_status_name"=>"Sample Status One",
+
+
+          ],
+          [
+                "property_status_name"=>"Sample Status Two",
+
+            ],
+          [
+            'property_status_name'=>"Sample Status Three"
+          ]
+       ]);
     }
 }

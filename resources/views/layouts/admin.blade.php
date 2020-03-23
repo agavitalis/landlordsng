@@ -16,13 +16,14 @@
         <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css">
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
 
     <body>
 
         <!-- Begin page -->
         <div id="wrapper">
-
+            
             <!-- Top Bar Start -->
             @yield('header')
             <!-- Top Bar End -->
@@ -34,24 +35,19 @@
             <!-- ============================================================== -->
             <!-- Start right Content here -->
             <!-- ============================================================== -->
-            <div class="content-page">
+            <div id="app" class="content-page">
                 <!-- Start content -->
                 @yield('content')
                 <!-- content -->
-
-                
                 @yield('footer')
             </div>
-
 
             <!-- ============================================================== -->
             <!-- End Right content here -->
             <!-- ============================================================== -->
-
-
         </div>
         <!-- END wrapper -->
-            
+
 
         <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
