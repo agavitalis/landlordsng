@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Agency;
 use App\Models\User;
 use Exception;
+use Auth;
 
 class AgencyController extends Controller
 {
@@ -45,6 +46,16 @@ class AgencyController extends Controller
                     return back()->with('error',$e->getMessage());
               }
              
+        }
+    }
+
+    public function become_an_agent(Request $request)
+    {
+        if($request->isMethod('GET')){
+
+            $agency_request = Agency::find(Auth::user()->agency_id)->agency_request;
+            return view('admin.become_an_agent',compact('agency_request'));
+
         }
     }
 

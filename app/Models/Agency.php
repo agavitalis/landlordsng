@@ -11,4 +11,9 @@ class Agency extends Model
         'instagram', 'twitter','facebook', 'linkedin','website','user_id'
     
     ];
+
+    public function agent_request()
+    {
+        return $this->hasMany('App\Models\AgentRequest');
+    }
 }
