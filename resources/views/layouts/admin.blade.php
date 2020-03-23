@@ -23,8 +23,7 @@
 
         <!-- Begin page -->
         <div id="wrapper">
-
-          <div id="app">
+            
             <!-- Top Bar Start -->
             @yield('header')
             <!-- Top Bar End -->
@@ -36,22 +35,16 @@
             <!-- ============================================================== -->
             <!-- Start right Content here -->
             <!-- ============================================================== -->
-            <div class="content-page">
+            <div id="app" class="content-page">
                 <!-- Start content -->
                 @yield('content')
                 <!-- content -->
-
-
                 @yield('footer')
             </div>
-
-          </div>
 
             <!-- ============================================================== -->
             <!-- End Right content here -->
             <!-- ============================================================== -->
-
-
         </div>
         <!-- END wrapper -->
 
