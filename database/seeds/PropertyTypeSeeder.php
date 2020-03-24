@@ -19,18 +19,17 @@ class PropertyTypeSeeder extends Seeder
     //create the seed for the users table
     DB::table("property_types")->insert([
 
-    [
-          "type_name"=>"Housing",
-
-
-      ],
-      [
-            "type_name"=>"Cars",
+        [
+            "type_name" => "Housing",
 
         ],
-      [
-        'type_name'=>"Land"
-      ]
-   ]);
+        [
+            "type_name" => "Cars",
+
+        ],
+        [
+            'type_name' => "Land",
+        ],
+    ]);
 
 }

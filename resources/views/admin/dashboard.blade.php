@@ -113,3 +113,9 @@
 @section('footer')
     @include("partials.admin.footer")
 @endsection
+
+@section('footer')
+<!-- Peity JS -->
+<script src="../plugins/peity/jquery.peity.min.js"></script>
+<script src="assets/pages/dashboard.js"></script>
+@endsection

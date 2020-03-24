@@ -19,8 +19,8 @@ class CreateAgentsTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('biography'); 
-            $table->string('address'); 
-            $table->string('profile_picture'); 
+            $table->string('address')->nullable();
+            $table->string('profile_picture')->nullable();
             $table->string('instagram')->nullable();
             $table->string('twitter')->nullable();
             $table->string('facebook')->nullable();
@@ -30,6 +30,7 @@ class CreateAgentsTable extends Migration
             
             $table->string('user_id');
             $table->string('agency_id');
+            $table->string('status')->default(1);
             $table->timestamps();
         });
     }

@@ -10,8 +10,7 @@
         <meta content="Themesbrand" name="author" />
         <link rel="shortcut icon" href="assets/images/favicon.ico">
 
-        <link rel="stylesheet" href="../plugins/morris/morris.css">
-
+        @yield('styles')
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css">
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
@@ -58,13 +57,6 @@
 
         <script src="../plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
 
-        <!-- Peity JS -->
-        <script src="../plugins/peity/jquery.peity.min.js"></script>
-
-        <script src="../plugins/morris/morris.min.js"></script>
-        <script src="../plugins/raphael/raphael-min.js"></script>
-
-        <script src="assets/pages/dashboard.js"></script>
         @yield('scripts')
         <!-- App js -->
         <script src="assets/js/app.js"></script>

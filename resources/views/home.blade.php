@@ -32,7 +32,16 @@
                     <li><a href="my_properties.html"><i class="icon-icons215"></i> My Properties</a></li>
                     <li><a href="submit_property.html"><i class="icon-icons215"></i> Submit Property</a></li>
                     <li><a href="favorite_properties.html"><i class="icon-icons43"></i> Favorite Properties</a></li>
-                    <li><a href="login.html"><i class="icon-lock-open3"></i>Logout</a></li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                            <i class="icon-lock-open3"></i>Logout
+                        </a>
+                    </li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
 
                 </ul>
             </div>
