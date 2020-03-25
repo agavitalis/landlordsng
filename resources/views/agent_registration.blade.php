@@ -26,6 +26,7 @@
     
    
     <div class="row">
+      @include("partials.alert")
       <div class="col-sm-7 margin40">
         <div class="our-agent-box bottom30">
           <h2>Your Bio</h2>

@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('header')
-@include("partials.admin.header")
+    @include("partials.admin.header")
 @endsection
 
 @section('sidebar')
-@include("partials.admin.sidebar")
+    @include("partials.admin.sidebar")
 @endsection
 
 @section('content')

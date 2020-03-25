@@ -8,11 +8,11 @@
         </div>
         <div class="col-md-7 text-right">
           <ul class="breadcrumb_top text-right">
-            <li><a href="favorite_properties.html"><i class="icon-icons43"></i>Favorites</a></li>
-      <li><a href="submit_property.html"><i class="icon-icons215"></i>Submit Property</a></li>
-      <li><a href="my_properties.html"><i class="icon-icons215"></i>My Property</a></li>
-      <li><a href="profile.html"><i class="icon-icons230"></i>Profile</a></li>
-      <li><a href="/login"><i class="icon-icons179"></i>Login / Register</a></li>
+            <li><a href="/become_an_agent"><i class="icon-icons43"></i>Become an agent</a></li>
+            <li><a href="/submit_property"><i class="icon-icons215"></i>Submit Property</a></li>
+            <li><a href="/my_properties"><i class="icon-icons215"></i>My Property</a></li>
+            <li><a href="/home"><i class="icon-icons230"></i>Profile</a></li>
+            <li><a href="/login"><i class="icon-icons179"></i>Login / Register</a></li>
           </ul>
         </div>
       </div>

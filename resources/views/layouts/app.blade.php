@@ -19,9 +19,9 @@
 <link rel="stylesheet" type="text/css" href="../css/settings.css">
 <link rel="stylesheet" type="text/css" href="../css/range-Slider.min.css">
 <link rel="stylesheet" type="text/css" href="../css/search.css">
+@yield('styles')
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <link rel="icon" href="images/icon.png">
-@yield('styles')
 </head>
 <body>
 

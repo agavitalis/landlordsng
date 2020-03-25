@@ -15,7 +15,9 @@ Route::group(['namespace' => "User"], function () {
     Route::match(['GET', 'POST'], '/agents', 'AgentController@index')->name('agents');
     Route::match(['GET', 'POST'], '/contact', 'ContactController@contact')->name('contact');
 
-    Route::match(['GET', 'POST'], '/home', 'HomeController@index')->name('home');
+    Route::match(['GET', 'POST'], '/home', 'HomeController@home')->name('home');
+    Route::match(['GET', 'POST'], '/submit_property/{id?}', 'PropertyController@add_property')->name('submit_property');
+    Route::match(['GET', 'POST'], '/submit_property/{id?}', 'PropertyController@add_property')->name('submit_property');
 
 });
 

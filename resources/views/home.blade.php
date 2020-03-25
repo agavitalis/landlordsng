@@ -28,10 +28,10 @@
         <div class="row">
             <div class="col-md-12">
                 <ul class="f-p-links margin_bottom">
-                    <li><a href="profile.html" class="active"><i class="icon-icons230"></i>Profile</a></li>
-                    <li><a href="my_properties.html"><i class="icon-icons215"></i> My Properties</a></li>
-                    <li><a href="submit_property.html"><i class="icon-icons215"></i> Submit Property</a></li>
-                    <li><a href="favorite_properties.html"><i class="icon-icons43"></i> Favorite Properties</a></li>
+                    <li><a href="/home" class="active"><i class="icon-icons230"></i>Profile</a></li>
+                    <li><a href="/my_properties"><i class="icon-icons215"></i> My Properties</a></li>
+                    <li><a href="/submit_property"><i class="icon-icons215"></i> Submit Property</a></li>
+                    <li><a href="/favorite_properties"><i class="icon-icons43"></i> Favorite Properties</a></li>
                     <li>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
