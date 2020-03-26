@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class PropertyStatus extends Model
 {
-    //
+    
     protected $fillable= ['property_status_name'];
+
+    public function property()
+    {
+        return $this->hasMany('App\Property');
+    }
+
 }

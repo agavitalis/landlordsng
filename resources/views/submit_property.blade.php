@@ -72,16 +72,26 @@
                                 <label>Status </label>
                                 <div class="intro">
                                     <select>
-                                        <option class="active">For Sale</option>
-                                        <option>For Sale</option>
-                                        <option>For Sale </option>
-                                        <option>For Sale</option>
-                                        <option>For Rent</option>
+                                        <option value="sale" class="active">Property Status</option>
+                                        <option value ="lease">For Lease</option>
+                                        <option value ="rent">For Rent </option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6">
+                            <div class="single-query bottom20">
+                                <label>Type </label>
+                                <div class="intro">
+                                    <select>
+                                        <option value="sale" class="active">Property Type</option>
+                                        <option value ="lease">Land</option>
+                                        <option value ="rent">House</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
                             <div class="single-query form-group bottom20">
                                 <label>Price</label>
                                 <input type="text" class="keyword-input" placeholder="23,000">
@@ -91,13 +101,11 @@
                 </form>
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="margin40 bottom15">Propertie Photos <i class="fa fa-info-circle help"
-                                data-toggle="tooltip" title="add images to upload for property!"></i></h3>
-
-
-
+                        <h3 class="margin40 bottom15">Property Photos <i class="fa fa-info-circle help"
+                                data-toggle="tooltip" title="add images to upload for property!"></i></h3>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                                                                                                                                                                                                                              
                         <div class="file_uploader bottom20">
-                            <form id="upload-widget" method="post" action="/upload" class="dropzone">
+                            <form id="upload-widget" method="post" action="/submit_property" class="dropzone">
                                 <div class="dz-default dz-message">
                                     <span>
                                         <i class="fa fa-plus-circle"></i>
@@ -108,118 +116,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h3 class="bottom15 margin40">Propertie Detail</h3>
-                    </div>
-                </div>
+              
                 <form class="callus clearfix border_radius submit_property">
                     <div class="row">
 
-                        <div class="col-sm-4">
-
-                            <div class="single-query form-group bottom20">
-                                <label>Size Prefix</label>
-                                <div class="intro">
-                                    <select>
-                                        <option class="active">Sq Ft</option>
-                                        <option>For Sale</option>
-                                        <option>For Sale </option>
-                                        <option>For Sale</option>
-                                        <option>For Rent</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-sm-4">
-
-                            <div class="single-query form-group bottom20">
-                                <label>Bedrooms</label>
-                                <div class="intro">
-                                    <select>
-                                        <option class="active">Number of Bedrooms</option>
-                                        <option>For Sale</option>
-                                        <option>For Sale </option>
-                                        <option>For Sale</option>
-                                        <option>For Rent</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-sm-4">
-
-                            <div class="single-query  form-group bottom20">
-                                <label>Bathrooms</label>
-                                <div class="intro">
-                                    <select>
-                                        <option class="active">Number of bathrooms</option>
-                                        <option>For Sale</option>
-                                        <option>For Sale </option>
-                                        <option>For Sale</option>
-                                        <option>For Rent</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="col-sm-4">
-
-                            <div class="single-query form-group bottom20">
-                                <label>TV Lounge</label>
-                                <div class="intro">
-                                    <select>
-                                        <option class="active">Number of TV Lounge</option>
-                                        <option>For Sale</option>
-                                        <option>For Sale </option>
-                                        <option>For Sale</option>
-                                        <option>For Rent</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-sm-4">
-
-                            <div class="single-query form-group  bottom20">
-                                <label>Garages</label>
-                                <div class="intro">
-                                    <select>
-                                        <option class="active">Number of Garages</option>
-                                        <option>For Sale</option>
-                                        <option>For Sale </option>
-                                        <option>For Sale</option>
-                                        <option>For Rent</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-sm-4">
-
-                            <div class="single-query form-group bottom20">
-                                <label>Swimming Pool</label>
-                                <div class="intro">
-                                    <select>
-                                        <option class="active">Number of Pool</option>
-                                        <option>For Sale</option>
-                                        <option>For Sale </option>
-                                        <option>For Sale</option>
-                                        <option>For Rent</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                        </div>
                         <div class="col-sm-12">
-                            <h3 class="bottom15 margin40">Properties Description </h3>
+                            <h3 class="bottom15 margin40">Property Description </h3>
                             <textarea id="txtEditor"></textarea>
                         </div>
                         <div class="col-sm-12">
-                            <h3 class="bottom15 margin40">Quick Summary</h3>
+                            <h3 class="bottom15 margin40">Property Additional Attributes</h3>
                             <div class="table-responsive summery_table">
                                 <table class="table">
                                     <tr>
@@ -287,92 +193,7 @@
                                 <a href="#." class="add-new"><i class="fa fa-plus"></i> Add New</a>
                             </div>
                         </div>
-                        <div class="col-sm-12">
-                            <h3 class="bottom15 margin40">Property Features</h3>
-                            <div class="search-propertie-filters">
-                                <div class="container-2">
-                                    <div class="row">
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="search-form-group white">
-                                                <input type="checkbox" name="check-box" />
-                                                <span>Air Conditioning</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="search-form-group white">
-                                                <input type="checkbox" name="check-box" />
-                                                <span>Balcony</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="search-form-group white">
-                                                <input type="checkbox" name="check-box" />
-                                                <span>Gas Heat</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="search-form-group white">
-                                                <input type="checkbox" name="check-box" />
-                                                <span>Fire Place</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="search-form-group white">
-                                                <input type="checkbox" name="check-box" />
-                                                <span>Washer and Dryer</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="search-form-group white">
-                                                <input type="checkbox" name="check-box" />
-                                                <span>Swimming Pool</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="search-form-group white">
-                                                <input type="checkbox" name="check-box" />
-                                                <span>Laundry Room</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="search-form-group white">
-                                                <input type="checkbox" name="check-box" />
-                                                <span>Home Theater</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="search-form-group white">
-                                                <input type="checkbox" name="check-box" />
-                                                <span>Smoking allowed</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="search-form-group white">
-                                                <input type="checkbox" name="check-box" />
-                                                <span>Cable TV</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4">
-                                            <div class="search-form-group white">
-                                                <input type="checkbox" name="check-box" />
-                                                <span>Window Coverings</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                     
-                        <div class="col-sm-12">
-                            <h3 class="bottom15 margin40">Place on Map</h3>
-                            <div class="single-query form-group bottom15">
-                                <label>Property Address</label>
-                                <input type="text" class="keyword-input" placeholder="Enter a Location">
-                            </div>
-                            
-                        </div>
+                       
                         <div class="col-sm-12">
                             <h3 class="bottom15 margin40">Video Presentation</h3>
                             <div class="single-query form-group bottom15">

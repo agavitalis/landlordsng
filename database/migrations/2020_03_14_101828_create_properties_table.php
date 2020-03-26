@@ -14,13 +14,22 @@ class CreatePropertiesTable extends Migration
     public function up()
     {
         Schema::create('properties', function (Blueprint $table) {
-            $table->id();
+            $table->id();                  
+            $table->string('title');
+            $table->string('location');
+            $table->string('property_status_id');
+            $table->string('property_type_id');
+            $table->string('price');
+            $table->string('old_price')->nullable();
+            $table->string('cover_picture_name')->nullable();
+            $table->longText('property_description');
+            $table->longText('property_video');
             $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrations.                                  
      *
      * @return void
      */
@@ -29,3 +38,4 @@ class CreatePropertiesTable extends Migration
         Schema::dropIfExists('properties');
     }
 }
+                                                                                                                                                                                                                                                                                            
