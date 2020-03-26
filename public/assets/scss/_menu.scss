@@ -531,7 +531,7 @@
 /************* page title *************/
 
 .page-title-box {
-  background: url("../images/bg.jpg");
+  background: url("{{asset('images/bg.jpg')}}");
   margin: 0 -30px 23px -30px;
   padding: 20px 30px 100px 30px;
   box-shadow: $shadow;
