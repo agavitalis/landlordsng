@@ -18,5 +18,3 @@ class AgencyController extends Controller
         return view('agencies_profile',compact('agency'));
     }
 }
-
-

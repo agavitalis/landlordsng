@@ -4,10 +4,10 @@
                 <div class="topbar-left">
                     <a href="index.html" class="logo">
                         <span>
-                            <img src="assets/images/logo.png" alt="">
+                            <img src="{{asset('assets/images/logo.png')}}" alt="">
                         </span>
                         <i>
-                            <img src="assets/images/logo-sm.png" alt="" >
+                            <img src="{{asset('assets/images/logo-sm.png')}}" alt="" >
                         </i>
                     </a>
                 </div>
@@ -52,7 +52,7 @@
                         <li class="dropdown notification-list">
                             <div class="dropdown notification-list nav-pro-img">
                                 <a class="dropdown-toggle nav-link arrow-none waves-effect nav-user waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                    <img src="assets/images/users/user-4.jpg" alt="user" class="rounded-circle">
+                                    <img src="{{asset('assets/images/users/user-4.jpg')}}" alt="user" class="rounded-circle">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                     <!-- item-->

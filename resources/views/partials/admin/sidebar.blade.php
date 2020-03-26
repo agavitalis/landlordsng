@@ -7,7 +7,7 @@
                         <ul class="metismenu" id="side-menu">
                             <li class="menu-title">Main</li>
                             <li>
-                                <a href="index.html" class="waves-effect">
+                                <a href="/admin_dashboard" class="waves-effect">
                                     <i class="mdi mdi-home"></i><span class="badge badge-primary float-right">*</span> <span> Dashboard </span>
                                 </a>
                             </li>
@@ -25,7 +25,13 @@
                                 <ul class="submenu">
                                     <li><a href="/admin_create_agencies">Create Agencies</a></li>
                                     <li><a href="/admin_manage_agencies">Manage Agencies</a></li>
-                                    <li><a href="/admin_become_an_agent">Become an Agent</a></li>
+                                   
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-cogs"></i><span> Agents <span class="float-right menu-arrow"><i class="mdi mdi-plus"></i></span> </span></a>
+                                <ul class="submenu">
+                                    <li><a href="/admin_become_an_agent">Become an Agent Requests</a></li>
 
                                 </ul>
                             </li>

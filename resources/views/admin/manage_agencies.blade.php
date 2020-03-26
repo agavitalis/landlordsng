@@ -41,6 +41,7 @@
                                     <th>Phone</th>
                                     <th>Phone</th>
                                     <th>Details</th>
+                                    <th>Edit</th>
                                     <th>Suspend</th>
                                     <th>Delete</th>
                                 </tr>
@@ -55,7 +56,8 @@
                                         <td>{{$agency->founder}}</td>
                                         <td>{{$agency->email}}</td>
                                         <td>{{$agency->phone}}</td>
-                                        <td><button class='btn btn-success' onclick="manage({{$agency->id}},'approve')"><i class="fas fa-eye"></i></button></td>
+                                        <td> <a href="/admin_manage_agencies/{{$agency->id}}"><button class='btn btn-success'><i class="fas fa-eye"></i></button></a></td>
+                                        <td> <a href="/admin_edit_agency/{{$agency->id}}"><button class='btn btn-primary'><i class="fas fa-edit"></i></button></a></td>
                                         <td><button class='btn btn-warning' onclick="manage({{$agency->id}},'pend')"><i class="fas fa-exclamation"></i></button></td>
                                         <td><button class='btn btn-danger'  onclick="manage({{$agency->id}},'delete')"><i class="fas fa-trash"></i></button></td>
                                     </tr>
