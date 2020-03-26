@@ -12,10 +12,10 @@
 
         <link rel="stylesheet" href="../plugins/morris/morris.css">
 
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('assets/css/metismenu.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('assets/css/icons.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" type="text/css">
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
 
@@ -23,7 +23,7 @@
 
         <!-- Begin page -->
         <div id="wrapper">
-            
+
             <!-- Top Bar Start -->
             @yield('header')
             <!-- Top Bar End -->
@@ -50,24 +50,24 @@
 
 
         <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/metisMenu.min.js"></script>
-        <script src="assets/js/jquery.slimscroll.js"></script>
-        <script src="assets/js/waves.min.js"></script>
+        <script src="{{asset('assets/js/jquery.min.js')}}"></script>
+        <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{asset('assets/js/metisMenu.min.js')}}"></script>
+        <script src="{{asset('assets/js/jquery.slimscroll.js')}}"></script>
+        <script src="{{asset('assets/js/waves.min.js')}}"></script>
 
-        <script src="../plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+        <script src="{{asset('../plugins/jquery-sparkline/jquery.sparkline.min.js')}}"></script>
 
         <!-- Peity JS -->
-        <script src="../plugins/peity/jquery.peity.min.js"></script>
+        <script src="{{asset('../plugins/peity/jquery.peity.min.js')}}"></script>
 
-        <script src="../plugins/morris/morris.min.js"></script>
-        <script src="../plugins/raphael/raphael-min.js"></script>
+        <script src="{{asset('../plugins/morris/morris.min.js')}}"></script>
+        <script src="{{asset('../plugins/raphael/raphael-min.js')}}"></script>
 
-        <script src="assets/pages/dashboard.js"></script>
+        <script src="{{asset('assets/pages/dashboard.js')}}"></script>
         @yield('scripts')
         <!-- App js -->
-        <script src="assets/js/app.js"></script>
+        <script src="{{asset ('assets/js/app.js')}}"></script>
 
     </body>
 

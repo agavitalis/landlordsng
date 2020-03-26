@@ -24,7 +24,7 @@ class PropertyStatesController extends Controller
         //return view('admin. propertytypes', compact('series_count','users_count','pro_investors_count','investors_count'));
         return view('admin.propertystates');
     }
-
+    
     public function create(Request $request){
       $this->validate($request,[
         'property_status_name'=>'required|string'

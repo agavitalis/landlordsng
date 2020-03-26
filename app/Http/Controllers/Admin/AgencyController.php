@@ -19,11 +19,9 @@ class AgencyController extends Controller
     public function create(Request $request)
     {
         if($request->isMethod('GET')){
-            
-            $agencies = Agency::paginate(100);
-            return view('admin.agencies',compact('agencies'));
-
+            return view('admin.createAgencies');
         }else if($request->isMethod('POST')){
+
             try {
 
                     $user_id = self::getUser($request->email);
@@ -35,16 +33,16 @@ class AgencyController extends Controller
                         'address'=>$request->address,'profile_picture'=>$profile_picture,
                         'instagram'=>$request->instagram,'user_id'=>$user_id,
                         'twitter'=>$request->twitter,'facebook'=>$request->facebook,'website'=>$request->website]);
-            
+
                         return back()->with('success','Agency successfully created');
                     }else{
                         return back()->with('error','This email does not belong to a registered user');
-                    } 
-              
+                    }
+
               } catch (Exception $e) {
                     return back()->with('error',$e->getMessage());
               }
-             
+
         }
     }
 
@@ -53,7 +51,7 @@ class AgencyController extends Controller
         //upload discription image and create garden
         $extension = $request->file($file_name)->getClientOriginalExtension();
         $new_name = round(microtime(true)) . '.' . $extension;
-        
+
         $request->file($file_name)->storeAs(
             'public/uploads', $new_name
         );
@@ -63,11 +61,23 @@ class AgencyController extends Controller
 
     public function getUser($email)
     {
-        $user = User::where(['email'=>$email])->first();
+        $user = User::where('email', $email)->first();
         if($user){
             return $user->id;
         }else{
             return null;
         }
     }
+
+    public function agencies(Request $request){
+        $agencies = Agency::paginate(100);
+        return view('admin.agencies',compact('agencies'));
+      }
+
+      public function agency_profile($id){
+        $agency= Agency::findOrFail($id);
+
+        return view('admin.agency_profile',compact('agency'));
+    }
+
 }

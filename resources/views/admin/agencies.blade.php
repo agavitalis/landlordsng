@@ -15,122 +15,24 @@
         @include("partials.admin.breadcrom")
         <!-- end row -->
 
-        <div class="page-content-wrapper">
-            <div class="row">
+        <div class="">
+            <div class="">
 
 
                 <div class="col-lg-12">
-                    <div class="card m-b-20">
-                        <div class="card-body">
+                  <h2 class="mb-4 text-center">Agencies</h2>
+                    <div class=" m-b-20 rounded-0">
+                        <div class="row">
+                            @if(count($agencies)>0)
+                              @foreach($agencies as $agency)
+                                <div class="col-md-4">
+                                    <h4 class="text-center"><a href="agencies/{{$agency->id}}"> {{$agency->agency_name}}</a></h4>
 
-                            <h4 class="mt-0 header-title">Register An Agency</h4>
-                            <p class="text-muted m-b-30 ">
-                                Impedit ad eius est perferendis consequuntur commodi
-                                et vero neque at, dignissimos magni iure similique unde
-                                cum doloribus quia aliquid ut excepturi?.
-                            </p>
-
-                            <form action="admin_create_agencies" method="post" enctype="multipart/form-data">
-                                @csrf
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Agency Name</label>
-                                            <div>
-                                                <input type="text" class="form-control" required
-                                                    data-parsley-minlength="6" placeholder="Agency Name" name="agency_name" />
-                                            </div>
-                                        </div>
-                                       
-                                        <div class="form-group">
-                                            <label>Founded By</label>
-                                            <div>
-                                                <input type="text" class="form-control" required
-                                                    data-parsley-minlength="6" placeholder="Founded By"  name="founder" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Phone</label>
-                                            <div>
-                                                <input type="text" class="form-control" required
-                                                    data-parsley-minlength="6" placeholder="Phone"  name="phone" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Email(This must be a registered User)</label>
-                                            <div>
-                                                <input type="text" class="form-control" required
-                                                    data-parsley-minlength="6" placeholder="Email"  name="email" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Address</label>
-                                            <div>
-                                                <textarea class="form-control" name="address" id="" cols="30"
-                                                    rows="3"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Biography</label>
-                                            <div>
-                                                <textarea class="form-control" name="biography" id="" cols="30"
-                                                    rows="4"></textarea>
-                                            </div>
-                                        </div>
-                                       
-                                        <div class="form-group">
-                                            <label>Profile Picture(294 * 286)</label>
-                                            <div>
-                                                <input type="file" class="form-control" required name="profile_picture"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Facebook</label>
-                                            <div>
-                                                <input type="text" class="form-control" 
-                                                    data-parsley-minlength="6" placeholder="Facebook URL" name="facebook"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Twitter</label>
-                                            <div>
-                                                <input type="text" class="form-control" 
-                                                    data-parsley-minlength="6" placeholder="Twitter URL" name="twitter"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Instagram</label>
-                                            <div>
-                                                <input type="text" class="form-control" 
-                                                    data-parsley-minlength="6" placeholder="Instagram URL" name="instagram"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Website</label>
-                                            <div>
-                                                <input type="text" class="form-control" 
-                                                    data-parsley-minlength="6" placeholder="Agency Website" name="website" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                   
+                                    <p class="mt-2 mb-2">Address: {{$agency->address}}</p>
+                                    <p class="mt-2 mb-2">Biography: {{$agency->biography}}</p>
                                 </div>
-                                <div class="form-group m-b-0">
-                                    <div>
-                                        <button type="submit" class="btn btn-primary waves-effect waves-light">
-                                            Register
-                                        </button>
-                                        <button type="reset" class="btn btn-secondary waves-effect m-l-5">
-                                            Cancel
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-
+                              @endforeach
+                            @endif
                         </div>
                     </div>
                 </div> <!-- end col -->

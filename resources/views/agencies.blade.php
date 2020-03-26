@@ -14,7 +14,7 @@
                 <p>Trusted Agencies in LandlordNG.</p>
                 <ol class="breadcrumb text-center ">
                     <li><a href="/">Home</a></li>
-                   
+
                     <li><a href="#">Agencies</a></li>
 
                 </ol>
@@ -28,9 +28,9 @@
 <section id="our-agent" class="padding_bottom_half padding_top bg_light">
     <div class="container">
         <div class="row">
-           
 
-            
+
+
             <div class="ouragents clearfix">
               @foreach($agencies as $agency)
                 <div class="col-md-3 col-sm-6 heading_space">
@@ -52,7 +52,7 @@
                 </div>
                 @endforeach
             </div>
-           
+
         </div>
     </div>
 </section>
