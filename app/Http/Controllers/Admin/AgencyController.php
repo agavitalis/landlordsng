@@ -80,4 +80,35 @@ class AgencyController extends Controller
         return view('admin.agency_profile',compact('agency'));
     }
 
+    public function edit_agency(Request $request, $id){
+      if($request->isMethod('GET')){
+        $agency = Agency::findOrFail($id);
+        return view('admin.edit_agency',compact('agency'));
+      }else if ($request->isMethod('POST')){
+      $name = $request->agency_name;
+        $agency = Agency::where('agency_name',"=", $name)->first();
+
+        if ($request->hasFile('profile_picture')){
+          $profile_picture = self::uploadImage($request,'profile_picture');
+        }
+        else{
+          $profile_picture = $agency->profile_picture;
+        }
+        $agency->agency_name = $request->agency_name;
+        $agency->founder = $request->founder;
+        $agency->email = $request->email;
+        $agency->phone = $request->phone;
+        $agency->address = $request->address;
+        $agency->biography = $request->biography;
+        $agency->twitter = $request->twitter;
+        $agency->facebook = $request->facebook;
+        $agency->instagram = $request->instagram;
+        $agency->profile_picture = $request->profile_picture;
+        $agency->website = $request->website;
+        $agency->linkedin = $request->linkedin;
+        $agency->save();
+        return back()->with('success','successfully updated the ');
+      }
+    }
+
 }

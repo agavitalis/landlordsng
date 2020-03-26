@@ -28,6 +28,7 @@ Route::group(['namespace' => "Admin"], function () {
     Route::match(['GET', 'POST'], '/admin_create_agencies/{id?}', 'AgencyController@create')->name('admin_create_agencies');
     Route::get('/admin_agencies','AgencyController@agencies');
     Route::get('/agencies/{id}', 'AgencyController@agency_profile')->name('agency_profile');
+    Route::match(['GET', 'POST'], '/edit_agency/{id?}', 'AgencyController@edit_agency')->name('edit_agency');
 });
 
 Auth::routes();
