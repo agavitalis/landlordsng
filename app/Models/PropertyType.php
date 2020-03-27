@@ -10,6 +10,6 @@ class PropertyType extends Model
 
     public function property()
     {
-        return $this->hasMany('App\Property');
+        return $this->hasMany('App\Models\Property');
     }
 }

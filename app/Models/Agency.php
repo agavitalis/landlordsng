@@ -16,4 +16,9 @@ class Agency extends Model
     {
         return $this->hasMany('App\Models\AgentRequest');
     }
+
+    public function agents()
+    {
+        return $this->hasMany('App\Models\Agent');
+    }
 }

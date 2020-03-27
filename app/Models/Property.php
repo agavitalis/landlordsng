@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Property extends Model
 {
+    protected $fillable = [
+        'title', 'location','property_status_id', 'property_type_id', 'price','old_price', 
+        'cover_picture_name', 'property_description','property_video','agent_id'
+    ];
+
+    public function agent()
+    {
+        return $this->belongsTo('App\Models\Agent','agent_id');
+    }
     
     public function property_status()
     {
