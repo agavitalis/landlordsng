@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\PropertyStatus;
 use App\Http\Resources\PropertyStatusResource;
 
-class PropertyStatesController extends Controller
+class PropertyStatusController extends Controller
 {
     public function __construct()
     {

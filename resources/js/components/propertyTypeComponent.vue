@@ -22,7 +22,7 @@
                         <div class="form-group">
                             <label>Property Type</label>
                             <div>
-                                <input type="text" class="form-control" required placeholder="Type Name." v-model="type_name" />
+                                <input type="text" class="form-control" required placeholder="Type Name." v-model="property_type_name" />
                             </div>
                         </div>
 
@@ -65,9 +65,9 @@
                         <tbody>
                             <tr v-for="property,key in properties">
 
-                                <td>{{property.type_name}}</td>
+                                <td>{{property.property_type_name}}</td>
                                 <td><a type="button" id="show-modal" @click="showModal=true;
-                                  setVal(property.id, property.type_name)" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editproperty">Edit
+                                  setVal(property.id, property.property_type_name)" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editproperty">Edit
                                     </a></td>
                                 <td><a type="button" class="btn btn-danger btn-sm" @click="deteleType(property.id, key)"> Delete</a></td>
                             </tr>
@@ -109,7 +109,7 @@
                             <div class="" slot="body">
 
                                 <h6 class="text-bold mt-2 dark">Type Name</h6>
-                                <input type="text" name="" class="form-control" :value="this.type_name" id="type_name">
+                                <input type="text" name="" class="form-control" :value="this.property_type_name" id="property_type_name">
                                 <input type="hidden" name="" class="form-control" :value="this.id" id="id">
                                 <button v-on:click.prevent class="mt-1 form-control btn btn-outline-success btn-sm" data-dismiss="modal" @click="updatePropertyType()">Update</button>
                             </div>
@@ -129,14 +129,14 @@
 export default {
     data() {
         return {
-            type_name: "",
+            property_type_name: "",
             msg: "",
             pagination: {
 
             },
             showModal: false,
             properties: {
-                type_name: ""
+                property_type_name: ""
             }
         }
     },
@@ -147,13 +147,13 @@ export default {
     methods: {
         addType() {
             axios.post(`/api/admin_addpropertytype`, {
-                    type_name: this.type_name,
+                    property_type_name: this.property_type_name,
 
                 })
                 .then(response => {
                     console.log(response.data)
-                    this.msg = "Successfully added type"
-                    this.type_name = ""
+                    this.msg = "Successfully added Type"
+                    this.property_type_name = ""
                     this.getPropertyTypes()
 
                 })
@@ -182,15 +182,15 @@ export default {
             };
             this.pagination = pagination;
         },
-        setVal(id, type_name) {
+        setVal(id, property_type_name) {
             this.id = id
-            this.type_name = type_name
+            this.property_type_name = property_type_name
         },
         updatePropertyType() {
             var id = document.getElementById('id').value
-            var type_name = document.getElementById('type_name').value
+            var property_type_name = document.getElementById('property_type_name').value
             axios.put(`api/updatepropertytype/`, {
-                    type_name: type_name,
+                    property_type_name: property_type_name,
                     id: id
                 })
                 .then(

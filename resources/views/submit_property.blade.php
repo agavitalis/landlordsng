@@ -52,29 +52,52 @@
             <div class="col-sm-1 col-md-2"></div>
             <div class="col-sm-10 col-md-8">
                 <h2 class="text-uppercase bottom40">Add Your Property</h2>
-                <form class="callus clearfix border_radius submit_property">
-                    <div class="row">
+                <form class="callus clearfix border_radius submit_property" action="#" enctype="multipart/form-data" method="POST">
+                @csrf
+                <div class="row">
                         <div class="col-sm-6">
 
                             <div class="single-query form-group bottom20">
                                 <label>Title</label>
-                                <input type="text" class="keyword-input" placeholder="Enter your property title">
+                                <input type="text" name="title" class="keyword-input" required placeholder="Enter your property title">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="single-query form-group bottom20">
                                 <label>Location</label>
-                                <input type="text" class="keyword-input" placeholder="Enter Proprty Location">
+                                <input type="text" name="location" class="keyword-input" required placeholder="Enter Proprty Location">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="single-query bottom20">
+                                <label>Country </label>
+                                <div class="intro">
+                                    <select name="country" required>
+                                        <option value="Nigeria" selected class="active">Nigeria</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="single-query bottom20">
+                                <label>State </label>
+                                <div class="intro">
+                                    <select name="state" required>
+                                        <option value="Lagos" class="active">Lagos</option>
+                                       
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="single-query bottom20">
                                 <label>Status </label>
                                 <div class="intro">
-                                    <select>
-                                        <option value="sale" class="active">Property Status</option>
-                                        <option value ="lease">For Lease</option>
-                                        <option value ="rent">For Rent </option>
+                                    <select name="status" required>
+                                        <option value="" class="active">Property Status</option>
+                                        @foreach($property_status as $property_status )
+                                            <option value ="{{$property_status->id}}">{{$property_status->property_status_name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -83,10 +106,12 @@
                             <div class="single-query bottom20">
                                 <label>Type </label>
                                 <div class="intro">
-                                    <select>
-                                        <option value="sale" class="active">Property Type</option>
-                                        <option value ="lease">Land</option>
-                                        <option value ="rent">House</option>
+                                    <select name="type" required >
+                                        <option value="" class="active">Property Type</option>
+                                        @foreach($property_type as $property_type )
+                                            <option value ="{{$property_type->id}}">{{$property_type->property_type_name}}</option>
+                                        @endforeach
+                                       
                                     </select>
                                 </div>
                             </div>
@@ -94,30 +119,31 @@
                         <div class="col-sm-12">
                             <div class="single-query form-group bottom20">
                                 <label>Price</label>
-                                <input type="text" class="keyword-input" placeholder="23,000">
+                                <input type="text" name="price" required class="keyword-input" placeholder="Eg:20,000 Per Month">
                             </div>
                         </div>
                     </div>
-                </form>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h3 class="margin40 bottom15">Property Photos <i class="fa fa-info-circle help"
-                                data-toggle="tooltip" title="add images to upload for property!"></i></h3>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
-                                                                                                                                                                                                                              
-                        <div class="file_uploader bottom20">
-                            <form id="upload-widget" method="post" action="/submit_property" class="dropzone">
-                                <div class="dz-default dz-message">
-                                    <span>
-                                        <i class="fa fa-plus-circle"></i>
-                                        Click here or drop files to upload
-                                    </span>
+               
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="margin40 bottom15">Property Photos <i class="fa fa-info-circle help"
+                                    data-toggle="tooltip" title="add images to upload for property!"></i></h3>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                                                                                                                                                                                                                                
+                            <div class="file_uploader bottom20">
+                                <div id="myDropzone"  class="dropzone">
+                                    <div class="dz-default dz-message">
+                                        <span>
+                                            <i class="fa fa-plus-circle"></i>
+                                            Click here or drop files to upload
+                                        </span>
+                                    </div>
+                                                                                                                        
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
-                </div>
               
-                <form class="callus clearfix border_radius submit_property">
+                
                     <div class="row">
 
                         <div class="col-sm-12">
@@ -202,33 +228,15 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <button type="submit" class="btn-blue border_radius margin40">submit property</button>
+                            <button type="button" id="submitAll" class="btn-blue border_radius margin40">submit property</button>
                         </div>
 
                     </div>
 
-
-
-
-
-
-
-
                 </form>
 
-
             </div>
-            <div class="col-sm-1 col-md-2"></div>
-
-
-
-            <div class="col-sm-4">
-
-
-
-
-
-            </div>
+           
 
         </div>
 
@@ -250,5 +258,48 @@
 <script type="text/javascript">
    $("#txtEditor").Editor();
    $('[data-toggle="tooltip"]').tooltip(); 
+
+    Dropzone.options.myDropzone = {
+        url: "/submit_property",
+        autoProcessQueue: false,
+        uploadMultiple: true,
+        parallelUploads: 100,
+        maxFiles: 100,
+        acceptedFiles: "image/*",
+
+        init: function () {
+
+            var submitButton = document.querySelector("#submitAll");
+            var wrapperThis = this;
+
+            submitButton.addEventListener("click", function () {
+                wrapperThis.processQueue();
+            });
+
+            this.on("addedfile", function (file) {
+
+                // Create the remove button
+                var removeButton = Dropzone.createElement("<button class='btn btn-sm btn-danger upload-cancel'>X</button>");
+
+                // Listen to the click event
+                removeButton.addEventListener("click", function (e) {
+                    // Make sure the button click doesn't submit the form:
+                    e.preventDefault();
+                    e.stopPropagation();
+                    // Remove the file preview.
+                    wrapperThis.removeFile(file);
+                    //Ajax can come here
+                });
+
+                // Add the button to the file preview element.
+                file.previewElement.appendChild(removeButton);
+            });
+
+            this.on('sendingmultiple', function (data, xhr, formData) {
+                formData.append("Username", $("#Username").val());
+            });
+        }
+    };
+
 </script>
 @endsection

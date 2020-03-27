@@ -19,8 +19,7 @@ Route::group(['namespace' => "User"], function () {
 
     Route::match(['GET', 'POST'], '/home', 'HomeController@home')->name('home');
     Route::match(['GET', 'POST'], '/submit_property/{id?}', 'PropertyController@add_property')->name('submit_property');
-    Route::match(['GET', 'POST'], '/submit_property/{id?}', 'PropertyController@add_property')->name('submit_property');
-
+  
 });
 
 //Admin routes guarded by tha auth and admin middleware

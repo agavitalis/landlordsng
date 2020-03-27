@@ -11,8 +11,8 @@ class PropertyTypesController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('auth');
-        //$this->middleware('adminGuard');
+      $this->middleware('auth');
+      //$this->middleware('adminGuard');
     }
 
     public function propertytypes()
@@ -27,29 +27,29 @@ class PropertyTypesController extends Controller
 
     public function create(Request $request){
       $this->validate($request,[
-        'type_name'=>'required|string'
+        'property_type_name'=>'required|string'
       ]);
 
-      $type =new PropertyType;
-      $type->type_name = $request->input('type_name');
+      $type = new PropertyType;
+      $type->property_type_name = $request->input('property_type_name');
       $type->save();
       return response($type);
     }
 
     public function getTypes(){
-      $types =PropertyType::paginate(3);
+      $types = PropertyType::paginate(3);
       return PropertyTypeResource::collection($types);
     }
 
     public function updatePropertyType(Request $request){
       $this->validate($request,[
         'id'=>'required',
-        'type_name'=>'required'
+        'property_type_name'=>'required'
       ]);
 
       $id = $request->input('id');
       $type = PropertyType::findOrFail($id);
-      $type->type_name =$request->input('type_name');
+      $type->property_type_name =$request->input('property_type_name');
       $type->save();
       return $type;
     }

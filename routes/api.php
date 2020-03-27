@@ -23,7 +23,7 @@ Route::get('/admin_getpropertytype','Admin\PropertyTypesController@getTypes');
 Route::put('/updatepropertytype','Admin\PropertyTypesController@updatePropertyType');
 Route::delete('/deletetype/{id}', 'Admin\PropertyTypesController@destroy');
 
-Route::post('/admin_addpropertystatus','Admin\PropertyStatesController@create');
-Route::get('/admin_getpropertystatus','Admin\PropertyStatesController@getStatuses');
-Route::put('/updatepropertystatus','Admin\PropertyStatesController@updatePropertyStatus');
-Route::delete('/deletestatus/{id}', 'Admin\PropertyStatesController@destroy');
+Route::post('/admin_addpropertystatus','Admin\PropertyStatusController@create');
+Route::get('/admin_getpropertystatus','Admin\PropertyStatusController@getStatuses');
+Route::put('/updatepropertystatus','Admin\PropertyStatusController@updatePropertyStatus');
+Route::delete('/deletestatus/{id}', 'Admin\PropertyStatusController@destroy');
