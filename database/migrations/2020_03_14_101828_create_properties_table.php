@@ -25,7 +25,9 @@ class CreatePropertiesTable extends Migration
             $table->string('old_price')->nullable();
             $table->string('cover_picture_name')->nullable();
             $table->longText('property_description');
-            $table->longText('property_video')->nullable();
+            $table->string('property_video')->nullable();
+            $table->string('agent_id');
+            
             $table->timestamps();
         });
     }

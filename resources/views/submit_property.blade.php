@@ -82,7 +82,7 @@
                             <div class="single-query bottom20">
                                 <label>State*</label>
                                 <div class="intro">
-                                    <select name="state" required>
+                                    <select name="state" id="state" required>
                                         <option value="Lagos" class="active">Lagos</option>
                                        
                                     </select>
@@ -228,9 +228,11 @@
                                 <input name="video" type="text" class="keyword-input" placeholder="https://vimeo.com">
                             </div>
                         </div>
+                        <input type="hidden" name="agent_id" value="{{Auth::user()->agent->id}}">
                         <div class="col-md-4">
                             <button type="button" id="submitAll" class="btn-blue border_radius margin40">submit property</button>
                         </div>
+
 
                     </div>
 
@@ -286,8 +288,11 @@
                     swal("Oops!", "Please fill all fields", "error");
                 }else{
 
+                    alert($('input[name=state] :selected').val())
+                    alert($("#state option:selected").val())
+                   // $("#foo option:selected").val();
                     //Upload to the server
-                    wrapperThis.processQueue();
+                   // wrapperThis.processQueue();
                 }
                 
                
@@ -309,11 +314,20 @@
                 formData.append("attr_title", $('input[name=attr_title]').val());
                 formData.append("attr_value", $('input[name=attr_value]').val());
                 formData.append("video", $('input[name=video]').val());
-                            
+                formData.append("agent_id", $('input[name=agent_id]').val());
+                                    
             });
 
-            this.on('complete',function(data){
-                console.log(data.status)
+            this.on('success',function(file, response)
+            {
+                console.log(file)
+                console.log(response)
+            })
+
+            this.on('error',function(file, response)
+            {
+                console.log(file)
+                console.log(response)
             })
         }
     };
