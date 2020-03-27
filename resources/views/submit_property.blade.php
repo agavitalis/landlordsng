@@ -148,7 +148,7 @@
 
                         <div class="col-sm-12">
                             <h3 class="bottom15 margin40">Property Description </h3>
-                            <textarea id="txtEditor"></textarea>
+                            <textarea name="description" id="txtEditor"></textarea>
                         </div>
                         <div class="col-sm-12">
                             <h3 class="bottom15 margin40">Property Additional Attributes</h3>
@@ -161,13 +161,13 @@
                                         <td>
                                             <div class="single-query form-group">
                                                 <label>Title</label>
-                                                <input type="text" class="keyword-input">
+                                                <input name="attr_title[]" type="text" class="keyword-input">
                                             </div>
                                         </td>
                                         <td>
                                             <div class="single-query form-group">
                                                 <label>Value</label>
-                                                <input type="text" class="keyword-input">
+                                                <input name="attr_value[]" type="text" class="keyword-input">
                                             </div>
                                         </td>
                                         <td>
@@ -224,7 +224,7 @@
                             <h3 class="bottom15 margin40">Video Presentation</h3>
                             <div class="single-query form-group bottom15">
                                 <label>Vimeo or Youtube URL</label>
-                                <input type="text" class="keyword-input" placeholder="https://vimeo.com">
+                                <input name="video" type="text" class="keyword-input" placeholder="https://vimeo.com">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -296,7 +296,20 @@
             });
 
             this.on('sendingmultiple', function (data, xhr, formData) {
-                formData.append("Username", $("#Username").val());
+                
+                formData.append("_token", $('input[name=_token]').val());
+                formData.append("title", $('input[name=title]').val());
+                formData.append("location", $('input[name=location]').val());
+                formData.append("country", $('input[name=country]').val());
+                formData.append("state", $('input[name=state]').val());
+                formData.append("status", $('input[name=status]').val());
+                formData.append("type", $('input[name=type]').val());
+                formData.append("price", $('input[name=price]').val());
+                formData.append("description", $('input[name=description]').val());
+                formData.append("attr_title", $('input[name=attr_title]').val());
+                formData.append("attr_value", $('input[name=attr_value]').val());
+                formData.append("video", $('input[name=video]').val());
+                            
             });
         }
     };
