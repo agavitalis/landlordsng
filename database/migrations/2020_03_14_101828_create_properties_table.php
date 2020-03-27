@@ -17,13 +17,15 @@ class CreatePropertiesTable extends Migration
             $table->id();                  
             $table->string('title');
             $table->string('location');
+            $table->string('state');
+            $table->string('country');
             $table->string('property_status_id');
             $table->string('property_type_id');
             $table->string('price');
             $table->string('old_price')->nullable();
             $table->string('cover_picture_name')->nullable();
             $table->longText('property_description');
-            $table->longText('property_video');
+            $table->longText('property_video')->nullable();
             $table->timestamps();
         });
     }

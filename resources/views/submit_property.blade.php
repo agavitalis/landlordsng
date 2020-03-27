@@ -58,19 +58,19 @@
                         <div class="col-sm-6">
 
                             <div class="single-query form-group bottom20">
-                                <label>Title</label>
+                                <label>Title*</label>
                                 <input type="text" name="title" class="keyword-input" required placeholder="Enter your property title">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="single-query form-group bottom20">
-                                <label>Location</label>
+                                <label>Location*</label>
                                 <input type="text" name="location" class="keyword-input" required placeholder="Enter Proprty Location">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="single-query bottom20">
-                                <label>Country </label>
+                                <label>Country*</label>
                                 <div class="intro">
                                     <select name="country" required>
                                         <option value="Nigeria" selected class="active">Nigeria</option>
@@ -80,7 +80,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="single-query bottom20">
-                                <label>State </label>
+                                <label>State*</label>
                                 <div class="intro">
                                     <select name="state" required>
                                         <option value="Lagos" class="active">Lagos</option>
@@ -91,7 +91,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="single-query bottom20">
-                                <label>Status </label>
+                                <label>Status*</label>
                                 <div class="intro">
                                     <select name="status" required>
                                         <option value="" class="active">Property Status</option>
@@ -104,7 +104,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="single-query bottom20">
-                                <label>Type </label>
+                                <label>Type*</label>
                                 <div class="intro">
                                     <select name="type" required >
                                         <option value="" class="active">Property Type</option>
@@ -118,7 +118,7 @@
                         </div>
                         <div class="col-sm-12">
                             <div class="single-query form-group bottom20">
-                                <label>Price</label>
+                                <label>Price*</label>
                                 <input type="text" name="price" required class="keyword-input" placeholder="Eg:20,000 Per Month">
                             </div>
                         </div>
@@ -126,8 +126,9 @@
                
                     <div class="row">
                         <div class="col-sm-12">
-                            <h3 class="margin40 bottom15">Property Photos <i class="fa fa-info-circle help"
-                                    data-toggle="tooltip" title="add images to upload for property!"></i></h3>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                            <h3 class="margin40 bottom15">Property Photos*<i class="fa fa-info-circle help"
+                                    data-toggle="tooltip" title="add images to upload for property!"></i></h3>
+                            <p>(the first picture will automatically be the cover picture)</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
                                                                                                                                                                                                                                 
                             <div class="file_uploader bottom20">
                                 <div id="myDropzone"  class="dropzone">
@@ -147,7 +148,7 @@
                     <div class="row">
 
                         <div class="col-sm-12">
-                            <h3 class="bottom15 margin40">Property Description </h3>
+                            <h3 class="bottom15 margin40">Property Description*</h3>
                             <textarea name="description" id="txtEditor"></textarea>
                         </div>
                         <div class="col-sm-12">
@@ -253,6 +254,7 @@
 @endsection
 
 @section('scripts')
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="../js/dropzone.min.js"></script>
 <script src="../js/editor.js"></script>
 <script type="text/javascript">
@@ -266,6 +268,8 @@
         parallelUploads: 100,
         maxFiles: 100,
         acceptedFiles: "image/*",
+        addRemoveLinks: true,
+        dictRemoveFile: "Remove image",
 
         init: function () {
 
@@ -273,27 +277,23 @@
             var wrapperThis = this;
 
             submitButton.addEventListener("click", function () {
-                wrapperThis.processQueue();
+
+                if($('input[name=title]').val() == "" || $('input[name=location]').val() == "" || $('input[name=state]').val() == "" || $('input[name=price]').val() == ""){
+
+                    swal("Oops!", "Please fill all fields", "error");
+                }else  if($('input[name=country]').val() == "" || $('input[name=property_status_id]').val() == "" || $('input[name=property_type_id]').val() == ""){
+
+                    swal("Oops!", "Please fill all fields", "error");
+                }else{
+
+                    //Upload to the server
+                    wrapperThis.processQueue();
+                }
+                
+               
             });
 
-            this.on("addedfile", function (file) {
-
-                // Create the remove button
-                var removeButton = Dropzone.createElement("<button class='btn btn-sm btn-danger upload-cancel'>X</button>");
-
-                // Listen to the click event
-                removeButton.addEventListener("click", function (e) {
-                    // Make sure the button click doesn't submit the form:
-                    e.preventDefault();
-                    e.stopPropagation();
-                    // Remove the file preview.
-                    wrapperThis.removeFile(file);
-                    //Ajax can come here
-                });
-
-                // Add the button to the file preview element.
-                file.previewElement.appendChild(removeButton);
-            });
+         
 
             this.on('sendingmultiple', function (data, xhr, formData) {
                 
@@ -311,8 +311,13 @@
                 formData.append("video", $('input[name=video]').val());
                             
             });
+
+            this.on('complete',function(data){
+                console.log(data.status)
+            })
         }
     };
 
 </script>
+
 @endsection
