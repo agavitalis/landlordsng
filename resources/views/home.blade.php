@@ -61,8 +61,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Link</a>
                         </li>
+                        <hr>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                            <a class="nav-link disabled" href="/become_an_agency" tabindex="-1" aria-disabled="true">Become an Agency</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="/agencies" tabindex="-1" aria-disabled="true">Become an Agent</a>
                         </li>
                     </ul>
                 </div>

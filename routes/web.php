@@ -8,11 +8,13 @@ Route::group(['namespace' => "User"], function () {
     Route::match(['GET', 'POST'], '/', 'HomeController@index')->name('welcome');
     Route::match(['GET', 'POST'], '/listing', 'ListingController@index')->name('listing');
 
+    Route::match(['GET', 'POST'], '/become_an_agency/{id?}', 'AgencyController@become_an_agency')->name('become_an_agency');
     Route::match(['GET', 'POST'], '/agencies', 'AgencyController@index')->name('agencies');
     Route::match(['GET', 'POST'], '/agency_profile/{id?}', 'AgencyController@agency_profile')->name('agency_profile');
 
     Route::match(['GET', 'POST'], '/become_an_agent/{id?}', 'AgentController@become_an_agent')->name('become_an_agent');
     Route::match(['GET', 'POST'], '/agents', 'AgentController@index')->name('agents');
+    
     Route::match(['GET', 'POST'], '/contact', 'ContactController@contact')->name('contact');
 
     Route::match(['GET', 'POST'], '/home', 'HomeController@home')->name('home');

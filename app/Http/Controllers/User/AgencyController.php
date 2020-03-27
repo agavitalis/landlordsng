@@ -17,4 +17,10 @@ class AgencyController extends Controller
         $agency = Agency::find($id);
         return view('agencies_profile',compact('agency'));
     }
+
+    public function become_an_agency(Request $request, $id = null){
+        if ($request->isMethod('GET')) {
+            return view("agency_registration");
+        }
+    }
 }
