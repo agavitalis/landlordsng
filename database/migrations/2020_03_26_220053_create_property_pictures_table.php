@@ -16,7 +16,7 @@ class CreatePropertyPicturesTable extends Migration
         Schema::create('property_pictures', function (Blueprint $table) {
             $table->id();
             $table->string('picture_name');
-            $table->string('picture_alt')->nullable();
+            $table->string('picture_url')->nullable();
             $table->string('property_id');
             $table->timestamps();
         });
