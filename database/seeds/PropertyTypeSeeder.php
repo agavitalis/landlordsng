@@ -20,15 +20,15 @@ class PropertyTypeSeeder extends Seeder
     DB::table("property_types")->insert([
 
         [
-            "type_name" => "Housing",
+            "property_type_name" => "Housing",
 
         ],
         [
-            "type_name" => "Cars",
+            "property_type_name" => "Cars",
 
         ],
         [
-            'type_name' => "Land",
+            'property_type_name' => "Land",
         ],
     ]);
 

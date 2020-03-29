@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Agency;
 use App\Models\Agent;
 use App\Models\AgentRequest;
+use App\Http\Resources\AgentRequestResource;
 use App\Models\User;
 use Auth;
 use Exception;
@@ -122,7 +123,7 @@ class AgencyController extends Controller
         }
     }
 
-   
+
 
     public function edit_agency(Request $request, $id)
     {
@@ -153,6 +154,29 @@ class AgencyController extends Controller
             $agency->save();
             return back()->with('success', 'successfully updated the ');
         }
+    }
+
+    public function list_requests(){
+      $agent_requests = AgentRequest::paginate(12);
+      return AgentRequestResource::collection($agent_requests);
+    }
+
+    public function approve_request($id){
+      $agent_request=AgentRequest::findOrFail($id);
+      $agent_request->status= true;
+      $agent_request->update();
+      return response()->json(
+        ["Request Approved", $agent_request]
+      );
+    }
+
+    public function reject_request($id){
+      $agent_request=AgentRequest::findOrFail($id);
+      $agent_request->status= false;
+      $agent_request->update();
+      return response()->json(
+        ["Request Disapproved", $agent_request]
+      );
     }
 
 }
