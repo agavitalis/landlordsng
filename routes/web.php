@@ -28,11 +28,14 @@ Route::group(['namespace' => "Admin"], function () {
     Route::match(['GET', 'POST'], '/admin_dashboard', 'DashboardController@dashboard')->name('admin_dashboard');
     Route::match(['GET', 'POST'], '/admin_propertytypes/{id?}', 'PropertyTypesController@propertytypes')->name('admin_propertytypes');
     Route::match(['GET', 'POST'], '/admin_propertystates/{id?}', 'PropertyStatesController@propertystates')->name('admin_propertystates');
-    Route::match(['GET', 'POST'], '/admin_become_an_agent/{id?}', 'AgencyController@become_an_agent')->name('admin_become_an_agent');
+   
+    Route::match(['GET', 'POST'], '/admin_become_an_agent/{id?}', 'AgentController@become_an_agent')->name('admin_become_an_agent');
 
     Route::match(['GET', 'POST'], '/admin_create_agencies/{id?}', 'AgencyController@create_agency')->name('admin_create_agencies');
     Route::match(['GET', 'POST'], '/admin_manage_agencies/{id?}', 'AgencyController@manage_agencies')->name('admin_manage_agencies');
     Route::match(['GET', 'POST'], '/admin_edit_agency/{id?}', 'AgencyController@edit_agency')->name('admin_edit_agency');
+    Route::match(['GET', 'POST'], '/admin_become_an_agency/{id?}', 'AgencyController@become_an_agency')->name('admin_become_an_agency');
+  
 });
 
 Auth::routes();
