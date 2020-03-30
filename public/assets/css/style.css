@@ -42,6 +42,7 @@ TABLES OF CSS
 32. Account Pages
 33. Dashboard Page
 34. Responsive
+33. Others
 
 
 */
@@ -3823,3 +3824,8 @@ Invoice
   }
 }
 /*# sourceMappingURL=style.css.map */
+.img-show{
+  height: 50px;
+  width: 50px;
+  border-radius: 15px;
+}

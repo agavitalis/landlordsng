@@ -2272,15 +2272,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      type_name: "",
+      property_type_name: "",
+      property_type_picture: "",
       msg: "",
       pagination: {},
       showModal: false,
       properties: {
-        type_name: ""
+        property_type_name: "",
+        property_type_picture: ""
       }
     };
   },
@@ -2289,15 +2300,24 @@ __webpack_require__.r(__webpack_exports__);
     console.log("Type component is mounted");
   },
   methods: {
+    onFileChange: function onFileChange(e) {
+      this.property_type_picture = e.target.files[0];
+    },
     addType: function addType() {
       var _this = this;
 
-      axios.post("/api/admin_addpropertytype", {
-        type_name: this.type_name
-      }).then(function (response) {
+      var config = {
+        headers: {
+          'content-type': 'multipart/form-data'
+        }
+      };
+      var formData = new FormData();
+      formData.append('property_type_picture', this.property_type_picture);
+      formData.append('property_type_name', this.property_type_name);
+      axios.post('/api/admin_addpropertytype', formData, config).then(function (response) {
         console.log(response.data);
-        _this.msg = "Successfully added type";
-        _this.type_name = "";
+        _this.msg = "Successfully added Type";
+        _this.property_type_name = "";
 
         _this.getPropertyTypes();
       })["catch"](function (err) {
@@ -2329,17 +2349,17 @@ __webpack_require__.r(__webpack_exports__);
       };
       this.pagination = pagination;
     },
-    setVal: function setVal(id, type_name) {
+    setVal: function setVal(id, property_type_name) {
       this.id = id;
-      this.type_name = type_name;
+      this.property_type_name = property_type_name;
     },
     updatePropertyType: function updatePropertyType() {
       var _this3 = this;
 
       var id = document.getElementById('id').value;
-      var type_name = document.getElementById('type_name').value;
+      var property_type_name = document.getElementById('property_type_name').value;
       axios.put("api/updatepropertytype/", {
-        type_name: type_name,
+        property_type_name: property_type_name,
         id: id
       }).then(function (res) {
         _this3.getPropertyTypes();
@@ -20428,25 +20448,37 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.type_name,
-                          expression: "type_name"
+                          value: _vm.property_type_name,
+                          expression: "property_type_name"
                         }
                       ],
                       staticClass: "form-control",
                       attrs: {
                         type: "text",
                         required: "",
-                        placeholder: "Type Name."
+                        placeholder: "Type Name"
                       },
-                      domProps: { value: _vm.type_name },
+                      domProps: { value: _vm.property_type_name },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.type_name = $event.target.value
+                          _vm.property_type_name = $event.target.value
                         }
                       }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Property Type Cover Picture")]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: { type: "file" },
+                      on: { change: _vm.onFileChange }
                     })
                   ])
                 ]),
@@ -20511,7 +20543,18 @@ var render = function() {
                 "tbody",
                 _vm._l(_vm.properties, function(property, key) {
                   return _c("tr", [
-                    _c("td", [_vm._v(_vm._s(property.type_name))]),
+                    _c("td", [_vm._v(_vm._s(property.property_type_name))]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("img", {
+                        staticClass: "img-show",
+                        attrs: {
+                          src:
+                            "storage/uploads/" + property.property_type_picture,
+                          alt: ""
+                        }
+                      })
+                    ]),
                     _vm._v(" "),
                     _c("td", [
                       _c(
@@ -20527,7 +20570,10 @@ var render = function() {
                           on: {
                             click: function($event) {
                               _vm.showModal = true
-                              _vm.setVal(property.id, property.type_name)
+                              _vm.setVal(
+                                property.id,
+                                property.property_type_name
+                              )
                             }
                           }
                         },
@@ -20679,9 +20725,9 @@ var render = function() {
                               attrs: {
                                 type: "text",
                                 name: "",
-                                id: "type_name"
+                                id: "property_type_name"
                               },
-                              domProps: { value: this.type_name }
+                              domProps: { value: this.property_type_name }
                             }),
                             _vm._v(" "),
                             _c("input", {
@@ -20731,7 +20777,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Type name")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Type Name")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Cover Picture")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Edit")]),
         _vm._v(" "),

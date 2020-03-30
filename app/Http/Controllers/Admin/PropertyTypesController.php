@@ -11,18 +11,13 @@ class PropertyTypesController extends Controller
 {
     public function __construct()
     {
-      $this->middleware('auth');
+      //$this->middleware('auth');
       //$this->middleware('adminGuard');
     }
 
     public function propertytypes()
     {
-        // $users_count = User::count();
-        // $series_count = Series::count();
-        // $pro_investors_count = ProInvestor::count();
-        // $investors_count = Investor::count();
-        //return view('admin. propertytypes', compact('series_count','users_count','pro_investors_count','investors_count'));
-        return view('admin.propertytypes');
+           return view('admin.propertytypes');
     }
 
     public function create(Request $request){
@@ -32,6 +27,7 @@ class PropertyTypesController extends Controller
 
       $type = new PropertyType;
       $type->property_type_name = $request->input('property_type_name');
+      $type->property_type_picture = $this->uploadImage($request,'property_type_picture');
       $type->save();
       return response($type);
     }
@@ -59,7 +55,20 @@ class PropertyTypesController extends Controller
         //find and delete a Room with a particular id
         $type =PropertyType::find($id);
         $type->delete();
-
         return response()->json(['status'=>'ok'], 200);
     }
+
+    private function uploadImage($request, $file_name)
+    {
+        //upload discription image and create garden
+        $extension = $request->file($file_name)->getClientOriginalExtension();
+        $new_name = round(microtime(true)) . '.' . $extension;
+
+        $request->file($file_name)->storeAs(
+            'public/uploads', $new_name
+        );
+
+        return $new_name;
+    }
+
 }

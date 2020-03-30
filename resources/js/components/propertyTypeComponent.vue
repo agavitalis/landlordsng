@@ -22,7 +22,14 @@
                         <div class="form-group">
                             <label>Property Type</label>
                             <div>
-                                <input type="text" class="form-control" required placeholder="Type Name." v-model="property_type_name" />
+                                <input type="text" class="form-control" required placeholder="Type Name" v-model="property_type_name" />
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label>Property Type Cover Picture</label>
+                            <div>
+                                <input type="file" class="form-control" v-on:change="onFileChange">
+   
                             </div>
                         </div>
 
@@ -56,7 +63,8 @@
                         <thead>
                             <tr>
 
-                                <th scope="col">Type name</th>
+                                <th scope="col">Type Name</th>
+                                <th scope="col">Cover Picture</th>
                                 <th scope="col">Edit</th>
                                  <th scope="col">Delete</th>
                                 <!-- <th></th> -->
@@ -66,6 +74,7 @@
                             <tr v-for="property,key in properties">
 
                                 <td>{{property.property_type_name}}</td>
+                                <td><img :src="'storage/uploads/' + property.property_type_picture" alt="" class="img-show"></td>
                                 <td><a type="button" id="show-modal" @click="showModal=true;
                                   setVal(property.id, property.property_type_name)" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editproperty">Edit
                                     </a></td>
@@ -130,13 +139,15 @@ export default {
     data() {
         return {
             property_type_name: "",
+            property_type_picture: "",
             msg: "",
             pagination: {
 
             },
             showModal: false,
             properties: {
-                property_type_name: ""
+                property_type_name: "",
+                property_type_picture: ""
             }
         }
     },
@@ -145,11 +156,20 @@ export default {
         console.log("Type component is mounted");
     },
     methods: {
+        onFileChange(e){
+            this.property_type_picture = e.target.files[0];
+        },
         addType() {
-            axios.post(`/api/admin_addpropertytype`, {
-                    property_type_name: this.property_type_name,
 
-                })
+                const config = {
+                    headers: { 'content-type': 'multipart/form-data' }
+                }
+    
+                let formData = new FormData();
+                formData.append('property_type_picture', this.property_type_picture);
+                formData.append('property_type_name', this.property_type_name);
+
+                axios.post('/api/admin_addpropertytype',formData,config)
                 .then(response => {
                     console.log(response.data)
                     this.msg = "Successfully added Type"
