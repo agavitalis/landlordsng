@@ -15,14 +15,9 @@ class PropertyStatusController extends Controller
         //$this->middleware('adminGuard');
     }
 
-    public function propertystates()
+    public function propertystatus()
     {
-        // $users_count = User::count();
-        // $series_count = Series::count();
-        // $pro_investors_count = ProInvestor::count();
-        // $investors_count = Investor::count();
-        //return view('admin. propertytypes', compact('series_count','users_count','pro_investors_count','investors_count'));
-        return view('admin.propertystates');
+      return view('admin.propertystatus');
     }
     
     public function create(Request $request){

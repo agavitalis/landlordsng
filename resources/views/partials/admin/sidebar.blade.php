@@ -16,7 +16,7 @@
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-cogs"></i><span> Configurations <span class="float-right menu-arrow"><i class="mdi mdi-plus"></i></span> </span></a>
                                 <ul class="submenu">
                                     <li><a href="/admin_propertytypes">Property Types</a></li>
-                                    <li><a href="/admin_propertystates">Property States</a></li>
+                                    <li><a href="/admin_propertystatus">Property Status</a></li>
 
                                 </ul>
                             </li>
