@@ -3,14 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\AgencyRequest;
+use App\Models\AgentRequest;
 use App\Models\Agency;
 use App\Models\Agent;
-use App\Models\AgentRequest;
 use App\Http\Resources\AgentRequestResource;
 use App\Models\User;
-use Auth;
 use Exception;
-use Illuminate\Http\Request;
+use Auth;
+
 
 class AgencyController extends Controller
 {

@@ -25,6 +25,7 @@
                                 <ul class="submenu">
                                     <li><a href="/admin_create_agencies">Create Agencies</a></li>
                                     <li><a href="/admin_manage_agencies">Manage Agencies</a></li>
+                                    <li><a href="/admin_become_an_agency">Become an Agency Requests</a></li>
                                    
                                 </ul>
                             </li>
