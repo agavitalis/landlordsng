@@ -12,8 +12,14 @@ class Agent extends Model
     
     ];
 
+    public function agency()
+    {
+        return $this->belongsTo('App\Models\Agency','agency_id');
+    }
+   
     public function property()
     {
         return $this->hasMany('App\Models\Property');
     }
+
 }
