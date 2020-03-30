@@ -77,9 +77,11 @@ class AgencyController extends Controller
 
                     $agency_requests = AgencyRequest::find($request->id);
 
-                    Agent::create(['agent_name' => $agency_requests->name, 'email' => $agency_requests->email,
-                        'phone' => $agency_requests->phone, 'biography' => $agency_requests->message,
-                        'agency_id' => $agency_requests->agency_id, 'user_id' => $agency_requests->user_id]);
+                    Agency::create(['agency_name' => $agency_requests->agency_name, 'founder' => $agency_requests->founder,
+                        'email' => $agency_requests->email, 'phone' => $agency_requests->phone,
+                        'biography' => $agency_requests->biography, 'address' => $agency_requests->address,
+                        'profile_picture' => $agency_requests->profile_picture, 'user_id' => $agency_requests->user_id
+                    ]);
 
                     $agency_requests->delete();
                     return response()->json(array('success' => 'Request granted'));
@@ -158,27 +160,5 @@ class AgencyController extends Controller
         }
     }
 
-    public function list_requests(){
-      $agent_requests = AgentRequest::paginate(12);
-      return AgentRequestResource::collection($agent_requests);
-    }
-
-    public function approve_request($id){
-      $agent_request=AgentRequest::findOrFail($id);
-      $agent_request->status= true;
-      $agent_request->update();
-      return response()->json(
-        ["Request Approved", $agent_request]
-      );
-    }
-
-    public function reject_request($id){
-      $agent_request=AgentRequest::findOrFail($id);
-      $agent_request->status= false;
-      $agent_request->update();
-      return response()->json(
-        ["Request Disapproved", $agent_request]
-      );
-    }
 
 }
