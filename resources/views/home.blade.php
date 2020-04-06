@@ -59,7 +59,7 @@
                             <a class="nav-link" href="#">Link</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link" href="#">Messages</a>
                         </li>
                         <hr>
                         <li class="nav-item">

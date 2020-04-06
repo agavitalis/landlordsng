@@ -10,10 +10,10 @@
                     <h5 class="title">PROPERTIES LIST</h5>
                     <div class="content">
                         <ul class="menu-col">
-                            <li><a href="#">Properties List</a></li>
-                            <li><a href="#">Search by City</a></li>
-                            <li><a href="#">Search by Category</a></li>
-                            <li><a href="#">Search by Type</a></li>
+                            <li><a href="/properties">Properties List</a></li>
+                            <li><a href="/properties">Search by City</a></li>
+                            <li><a href="/properties">Search by Category</a></li>
+                            <li><a href="/properties">Search by Type</a></li>
                         </ul>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header')
-    @include("partials.otherHeader")
+    @include("partials.user.otherHeader")
 @endsection
  
 @section('content')
@@ -34,7 +34,7 @@
             <img src="images/agent-one.jpg" alt="Agents">
             <div class="img-info">
               <h3>Bohdan Kononets</h3>
-              <span>sales executive</span>
+              <span>Agency: VitaAgency</span>
               <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
               <table class="agent_contact table">
                 <tbody>
@@ -49,7 +49,7 @@
                 </tbody>
               </table>
               <hr>
-              <a class="btn-more" href="javascript:void(0)">
+              <a class="btn-more" href="/agent/1">
               <i><img alt="arrow" src="images/arrow-yellow.png"></i><span>Full Profile</span><i><img alt="arrow" src="images/arrow-yellow.png"></i>
               </a>
             </div>
@@ -62,7 +62,7 @@
             <img src="images/agent-two.jpg" alt="Agents">
             <div class="img-info">
               <h3>Bohdan Kononets</h3>
-              <span>sales executive</span>
+              <span>Agency: VitaAgency</span>
               <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
               <table class="agent_contact table">
                 <tbody>
@@ -77,7 +77,7 @@
                 </tbody>
               </table>
               <hr>
-              <a class="btn-more" href="javascript:void(0)">
+              <a class="btn-more" href="/agent/1">
               <i><img alt="arrow" src="images/arrow-yellow.png"></i><span>Full Profile</span><i><img alt="arrow" src="images/arrow-yellow.png"></i>
               </a>
             </div>
@@ -90,7 +90,7 @@
             <img src="images/agent-three.jpg" alt="Agents">
             <div class="img-info">
               <h3>Bohdan Kononets</h3>
-              <span>sales executive</span>
+              <span>Agency: VitaAgency</span>
               <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
               <table class="agent_contact table">
                 <tbody>
@@ -105,7 +105,7 @@
                 </tbody>
               </table>
               <hr>
-              <a class="btn-more" href="javascript:void(0)">
+              <a class="btn-more" href="/agent/1">
               <i><img alt="arrow" src="images/arrow-yellow.png"></i><span>Full Profile</span><i><img alt="arrow" src="images/arrow-yellow.png"></i>
               </a>
             </div>
@@ -118,7 +118,7 @@
             <img src="images/agent-four.jpg" alt="Agents">
             <div class="img-info">
               <h3>Bohdan Kononets</h3>
-              <span>sales executive</span>
+              <span>Agency: VitaAgency</span>
               <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
               <table class="agent_contact table">
                 <tbody>
@@ -133,7 +133,7 @@
                 </tbody>
               </table>
               <hr>
-              <a class="btn-more" href="javascript:void(0)">
+              <a class="btn-more" href="/agent/1">
               <i><img alt="arrow" src="images/arrow-yellow.png"></i><span>Full Profile</span><i><img alt="arrow" src="images/arrow-yellow.png"></i>
               </a>
             </div>
@@ -146,7 +146,7 @@
             <img src="images/agent-five.jpg" alt="Agents">
             <div class="img-info">
               <h3>Bohdan Kononets</h3>
-              <span>sales executive</span>
+              <span>Agency: VitaAgency</span>
               <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
               <table class="agent_contact table">
                 <tbody>
@@ -161,7 +161,7 @@
                 </tbody>
               </table>
               <hr>
-              <a class="btn-more" href="javascript:void(0)">
+              <a class="btn-more" href="/agent/1">
               <i><img alt="arrow" src="images/arrow-yellow.png"></i><span>Full Profile</span><i><img alt="arrow" src="images/arrow-yellow.png"></i>
               </a>
             </div>
@@ -174,7 +174,7 @@
             <img src="images/agent-six.jpg" alt="Agents">
             <div class="img-info">
               <h3>Bohdan Kononets</h3>
-              <span>sales executive</span>
+              <span>Agency: VitaAgency</span>
               <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
               <table class="agent_contact table">
                 <tbody>
@@ -189,7 +189,7 @@
                 </tbody>
               </table>
               <hr>
-              <a class="btn-more" href="javascript:void(0)">
+              <a class="btn-more" href="/agent/1">
               <i><img alt="arrow" src="images/arrow-yellow.png"></i><span>Full Profile</span><i><img alt="arrow" src="images/arrow-yellow.png"></i>
               </a>
             </div>
@@ -205,5 +205,5 @@
 @endsection
 
 @section('footer')
-    @include("partials.footer")
+    @include("partials.user.footer")
 @endsection
