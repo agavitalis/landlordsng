@@ -27,7 +27,7 @@ class AgencyController extends Controller
             return view("agency_registration");
 
         }else if ($request->isMethod('POST')) {
-         
+
             try {
 
                 $user_id = self::getUser($request->email);
@@ -89,5 +89,5 @@ class AgencyController extends Controller
 
         return $new_name;
     }
-    
+
 }

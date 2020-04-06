@@ -27,11 +27,12 @@
             <div class="col-sm-1 margin40"></div>
             <div class="col-sm-10 margin40">
                 <div class="our-agent-box bottom30">
-                    <h2>Agency Information</h2>
+                    <h2 class="text-center">Agency Information</h2>
                 </div>
-                <form class="callus" action="/become_an_agency" method="post">
+                @if(Auth::user())
+                <form class="callus" action="/become_an_agency" method="post" enctype="multipart/form-data">
                     @csrf
-                   
+
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
@@ -56,7 +57,7 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                          
+
                             <div class="form-group">
                                 <label for="file">Select a Profile Picture</label>
                                 <input type="file" class="form-control" Placeholder="Profile Picture" name="profile_picture"
@@ -66,7 +67,7 @@
                                 <textarea class="form-control" name="message" placeholder="Message">About this agency</textarea>
                             </div>
                         </div>
-                        
+
                         <div class="col-sm-12">
                             <div class="row">
                                 <div class="col-sm-6"></div>
@@ -78,7 +79,10 @@
                         </div>
                     </div>
                 </form>
-            </div>
+                @else
+                <h4 class="text-center text-danger">You have to be logged in to register</h4>
+                @endif
+                </div>
 
         </div>
     </div>
