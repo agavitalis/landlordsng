@@ -25,7 +25,7 @@ LandlordsNG is a property listing ecosystem, that gives you the platform to list
 We would like to extend our thanks to the developers, who are working tirelessly for the actualization of this project.
 
 - **[Ogbonna Vitalis](https://twitter.com/agavitalis)**
-- **[Awam Victor](https://twitter.com/vikta)**
+- **[Awam Victor](https://twitter.com/aryanvikta)**
 
 ## Contributing
 
