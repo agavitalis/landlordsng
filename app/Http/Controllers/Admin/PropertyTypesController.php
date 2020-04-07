@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\PropertyTypeResource;
 use App\Models\PropertyType;
+use Image;
 
 class PropertyTypesController extends Controller
 {
@@ -24,10 +25,18 @@ class PropertyTypesController extends Controller
       $this->validate($request,[
         'property_type_name'=>'required|string'
       ]);
+      
+      //upload the image
+      $picture_name = $this->uploadImage($request,'property_type_picture');
+      $picture_url = \App::make('url')->to('/')."/storage/uploads/".$picture_name;
+
+      //resize the image
+      Image::make("storage/uploads/".$picture_name)->resize(364, 388)->save();
 
       $type = new PropertyType;
       $type->property_type_name = $request->input('property_type_name');
-      $type->property_type_picture = $this->uploadImage($request,'property_type_picture');
+      $type->property_type_picture = $picture_name;
+      $type->property_type_picture_url = $picture_url;
       $type->save();
       return response($type);
     }
@@ -67,8 +76,9 @@ class PropertyTypesController extends Controller
         $request->file($file_name)->storeAs(
             'public/uploads', $new_name
         );
-
+        
         return $new_name;
+        
     }
 
 }
