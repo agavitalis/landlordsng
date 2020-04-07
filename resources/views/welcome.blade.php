@@ -25,59 +25,23 @@
             </div>
         </div>
         <div id="type-grid" class="cbp cbp-l-grid-mosaic-flat">
+        @foreach($property_types as $property_type)
             <div class="cbp-item">
-                <a href="listing1.html">
-                    <img src="images/grid1.jpg" alt="">
+                <a href="/properties/{{$property_type->id}}">
+                    <img src="{{$property_type->property_type_picture_url}}" alt="">
                     <div class="grid-caption">
-                        <h3>Apartments</h3>
-                        <span>51 Properties</span>
+                        <h3>{{$property_type->property_type_name}}</h3>
+                        <span>{{$property_type->property_count}} Properties</span>
                     </div>
                 </a>
             </div>
-            <div class="cbp-item">
-                <a href="listing4.html">
-                    <img src="images/grid2.jpg" alt="">
-                    <div class="grid-caption">
-                        <h3>Single Family Home</h3>
-                        <span>30 Properties</span>
-                    </div>
-                </a>
-            </div>
-            <div class="cbp-item">
-                <a href="listing5.html">
-                    <img src="images/grid3.jpg" alt="">
-                    <div class="grid-caption">
-                        <h3>Villa</h3>
-                        <span>10 Properties</span>
-                    </div>
-                </a>
-            </div>
-            <div class="cbp-item">
-                <a href="listing3.html">
-                    <img src="images/grid4.jpg" alt="">
-                    <div class="grid-caption">
-                        <h3>Offices</h3>
-                        <span>23 Properties</span>
-                    </div>
-                </a>
-            </div>
-            <div class="cbp-item">
-                <a href="listing7.html">
-                    <img src="images/grid5.jpg" alt="">
-                    <div class="grid-caption">
-                        <h3> Condominium</h3>
-                        <span>102 Properties</span>
-                    </div>
-                </a>
-            </div>
+        @endforeach            
+           
         </div>
     </div>
 </section>
 
-
-
 <!--Types End-->
-
 
 <!-- Gallery -->
 <section id="property" class="padding">
@@ -385,8 +349,7 @@
         <div class="row">
             <div class="col-xs-12 text-center">
                 <h2 class="uppercase">Agencies you can trust</h2>
-                <p class="heading_space">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec viverra
-                    erat Aenean elit tellus.</p>
+                <p class="heading_space">Our Agencies are the classical. They have all the connections you need.</p>
             </div>
         </div>
         <div class="row">
@@ -456,8 +419,7 @@
             <div class="row">
                 <div class="col-xs-12 text-center">
                     <h2 class="uppercase">AGENTS YOU CAN TRUST</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec viverra erat Aenean elit
-                        tellus.</p>
+                    <p>We have the best agents, confidently handpicked and always willing to meet you needs.</p>
                 </div>
             </div>
             <div class="row">

@@ -13,6 +13,14 @@ use Auth;
 
 class AgentController extends Controller
 {
+    public function index(){
+        return view('agents');
+    }
+
+    public function agent_profile(){
+        return view('agent_profile');
+    }
+
     public function become_an_agent(Request $request, $id = null){
         if ($request->isMethod('GET')) {
 

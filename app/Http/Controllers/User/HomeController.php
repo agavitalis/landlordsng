@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\PropertyType;
 use App\Models\Agency;
 use App\Models\Agent;
 
@@ -20,8 +21,9 @@ class HomeController extends Controller
     {
         $agencies = Agency::all();
         $agents = Agent::all();
-        
-        return view('welcome', compact('agencies','agents'));
+        $property_types = PropertyType::orderBy('created_at','desc')->withCount('property')->get();
+
+        return view('welcome', compact('agencies','agents','property_types'));
     }
 
     public function home()

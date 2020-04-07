@@ -91,6 +91,11 @@ class PropertyController extends Controller
         return view('my_properties');
     }
 
+    public function favorite_properties()
+    {
+        return view('favorite_properties');
+    }
+
     public function uploadImage($request, $file_name)
     {
         //upload discription image and create garden
