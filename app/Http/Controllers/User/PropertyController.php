@@ -16,6 +16,11 @@ use DB;
 
 class PropertyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function add_property(Request $request)
     {
         if ($request->isMethod('GET')) {
@@ -88,7 +93,12 @@ class PropertyController extends Controller
 
     public function my_properties()
     {
-        return view('my_properties');
+        if(Auth::user()->agent()->exists()){
+            $properties = Property::where(['agent_id'=>Auth::user()->agent->id])->get();
+        }else{
+            $properties = Array();
+        }
+        return view('my_properties',compact('properties'));
     }
 
     public function favorite_properties()
