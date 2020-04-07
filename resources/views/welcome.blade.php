@@ -54,9 +54,11 @@
         </div>
         <div class="clearfix">
             <div id="filters-property" class="cbp-l-filters-button text-center">
-                <div data-filter=".latest" class="cbp-filter-item-active cbp-filter-item">LATEST</div>
-                <div data-filter=".sale" class="cbp-filter-item">SALE</div>
-                <div data-filter=".rent" class="cbp-filter-item">RENT</div>
+                <div data-filter=".latest" class="cbp-filter-item-active cbp-filter-item">TRENDING</div>
+                @foreach($property_status as $status)
+                <div data-filter=".{{strtolower($status->property_status_name)}}" class="cbp-filter-item">{{$status->property_status_name}}</div>
+                @endforeach
+              
             </div>
         </div>
         <div id="property-gallery" class="cbp listing1">
