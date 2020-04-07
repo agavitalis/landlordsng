@@ -27,6 +27,7 @@
 
 <!-- My - Property Start -->
 <section id="agent-2-peperty" class="my-pro padding">
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
