@@ -33,7 +33,7 @@
     <div class="row">
       <div class="col-md-12">
         <ul class="f-p-links margin_bottom">
-          <li><a href="profile.html"><i class="icon-icons230"></i>Profile</a></li>
+          <li><a href="/profile"><i class="icon-icons230"></i>Profile</a></li>
           <li><a href="my_properties.html" class="active"><i class="icon-icons215"></i> My Properties</a></li>
           <li><a href="submit_property.html"><i class="icon-icons215"></i> Submit Property</a></li>
           <li><a href="favorite_properties.html"><i class="icon-icons43"></i> Favorite Properties</a></li>

@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-md-12">
                 <ul class="f-p-links margin_bottom">
-                    <li><a href="/home" class="active"><i class="icon-icons230"></i>Profile</a></li>
+                    <li><a href="/profile" class="active"><i class="icon-icons230"></i>Profile</a></li>
                     <li><a href="/my_properties"><i class="icon-icons215"></i> My Properties</a></li>
                     <li><a href="/submit_property"><i class="icon-icons215"></i> Submit Property</a></li>
                     <li><a href="/favorite_properties"><i class="icon-icons43"></i> Favorite Properties</a></li>
@@ -93,7 +93,7 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="single-query form-group">
-                                                <input type="text" placeholder="Bohdan Kononets" class="keyword-input">
+                                                <input type="text" value="{{Auth::user()->name}}" class="keyword-input">
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
@@ -103,7 +103,7 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="single-query form-group">
-                                                <input type="text" placeholder="(+01) 34 56 7890" class="keyword-input">
+                                                <input type="text" placeholder="{{Auth::user()->phone}}" class="keyword-input">
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
@@ -124,7 +124,7 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="single-query form-group">
-                                                <input type="text" placeholder="bohdan@realtyhomes.com"
+                                                <input type="text" value="{{Auth::user()->email}}"
                                                     class="keyword-input">
                                             </div>
                                         </div>
@@ -136,8 +136,9 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="single-query form-group">
-                                                <textarea placeholder="Write here somthing about yours"
-                                                    class="form-control"></textarea>
+                                                <textarea class="form-control">
+                                                  {{Auth::user()->about}}
+                                                  </textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-sm-12 col-xs-12 text-right">
@@ -153,89 +154,14 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container" id="app">
         <div class="row">
             <div class="col-md-5 col-sm-6 col-xs-12 profile-form margin40">
-                <h3 class="bottom30 margin40">My Social Network</h3>
-                <div class="row">
-                    <form class="callus">
-                        <div class="col-sm-4">
-                            <div class="single-query">
-                                <label>Facebook:</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="single-query form-group">
-                                <input type="text" placeholder="http://facebook.com" class="keyword-input">
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="single-query">
-                                <label>Twitter:</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="single-query form-group">
-                                <input type="text" placeholder="http://twitter.com" class="keyword-input">
-                            </div>
-                        </div>
-
-                        <div class="col-sm-4">
-                            <div class="single-query">
-                                <label>Linkedin:</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="single-query form-group">
-                                <input type="text" placeholder="http://linkedin.com" class="keyword-input">
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12 text-right">
-                            <a class="btn-blue border_radius" href="#.">Save Changes</a>
-                        </div>
-                    </form>
-                </div>
+                <social-link-component></social-link-component>
             </div>
             <div class="col-md-2 hidden-xs"></div>
             <div class="col-md-5 col-sm-6 col-xs-12 profile-form margin40">
-                <h3 class=" bottom30 margin40">Change Your Password</h3>
-                <div class="row">
-                    <form class="callus">
-                        <div class="col-sm-4">
-                            <div class="single-query">
-                                <label>Current Password:</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="single-query form-group">
-                                <input type="password" class="keyword-input">
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="single-query">
-                                <label>New Password:</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="single-query form-group">
-                                <input type="password" class="keyword-input">
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="single-query">
-                                <label>Confirm Password:</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="single-query form-group">
-                                <input type="password" class="keyword-input">
-                            </div>
-                        </div>
-                        <div class="col-sm-12 text-right">
-                            <a class="btn-blue border_radius" href="#.">Save Changes</a>
-                        </div>
-                    </form>
-                </div>
+                <password-component></password-component>
             </div>
         </div>
     </div>

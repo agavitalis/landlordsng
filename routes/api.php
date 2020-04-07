@@ -31,3 +31,5 @@ Route::delete('/deletestatus/{id}', 'Admin\PropertyStatusController@destroy');
 Route::get('/agent_requests', "Admin\AgencyController@list_requests");
 Route::post('/approve_agent/{id}', "Admin\AgencyController@approve_request");
 Route::post("/reject_agent/{id}","Admin\AgencyController@reject");
+
+Route::post('/edit_password/{id}', "User\ProfileController@edit_password");
