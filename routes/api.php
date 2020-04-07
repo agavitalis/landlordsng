@@ -33,3 +33,4 @@ Route::post('/approve_agent/{id}', "Admin\AgencyController@approve_request");
 Route::post("/reject_agent/{id}","Admin\AgencyController@reject");
 
 Route::post('/edit_password/{id}', "User\ProfileController@edit_password");
+Route::post('/edit_links/{id}', "User\ProfileController@edit_links");

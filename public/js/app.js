@@ -2540,7 +2540,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      fb_url: "",
+      twitter_url: "",
+      linkedln_url: "",
+      error: "",
+      msg: ""
+    };
+  },
+  mounted: function mounted() {
+    console.log("social component is mounted");
+  },
+  methods: {
+    updateSocials: function updateSocials() {
+      var _this = this;
+
+      var id = this.$userId;
+      axios.post("/api/edit_links/".concat(id), {
+        fb_url: this.fb_url,
+        twitter_url: this.twitter_url,
+        linkedln_url: this.linkedln_url
+      }).then(function (res) {
+        console.log(res.data);
+        _this.msg = "Social Links updated";
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -21179,61 +21212,103 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", {}, [
-      _c("h3", { staticClass: "bottom30 margin40" }, [
-        _vm._v("My Social Network")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("form", { staticClass: "callus" }, [
-          _c("div", { staticClass: "col-sm-4" }, [
-            _c("div", { staticClass: "single-query" }, [
-              _c("label", [_vm._v("Facebook:")])
-            ])
-          ]),
+  return _c("div", {}, [
+    _c("h3", { staticClass: "bottom30 margin40" }, [
+      _vm._v("My Social Network")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "form",
+        {
+          staticClass: "callus",
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+            }
+          }
+        },
+        [
+          _vm._m(0),
           _vm._v(" "),
           _c("div", { staticClass: "col-sm-8" }, [
             _c("div", { staticClass: "single-query form-group" }, [
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.fb_url,
+                    expression: "fb_url"
+                  }
+                ],
                 staticClass: "keyword-input",
-                attrs: { type: "text", placeholder: "http://facebook.com" }
+                attrs: { type: "text", placeholder: "http://facebook.com/" },
+                domProps: { value: _vm.fb_url },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.fb_url = $event.target.value
+                  }
+                }
               })
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-sm-4" }, [
-            _c("div", { staticClass: "single-query" }, [
-              _c("label", [_vm._v("Twitter:")])
-            ])
-          ]),
+          _vm._m(1),
           _vm._v(" "),
           _c("div", { staticClass: "col-sm-8" }, [
             _c("div", { staticClass: "single-query form-group" }, [
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.twitter_url,
+                    expression: "twitter_url"
+                  }
+                ],
                 staticClass: "keyword-input",
-                attrs: { type: "text", placeholder: "http://twitter.com" }
+                attrs: { type: "text", placeholder: "http://twitter.com/" },
+                domProps: { value: _vm.twitter_url },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.twitter_url = $event.target.value
+                  }
+                }
               })
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-sm-4" }, [
-            _c("div", { staticClass: "single-query" }, [
-              _c("label", [_vm._v("Linkedin:")])
-            ])
-          ]),
+          _vm._m(2),
           _vm._v(" "),
           _c("div", { staticClass: "col-sm-8" }, [
             _c("div", { staticClass: "single-query form-group" }, [
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.linkedln_url,
+                    expression: "linkedln_url"
+                  }
+                ],
                 staticClass: "keyword-input",
-                attrs: { type: "text", placeholder: "http://linkedin.com" }
+                attrs: { type: "text", placeholder: "http://linkedin.com" },
+                domProps: { value: _vm.linkedln_url },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.linkedln_url = $event.target.value
+                  }
+                }
               })
             ])
           ]),
@@ -21246,13 +21321,45 @@ var staticRenderFns = [
                 "a",
                 {
                   staticClass: "btn-blue border_radius",
-                  attrs: { href: "#." }
+                  on: { click: _vm.updateSocials }
                 },
                 [_vm._v("Save Changes")]
               )
             ]
           )
-        ])
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-4" }, [
+      _c("div", { staticClass: "single-query" }, [
+        _c("label", [_vm._v("Facebook:")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-4" }, [
+      _c("div", { staticClass: "single-query" }, [
+        _c("label", [_vm._v("Twitter:")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-4" }, [
+      _c("div", { staticClass: "single-query" }, [
+        _c("label", [_vm._v("Linkedin:")])
       ])
     ])
   }

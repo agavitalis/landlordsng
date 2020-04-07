@@ -37,14 +37,19 @@ class ProfileController extends Controller
       }
     }
 
-    public function edit_links(){
-
+    public function edit_links(Request $request, $id){
+      $user =User::findOrFail($id);
+      $user->fb_url = $request->input('fb_url');
+      $user->linkedln_url = $request->input('linkedln_url');
+      $user->twitter_url = $request->input('twitter_url');
+      $user->save();
+      return response()->json("Social Links successfully updated")
     }
     public function edit_details(){
 
     }
 
     public function edit_pics(){
-      
+
     }
 }
