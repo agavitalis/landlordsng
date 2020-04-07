@@ -14,11 +14,26 @@ class ProfileController extends Controller
 {
     //
     public function __construct(){
-      $this->middleware('auth')->except(['edit_password','edit_pics','edit_links']);
+      $this->middleware('auth')->except('edit_password','edit_pics','edit_links');
     }
 
-    public function profile(){
-      return view('profile');
+    public function profile(Request $request){
+
+      if($request->isMethod('GET')){
+        return view('profile');
+      }else if($request->isMethod("POST")){
+        $this->validate($request,[
+          'name'=>"string|required",
+          'email'=>"string|required",
+          'phone'=>"string|required"
+        ]);
+        $user= Auth::user();
+        $user->name= $request->name;
+        $user->email=$request->email;
+        $user->phone= $request->phone;
+        $user->update();
+        return view('profile');
+      }
     }
 
     public function edit_password(Request $request, $id){
@@ -44,9 +59,6 @@ class ProfileController extends Controller
       $user->twitter_url = $request->input('twitter_url');
       $user->save();
       return response()->json("Social Links successfully updated")
-    }
-    public function edit_details(){
-
     }
 
     public function edit_pics(){

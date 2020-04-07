@@ -85,7 +85,7 @@
                         <div class="col-md-8">
                             <div class="profile-form">
                                 <div class="row">
-                                    <form class="callus">
+                                    <form class="callus" action="{{route('profile')}}">
                                         <div class="col-sm-4">
                                             <div class="single-query">
                                                 <label>Your Name:</label>
@@ -93,7 +93,8 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="single-query form-group">
-                                                <input type="text" value="{{Auth::user()->name}}" class="keyword-input">
+                                                <input type="text" value="{{Auth::user()->name}}"
+                                                name="name" class="keyword-input">
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
@@ -103,7 +104,8 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="single-query form-group">
-                                                <input type="text" placeholder="{{Auth::user()->phone}}" class="keyword-input">
+                                                <input type="text" placeholder="{{Auth::user()->phone}}"
+                                              name="phone"  class="keyword-input">
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
@@ -125,7 +127,7 @@
                                         <div class="col-sm-8">
                                             <div class="single-query form-group">
                                                 <input type="text" value="{{Auth::user()->email}}"
-                                                    class="keyword-input">
+                                                    class="keyword-input" name="email">
                                             </div>
                                         </div>
 
@@ -136,7 +138,7 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="single-query form-group">
-                                                <textarea class="form-control">
+                                                <textarea class="form-control" name="about">
                                                   {{Auth::user()->about}}
                                                   </textarea>
                                             </div>
