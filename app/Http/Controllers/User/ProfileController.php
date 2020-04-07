@@ -58,7 +58,7 @@ class ProfileController extends Controller
       $user->linkedln_url = $request->input('linkedln_url');
       $user->twitter_url = $request->input('twitter_url');
       $user->save();
-      return response()->json("Social Links successfully updated")
+      return response()->json("Social Links successfully updated");
     }
 
     public function edit_pics(){
