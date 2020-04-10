@@ -14,7 +14,9 @@ use Auth;
 class AgentController extends Controller
 {
     public function index(){
-        return view('agents');
+        $agents = Agent::paginate(50);
+        //dd($agents);
+        return view('agents',compact('agents'));
     }
 
     public function agent_profile(){

@@ -28,6 +28,7 @@
 <section id="agent-2" class="padding_top padding_bottom_half">
   <div class="container">
     <div class="row">
+    @foreach($agents as $agent)
       <div class="col-sm-4 bottom40">
         <div class="agent_wrap">
           <div class="image">
@@ -56,6 +57,7 @@
           </div>
         </div>
       </div>
+    @endforeach
       <div class="col-sm-4 bottom40">
         <div class="agent_wrap">
           <div class="image">
