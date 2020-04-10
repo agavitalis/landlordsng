@@ -30,22 +30,37 @@ class AgencyController extends Controller
 
             try {
                 $user_id = self::getUser($request->email);
+
                 if ($user_id) {
-                    $profile_picture = self::uploadImage($request, 'profile_picture');
 
-                    Agency::create(['agency_name' => $request->agency_name, 'founder' => $request->founder,
-                        'email' => $request->email, 'phone' => $request->phone, 'biography' => $request->biography,
-                        'address' => $request->address, 'profile_picture' => $profile_picture,
-                        'instagram' => $request->instagram, 'user_id' => $user_id,
-                        'twitter' => $request->twitter, 'facebook' => $request->facebook, 'website' => $request->website]);
+                    $checkAgency = self::checkAgency($user_id);
+                    if (!$checkAgency) {
+                        $profile_picture = self::uploadImage($request, 'profile_picture');
+                        
+                        $agency = Agency::create(['agency_name' => $request->agency_name, 'founder' => $request->founder,
+                            'email' => $request->email, 'phone' => $request->phone, 'biography' => $request->biography,
+                            'address' => $request->address, 'profile_picture' => $profile_picture,
+                            'instagram' => $request->instagram, 'user_id' => $user_id,
+                            'twitter' => $request->twitter, 'facebook' => $request->facebook, 'website' => $request->website]);
 
-                    return back()->with('success', 'Agency successfully created');
+                        //update this user as an agency
+                    
+                        User::find($user_id)->update(['agency_id'=>$agency->id]);
+                        if(Agent::where(['user_id'=>$user_id])->count() > 0){
+                            Agent::update(['agency_id'=>$agent->id])->where(['user_id'=>$user_id]);
+                        }
+
+                        return back()->with('success', 'Agency successfully created');
+                    }else{
+                        return back()->with('errors', 'This email is already an Agency');
+                    }
+
                 } else {
-                    return back()->with('error', 'This email does not belong to a registered user');
+                    return back()->with('errors', 'This email does not belong to a registered user');
                 }
 
             } catch (Exception $e) {
-                return back()->with('error', $e->getMessage());
+                return back()->with('errors', $e->getMessage());
             }
 
         }
@@ -77,13 +92,21 @@ class AgencyController extends Controller
 
                     $agency_requests = AgencyRequest::find($request->id);
 
-                    Agency::create(['agency_name' => $agency_requests->agency_name, 'founder' => $agency_requests->founder,
+                    $agency = Agency::create(['agency_name' => $agency_requests->agency_name, 'founder' => $agency_requests->founder,
                         'email' => $agency_requests->email, 'phone' => $agency_requests->phone,
                         'biography' => $agency_requests->biography, 'address' => $agency_requests->address,
                         'profile_picture' => $agency_requests->profile_picture, 'user_id' => $agency_requests->user_id
                     ]);
 
+                   
+                    //update this user as an agency
+                    User::find($agency_requests->user_id)->update(['agency_id'=>$agency->id]);
+                    if(Agent::where(['user_id'=>$agency_requests->user_id])->count() > 0){
+                        Agent::update(['agency_id'=>$agency->id])->where(['user_id'=>$agency_requests->user_id]);
+                    }
+
                     $agency_requests->delete();
+                   
                     return response()->json(array('success' => 'Request granted'));
 
                 } else if ($request->action == "pend") {
@@ -127,8 +150,6 @@ class AgencyController extends Controller
         }
     }
 
-
-
     public function edit_agency(Request $request, $id)
     {
         if ($request->isMethod('GET')) {
@@ -157,6 +178,16 @@ class AgencyController extends Controller
             $agency->linkedin = $request->linkedin;
             $agency->save();
             return back()->with('success', 'successfully updated the ');
+        }
+    }
+
+    private function checkAgency($user_id)
+    {
+        $user = Agency::where(['user_id' => $user_id])->first();
+        if ($user) {
+            return $user->id;
+        } else {
+            return null;
         }
     }
 
