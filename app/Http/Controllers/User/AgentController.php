@@ -14,7 +14,8 @@ use Auth;
 class AgentController extends Controller
 {
     public function index(){
-        return view('agents');
+      $agents = Agent::all();
+        return view('agents',compact('agents'));
     }
 
     public function agent_profile(){
