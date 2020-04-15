@@ -48,6 +48,7 @@
     </div>
     <div class="container">
         <div class="row">
+            @include("partials.alert")
             <div class="col-md-3">
                 <div class="container-3">
                     <ul class="nav flex-column">
@@ -59,10 +60,7 @@
                         </li>
                        
                         <hr>
-                        <p>
-                           
-                           
-                        </p>
+                       
                         
                         <li class="nav-item">
                             <a data-toggle="collapse" href="#collapseExample" role="button"
@@ -138,7 +136,9 @@
                         <div class="col-md-8">
                             <div class="profile-form">
                                 <div class="row">
-                                    <form class="callus" action="{{route('profile')}}">
+                                    <form class="callus" action="{{route('profile')}}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="action" value="profile">
                                         <div class="col-sm-4">
                                             <div class="single-query">
                                                 <label>Your Name:</label>
@@ -157,21 +157,11 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="single-query form-group">
-                                                <input type="text" placeholder="{{Auth::user()->phone}}" name="phone"
+                                                <input type="text" value="{{Auth::user()->phone}}" name="phone"
                                                     class="keyword-input">
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
-                                            <div class="single-query">
-                                                <label>Mobile:</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <div class="single-query form-group">
-                                                <input type="text" placeholder="(+033) 34 56 7890"
-                                                    class="keyword-input">
-                                            </div>
-                                        </div>
+                                       
                                         <div class="col-sm-4">
                                             <div class="single-query">
                                                 <label>Email Adress:</label>
@@ -191,13 +181,13 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="single-query form-group">
-                                                <textarea class="form-control" name="about">
-                                                  {{Auth::user()->about}}
+                                                <textarea class="form-control" name="biography">
+                                                  {{Auth::user()->biography}}
                                                   </textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-sm-12 col-xs-12 text-right">
-                                            <a class="btn-blue border_radius" href="#.">Save Changes</a>
+                                            <input type="submit" class="btn-blue border_radius" value="Save Changes"/>
                                         </div>
                                     </form>
                                 </div>

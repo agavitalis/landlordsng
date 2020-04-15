@@ -20,19 +20,24 @@ class ProfileController extends Controller
     {
 
         if ($request->isMethod('GET')) {
+
             return view('profile');
+
         } else if ($request->isMethod("POST")) {
+           
             $this->validate($request, [
                 'name' => "string|required",
-                'email' => "string|required",
                 'phone' => "string|required",
+                'biography' => "string|required",
             ]);
+
             $user = Auth::user();
             $user->name = $request->name;
-            $user->email = $request->email;
             $user->phone = $request->phone;
+            $user->biography = $request->biography;
             $user->update();
-            return view('profile');
+
+            return back()->with('success','Profile Update Successful');
         }
     }
 
