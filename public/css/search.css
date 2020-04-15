@@ -46,7 +46,6 @@
 	transition: all 0.3s ease 0s;
 }
 .single-query input, .single-query select {
-	text-transform: capitalize;
 	width: 100%;
 }
 .single-query select {
