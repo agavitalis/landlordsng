@@ -362,7 +362,7 @@
                           <div class="col-md-6">
                               <div class="row">
                                   <div class="agent_media bottom10 top10">
-                                      <div class="agents"><img src="{{$agency->profile_picture}}" alt="agent"></div>
+                                      <div class="agents"><img src="{{$agency->profile_picture}}" alt="Agency Picture" width="294" height="286"></div>
                                       <div class="agents_white text-center">
                                           <h4>{{$agency->agency_name}}</h4>
                                           <p class="bottom15">{{$agency->email}}</p>
