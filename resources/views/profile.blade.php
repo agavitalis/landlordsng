@@ -75,13 +75,18 @@
 
                                         </li>
                                         <li class="nav-item">
+                                            <a class="nav-link disabled" href="/edit_agency_details" tabindex="-1"
+                                                aria-disabled="true">Agency Profile</a>
+
+                                        </li>
+                                        <li class="nav-item">
                                             <a class="nav-link disabled" href="/agent_requests" tabindex="-1"
                                                 aria-disabled="true">Agent Requests</a>
 
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link disabled" href="/my_agents" tabindex="-1"
-                                                aria-disabled="true">My Agent</a>
+                                                aria-disabled="true">My Agents</a>
 
                                         </li>
                                         <li class="nav-item">
@@ -105,6 +110,11 @@
                                         <li class="nav-item">
                                             <a class="nav-link disabled" href="/agencies" tabindex="-1"
                                                 aria-disabled="true">Become an Agent</a>
+
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link disabled" href="/edit_agent_details" tabindex="-1"
+                                                aria-disabled="true">Agent Profile</a>
 
                                         </li>
                                         <li class="nav-item">

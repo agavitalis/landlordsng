@@ -50,7 +50,6 @@ class AgencyController extends Controller
 
     public function my_agents(){
 
-        //dd('I got here');
         $agents = Agent::where(['agency_id'=> Auth::user()->agency_id])->get();
         return view('my_agents',compact('agents'));
     }
@@ -87,6 +86,12 @@ class AgencyController extends Controller
                 return back()->with('errors', $e->getMessage());
             }
 
+        }
+    }
+
+    public function edit_agency_details(Request $request){
+        if($request->isMethod('GET')){
+            return view('edit_agency_details');
         }
     }
 

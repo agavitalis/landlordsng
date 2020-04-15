@@ -15,7 +15,6 @@ class AgentController extends Controller
 {
     public function index(){
         $agents = Agent::paginate(50);
-        //dd($agents);
         return view('agents',compact('agents'));
     }
 
@@ -55,6 +54,12 @@ class AgentController extends Controller
                 return back()->with('error', $e->getMessage());
             }
 
+        }
+    }
+
+    public function edit_agent_details(Request $request){
+        if($request->isMethod('GET')){
+            return view('edit_agent_details');
         }
     }
 
