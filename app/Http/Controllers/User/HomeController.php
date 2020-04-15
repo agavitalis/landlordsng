@@ -30,8 +30,7 @@ class HomeController extends Controller
         return view('welcome', compact('agencies','agents','property_types','property_status'));
     }
 
-    public function home()
-    {
-        return view('home');
+    public function contact(){
+        return view('contact');
     }
 }

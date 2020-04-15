@@ -5,8 +5,6 @@ Vue.prototype.$userId = document.querySelector("meta[name='user-id']").getAttrib
 
 Vue.component('type-component', require('./components/propertyTypeComponent.vue').default);
 Vue.component('status-component', require('./components/PropertyStatusComponent.vue').default);
-Vue.component('password-component', require('./components/passwordComponent.vue').default);
-Vue.component('social-link-component', require('./components/socialLinkComponent.vue').default);
 
 const app = new Vue({
     el: '#app'
