@@ -4,8 +4,10 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\AgencyRequest;
+use App\Models\AgentRequest;
 use Illuminate\Http\Request;
 use App\Models\Agency;
+use App\Models\Agent;
 use App\Models\User;
 use Auth;
 
@@ -20,6 +22,37 @@ class AgencyController extends Controller
     public function agency_profile($id = null){
         $agency = Agency::find($id);
         return view('agencies_profile',compact('agency'));
+    }
+
+    public function agent_requests(){
+
+        $agent_requests = AgentRequest::where(['agency_id'=> Auth::user()->agency_id])->get();
+        return view('agent_requests',compact('agent_requests'));
+    }
+
+    public function agent_requests_approve(Request $request, $id = null){
+
+        $agent_requests = AgentRequest::find($request->id);
+
+        Agent::create(['agent_name' => $agent_requests->name, 'email' => $agent_requests->email,
+            'phone' => $agent_requests->phone, 'biography' => $agent_requests->message,
+            'agency_id' => $agent_requests->agency_id, 'user_id' => $agent_requests->user_id]);
+
+        $agent_requests->delete();
+        return back()->with('success', 'Request Approved');
+     
+    }
+
+    public function agent_requests_reject(Request $request, $id = null){
+        AgentRequest::find($request->id)->delete();
+        return back()->with('success', 'Request Approved');
+    }
+
+    public function my_agents(){
+
+        //dd('I got here');
+        $agents = Agent::where(['agency_id'=> Auth::user()->agency_id])->get();
+        return view('my_agents',compact('agents'));
     }
 
     public function become_an_agency(Request $request, $id = null){
@@ -87,7 +120,9 @@ class AgencyController extends Controller
             'public/uploads', $new_name
         );
 
-        return $new_name;
+        $picture_url = \App::make( 'url' )->to( '/' ).'/storage/uploads/'.$new_name;
+
+        return $picture_url;
     }
 
 }

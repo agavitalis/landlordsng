@@ -34,7 +34,7 @@
             <div class="ouragents clearfix">
               @foreach($agencies as $agency)
                 <div class="col-md-3 col-sm-6 heading_space">
-                    <div class="image"><img src="storage/uploads/{{$agency->profile_picture}}" alt="Owl Image"></div>
+                    <div class="image"><img src="{{$agency->profile_picture}}" alt="Agency Image" width="294" height="286"></div>
                 </div>
                 <div class="col-md-3 col-sm-6 text-center  bg_white heading_space">
                     <h3>{{$agency->agency_name}}</h3>
