@@ -84,7 +84,7 @@
       <div class="col-sm-4 bottom40">
         <div class="agent_wrap">
           <div class="image">
-            <img src="{{$agency->profile_picture}}" alt="Agents" height="388" width="364">
+            <img src="{{$agency->profile_picture}}" alt="Agency" height="388" width="364">
           </div>
         </div>
       </div>

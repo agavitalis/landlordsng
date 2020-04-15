@@ -21,7 +21,7 @@ Route::group(['namespace' => "User"], function () {
 
     Route::match(['GET', 'POST'], '/become_an_agent/{id?}', 'AgentController@become_an_agent')->name('become_an_agent');
     Route::match(['GET', 'POST'], '/agents', 'AgentController@index')->name('agents');
-    Route::match(['GET', 'POST'], '/agent/{id}', 'AgentController@agent_profile')->name('agent_profile');
+    Route::match(['GET', 'POST'], '/agenct_profile/{id}', 'AgentController@agent_profile')->name('agent_profile');
 
     
     Route::match(['GET', 'POST'], '/profile', 'ProfileController@profile')->name('profile');

@@ -11,11 +11,10 @@
     <div class="row">
       <div class="col-md-12 text-center">
         <h1 class="text-uppercase">Agents</h1>
-        <p>Serving you since 1999. Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+        <p>We have the most trusted agents from reputable agencies</p>
         <ol class="breadcrumb text-center ">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Pages</a></li>
-          <li><a href="#">Agencies</a></li>
+          <li><a href="/">Home</a></li>
+          <li class="active"><a href="#">Agents</a></li>
           
         </ol>
       </div>
@@ -34,23 +33,23 @@
           <div class="image">
             <img src="images/agent-one.jpg" alt="Agents">
             <div class="img-info">
-              <h3>Bohdan Kononets</h3>
-              <span>Agency: VitaAgency</span>
-              <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
+              <h3>{{$agent->agent_name}}</h3>
+              <span>Agency: {{$agent->agency->agency_name}}</span>
+              <p class="top20 bottom30">{{$agent->biography}}</p>
               <table class="agent_contact table">
                 <tbody>
                   <tr class="bottom10">
                     <td><strong>Phone:</strong></td>
-                    <td class="text-right">(+01) 34 56 7890</td>
+                    <td class="text-right">{{$agent->phone}}</td>
                   </tr>
                   <tr>
                     <td><strong>Email Adress:</strong></td>
-                    <td class="text-right"><a href="#.">bohdan@landlordsng.com</a></td>
+                    <td class="text-right"><a href="#.">{{$agent->email}}</a></td>
                   </tr>
                 </tbody>
               </table>
               <hr>
-              <a class="btn-more" href="/agent/1">
+              <a class="btn-more" href="/agenct_profile/{{$agent->id}}">
               <i><img alt="arrow" src="images/arrow-yellow.png"></i><span>Full Profile</span><i><img alt="arrow" src="images/arrow-yellow.png"></i>
               </a>
             </div>
@@ -58,146 +57,7 @@
         </div>
       </div>
     @endforeach
-      <div class="col-sm-4 bottom40">
-        <div class="agent_wrap">
-          <div class="image">
-            <img src="images/agent-two.jpg" alt="Agents">
-            <div class="img-info">
-              <h3>Bohdan Kononets</h3>
-              <span>Agency: VitaAgency</span>
-              <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
-              <table class="agent_contact table">
-                <tbody>
-                  <tr class="bottom10">
-                    <td><strong>Phone:</strong></td>
-                    <td class="text-right">(+01) 34 56 7890</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Email Adress:</strong></td>
-                    <td class="text-right"><a href="#.">bohdan@landlordsng.com</a></td>
-                  </tr>
-                </tbody>
-              </table>
-              <hr>
-              <a class="btn-more" href="/agent/1">
-              <i><img alt="arrow" src="images/arrow-yellow.png"></i><span>Full Profile</span><i><img alt="arrow" src="images/arrow-yellow.png"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4 bottom40">
-        <div class="agent_wrap">
-          <div class="image">
-            <img src="images/agent-three.jpg" alt="Agents">
-            <div class="img-info">
-              <h3>Bohdan Kononets</h3>
-              <span>Agency: VitaAgency</span>
-              <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
-              <table class="agent_contact table">
-                <tbody>
-                  <tr class="bottom10">
-                    <td><strong>Phone:</strong></td>
-                    <td class="text-right">(+01) 34 56 7890</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Email Adress:</strong></td>
-                    <td class="text-right"><a href="#.">bohdan@landlordsng.com</a></td>
-                  </tr>
-                </tbody>
-              </table>
-              <hr>
-              <a class="btn-more" href="/agent/1">
-              <i><img alt="arrow" src="images/arrow-yellow.png"></i><span>Full Profile</span><i><img alt="arrow" src="images/arrow-yellow.png"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4 bottom40">
-        <div class="agent_wrap">
-          <div class="image">
-            <img src="images/agent-four.jpg" alt="Agents">
-            <div class="img-info">
-              <h3>Bohdan Kononets</h3>
-              <span>Agency: VitaAgency</span>
-              <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
-              <table class="agent_contact table">
-                <tbody>
-                  <tr class="bottom10">
-                    <td><strong>Phone:</strong></td>
-                    <td class="text-right">(+01) 34 56 7890</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Email Adress:</strong></td>
-                    <td class="text-right"><a href="#.">bohdan@landlordsng.com</a></td>
-                  </tr>
-                </tbody>
-              </table>
-              <hr>
-              <a class="btn-more" href="/agent/1">
-              <i><img alt="arrow" src="images/arrow-yellow.png"></i><span>Full Profile</span><i><img alt="arrow" src="images/arrow-yellow.png"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4 bottom40">
-        <div class="agent_wrap">
-          <div class="image">
-            <img src="images/agent-five.jpg" alt="Agents">
-            <div class="img-info">
-              <h3>Bohdan Kononets</h3>
-              <span>Agency: VitaAgency</span>
-              <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
-              <table class="agent_contact table">
-                <tbody>
-                  <tr class="bottom10">
-                    <td><strong>Phone:</strong></td>
-                    <td class="text-right">(+01) 34 56 7890</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Email Adress:</strong></td>
-                    <td class="text-right"><a href="#.">bohdan@landlordsng.com</a></td>
-                  </tr>
-                </tbody>
-              </table>
-              <hr>
-              <a class="btn-more" href="/agent/1">
-              <i><img alt="arrow" src="images/arrow-yellow.png"></i><span>Full Profile</span><i><img alt="arrow" src="images/arrow-yellow.png"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4 bottom40">
-        <div class="agent_wrap">
-          <div class="image">
-            <img src="images/agent-six.jpg" alt="Agents">
-            <div class="img-info">
-              <h3>Bohdan Kononets</h3>
-              <span>Agency: VitaAgency</span>
-              <p class="top20 bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer.</p>
-              <table class="agent_contact table">
-                <tbody>
-                  <tr class="bottom10">
-                    <td><strong>Phone:</strong></td>
-                    <td class="text-right">(+01) 34 56 7890</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Email Adress:</strong></td>
-                    <td class="text-right"><a href="#.">bohdan@landlordsng.com</a></td>
-                  </tr>
-                </tbody>
-              </table>
-              <hr>
-              <a class="btn-more" href="/agent/1">
-              <i><img alt="arrow" src="images/arrow-yellow.png"></i><span>Full Profile</span><i><img alt="arrow" src="images/arrow-yellow.png"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+    
     </div>
   </div>
 </section>

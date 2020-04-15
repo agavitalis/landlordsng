@@ -19,8 +19,10 @@ class AgentController extends Controller
         return view('agents',compact('agents'));
     }
 
-    public function agent_profile(){
-        return view('agent_profile');
+    public function agent_profile($id = null){
+        
+        $agent = Agent::where(['id'=>$id])->first();
+        return view('agent_profile', compact('agent'));
     }
 
     public function become_an_agent(Request $request, $id = null){

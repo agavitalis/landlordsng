@@ -432,7 +432,7 @@
                             <img src="images/agent-one.jpg" alt="Agents">
                             <div class="img-info">
                                 <h3>{{$agent->agent_name}}</h3>
-                                <span>{{$agent->agency->agency_name}}</span>
+                                <span>Agency: {{$agent->agency->agency_name}}</span>
                                 <p class="top20 bottom30">{{$agent->biography}}</p>
                                 <table class="agent_contact table">
                                     <tbody>
