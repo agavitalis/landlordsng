@@ -19,7 +19,7 @@ class AgentController extends Controller
     }
 
     public function agent_profile($id = null){
-        
+
         $agent = Agent::where(['id'=>$id])->first();
         return view('user.agent.agent_profile', compact('agent'));
     }
@@ -66,6 +66,29 @@ class AgentController extends Controller
             }
             return view('user.agent.edit_agent_details', compact('agent'));
         }
+        else if($request->isMethod('POST')){
+          if($request->hasFile('profile_picture')){
+            $profile_picture = self::uploadImage($request, 'profile_picture');
+          }else{
+            $agent = Agent::where(['user_id'=>Auth::user()->id])->first();
+            $profile_picture = $agent->profile_picture;
+          }
+          $agent = Agent::where(['user_id'=>Auth::user()->id])->first();
+          $agent->agent_name = $request->agent_name;
+          $agent->email = $request->email;
+          $agent->phone = $request->phone;
+          $agent->biography = $request->biography;
+          $agent->address = $request->address;
+          $agent->instagram = $request->instagram;
+          $agent->twitter = $request->twitter;
+          $agent->facebook = $request->facebook;
+          $agent->linkedin = $request->linkedin;
+          $agent->website = $request->website;
+          $agent->profile_picture = $profile_picture;
+          $agent->update();
+          return view('user.agent.edit_agent_details',compact('agent'))
+          ->with("success", "Successfully updated agents profile");
+        }
     }
 
     private function getUser($email)
@@ -86,5 +109,20 @@ class AgentController extends Controller
         } else {
             return null;
         }
+    }
+
+    public function uploadImage($request, $file_name)
+    {
+        //upload discription image and create garden
+        $extension = $request->file($file_name)->getClientOriginalExtension();
+        $new_name = round(microtime(true)) . '.' . $extension;
+
+        $request->file($file_name)->storeAs(
+            'public/uploads', $new_name
+        );
+
+        $profile_picture = \App::make( 'url' )->to( '/' ).'/storage/uploads/'.$new_name;
+
+        return $profile_picture;
     }
 }

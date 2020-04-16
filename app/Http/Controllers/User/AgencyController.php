@@ -40,7 +40,7 @@ class AgencyController extends Controller
 
         $agent_requests->delete();
         return back()->with('success', 'Request Approved');
-     
+
     }
 
     public function agent_requests_reject(Request $request, $id = null){
@@ -91,9 +91,32 @@ class AgencyController extends Controller
 
     public function edit_agency_details(Request $request){
         if($request->isMethod('GET')){
-            return view('user.agency.edit_agency_details');
+          $agency = Agency::where(['user_id'=>Auth::user()->id])->first();
+            return view('user.agency.edit_agency_details',compact('agency'));
         }
-    }
+        else if($request->isMethod('POST')){
+            if($request->hasFile('profile_picture')){
+              $profile_picture = self::uploadImage($request, 'profile_picture');
+            }else{
+              $agency = Agency::where(['user_id'=>Auth::user()->id])->first();
+              $profile_picture = $agent->profile_picture;
+            }
+              $agency = Agency::where(['user_id'=>Auth::user()->id])->first();
+              $agency->agency_name = $request->agency_name;
+              $agency->email = $request->email;
+              $agency->phone = $request->phone;
+              $agency->biography = $request->biography;
+              $agency->instagram = $request->instagram;
+              $agency->twitter = $request->twitter;
+              $agency->facebook = $request->facebook;
+              $agency->linkedin = $request->linkedin;
+              $agency->website = $request->website;
+              $agency->profile_picture = $profile_picture;
+              $agency->update();
+              return view('user.agency.edit_agency_details',compact('agency'))
+              ->with("success", "Successfully updated agents profile");
+          }
+      }
 
     private function getUser($email)
     {
@@ -125,9 +148,9 @@ class AgencyController extends Controller
             'public/uploads', $new_name
         );
 
-        $picture_url = \App::make( 'url' )->to( '/' ).'/storage/uploads/'.$new_name;
+        $profile_picture = \App::make( 'url' )->to( '/' ).'/storage/uploads/'.$new_name;
 
-        return $picture_url;
+        return $profile_picture;
     }
 
 }
