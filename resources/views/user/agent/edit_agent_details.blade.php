@@ -20,7 +20,7 @@
 
 <!-- testimonials Start -->
 <section id="contact-us" class="padding">
-    <div class="container">
+    <div class="container-fluid">
 
         <div class="row">
             @include("partials.alert")
@@ -34,37 +34,64 @@
                     @csrf
 
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div class="form-group">
-                                <input type="text" class="form-control" Placeholder="Agency Name" name="agency_name"
-                                    value="">
+                                <label for="agent_name">Agent Name</label>
+                                <input type="text" class="form-control" Placeholder="Agency Name" name="agent_name"
+                                    value="{{$agent->agent_name}}">
                             </div>
+                           
                             <div class="form-group">
-                                <input type="tel" class="form-control" Placeholder="Founder" name="founder"
-                                    value="{{Auth::user()->name}}">
-                            </div>
-                            <div class="form-group">
+                                <label for="agent_email">Agent Email</label>
                                 <input type="email" class="form-control" Placeholder="Agency Email" name="email"
-                                    value="{{Auth::user()->email}}">
+                                    value="{{$agent->email}}">
                             </div>
                             <div class="form-group">
+                                <label for="agent_phone">Agent Phone</label>
                                 <input type="text" class="form-control" Placeholder="Agency Phone" name="phone"
-                                    value="">
+                                    value="{{$agent->phone}}">
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" Placeholder="Agency Office Address" name="address"
-                                    value="">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-
                             <div class="form-group">
                                 <label for="file">Select a Profile Picture</label>
                                 <input type="file" class="form-control" Placeholder="Profile Picture" name="profile_picture"
                                     value="">
                             </div>
+                           
+                        </div>
+                        <div class="col-sm-4">
                             <div class="form-group">
-                                <textarea class="form-control" name="message" placeholder="Message">About this agency</textarea>
+                                <label for="agent_name">Twitter Handle</label>
+                                <input type="text" class="form-control" Placeholder="Agency Name" name="agent_name"
+                                    value="{{$agent->agent_name}}">
+                            </div>
+                           
+                            <div class="form-group">
+                                <label for="agent_email">Facebook Handle</label>
+                                <input type="email" class="form-control" Placeholder="Agency Email" name="email"
+                                    value="{{$agent->email}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="agent_phone">Instagram Handle</label>
+                                <input type="text" class="form-control" Placeholder="Agency Phone" name="phone"
+                                    value="{{$agent->phone}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="agent_address">Website</label>
+                                <input type="text" class="form-control" Placeholder="Agency Office Address" name="address"
+                                    value="">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="agent_address">Your Address</label>
+                               
+                                <textarea name="message" class="form-control" placeholder="Message" rows='5' cols='5'>Where can clients find you?</textarea>
+                    
+                            </div>
+                           
+                            <div class="form-group">
+                                <label for="agent_address">Quick Intro</label>
+                                <textarea name="message" class="form-control" placeholder="Message" rows='5' cols='5'>A Quick intor about yourself</textarea>
                             </div>
                         </div>
 

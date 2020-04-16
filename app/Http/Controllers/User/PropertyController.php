@@ -27,7 +27,7 @@ class PropertyController extends Controller
 
             $property_status = PropertyStatus::get();
             $property_type = PropertyType::all();           
-            return view('submit_property', compact('property_status','property_type'));
+            return view('user.agent.submit_property', compact('property_status','property_type'));
 
         }else if($request->isMethod('POST')){
            // return response()->json(array('message' => "Success"));
@@ -98,7 +98,7 @@ class PropertyController extends Controller
         }else{
             $properties = Array();
         }
-        return view('my_properties',compact('properties'));
+        return view('user.agent.my_properties',compact('properties'));
     }
 
     public function favorite_properties()

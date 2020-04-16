@@ -1336,10 +1336,10 @@ nav.navbar.bootsnav ul.dropdown-menu.megamenu-content.bg .col-menu{
 	font-size:14px;
 	color: #999999;
 }
-.callus textarea{
+/* .callus textarea{
 	min-height:160px;
 	resize:none;
-}
+} */
 .callus .btn-blue {
   text-transform: uppercase;
   width: 100%;

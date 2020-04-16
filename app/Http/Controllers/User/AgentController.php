@@ -15,20 +15,20 @@ class AgentController extends Controller
 {
     public function index(){
         $agents = Agent::paginate(50);
-        return view('agents',compact('agents'));
+        return view('user.agent.agents',compact('agents'));
     }
 
     public function agent_profile($id = null){
         
         $agent = Agent::where(['id'=>$id])->first();
-        return view('agent_profile', compact('agent'));
+        return view('user.agent.agent_profile', compact('agent'));
     }
 
     public function become_an_agent(Request $request, $id = null){
         if ($request->isMethod('GET')) {
 
             $agency = Agency::find($id);
-            return view("agent_registration",compact('agency'));
+            return view("user.agent.agent_registration",compact('agency'));
         }
         else if ($request->isMethod('POST')) {
             try {
@@ -59,7 +59,12 @@ class AgentController extends Controller
 
     public function edit_agent_details(Request $request){
         if($request->isMethod('GET')){
-            return view('edit_agent_details');
+
+            $agent = Agent::where(['user_id'=>Auth::user()->id])->first();
+            if($agent == null){
+                return back()->with('errors', 'You are not yet an agent');
+            }
+            return view('user.agent.edit_agent_details', compact('agent'));
         }
     }
 

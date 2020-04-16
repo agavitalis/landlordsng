@@ -16,18 +16,18 @@ class AgencyController extends Controller
 {
     public function index(){
         $agencies = Agency::paginate(100);
-        return view('agencies',compact('agencies'));
+        return view('user.agency.agencies',compact('agencies'));
     }
 
     public function agency_profile($id = null){
         $agency = Agency::find($id);
-        return view('agencies_profile',compact('agency'));
+        return view('user.agency.agency_profile',compact('agency'));
     }
 
     public function agent_requests(){
 
         $agent_requests = AgentRequest::where(['agency_id'=> Auth::user()->agency_id])->get();
-        return view('agent_requests',compact('agent_requests'));
+        return view('user.agency.agent_requests',compact('agent_requests'));
     }
 
     public function agent_requests_approve(Request $request, $id = null){
@@ -51,12 +51,12 @@ class AgencyController extends Controller
     public function my_agents(){
 
         $agents = Agent::where(['agency_id'=> Auth::user()->agency_id])->get();
-        return view('my_agents',compact('agents'));
+        return view('user.agency.my_agents',compact('agents'));
     }
 
     public function become_an_agency(Request $request, $id = null){
         if ($request->isMethod('GET')) {
-            return view("agency_registration");
+            return view("user.agency.agency_registration");
 
         }else if ($request->isMethod('POST')) {
 
@@ -91,7 +91,7 @@ class AgencyController extends Controller
 
     public function edit_agency_details(Request $request){
         if($request->isMethod('GET')){
-            return view('edit_agency_details');
+            return view('user.agency.edit_agency_details');
         }
     }
 
