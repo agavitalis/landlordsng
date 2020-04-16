@@ -22,4 +22,9 @@ class Agent extends Model
         return $this->hasMany('App\Models\Property');
     }
 
+    public function messages()
+    {
+        return $this->morphMany('App\Models\Message', 'messagetable');
+    }
+
 }

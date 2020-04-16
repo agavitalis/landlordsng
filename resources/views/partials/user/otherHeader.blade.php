@@ -11,7 +11,7 @@
             <li><a href="/agencies"><i class="icon-icons43"></i>Become an agent</a></li>
             <li><a href="/submit_property"><i class="icon-icons215"></i>Submit Property</a></li>
             <li><a href="/my_properties"><i class="icon-icons215"></i>My Property</a></li>
-            <li><a href="/home"><i class="icon-icons230"></i>Profile</a></li>
+            <li><a href="/profile"><i class="icon-icons230"></i>Profile</a></li>
             <li><a href="/login"><i class="icon-icons179"></i>Login / Register</a></li>
           </ul>
         </div>

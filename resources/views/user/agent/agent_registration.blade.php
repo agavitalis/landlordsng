@@ -29,7 +29,7 @@
       @include("partials.alert")
       <div class="col-sm-7 margin40">
         <div class="our-agent-box bottom30">
-          <h2>Your Bio</h2>
+          <h2>Application Statement </h2>
         </div>
       <form class="callus" action="/become_an_agent" method="post">
          @csrf
@@ -37,18 +37,18 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="text" class="form-control" Placeholder="Name" name="name" value="{{Auth::user()->name}}">
+                <input type="text" class="form-control" required Placeholder="Name" name="name" value="{{Auth::user()->name}}">
               </div>
               <div class="form-group">
-                <input type="tel" class="form-control"  Placeholder="Phone"  name="phone" value="{{Auth::user()->phone}}">
+                <input type="tel" class="form-control" required Placeholder="Phone"  name="phone" value="{{Auth::user()->phone}}">
               </div>
               <div class="form-group">
-                <input type="email" class="form-control"  Placeholder="Email"  name="email" value="{{Auth::user()->email}}">
+                <input type="email" class="form-control" required Placeholder="Email"  name="email" value="{{Auth::user()->email}}">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <textarea class="form-control"  name="message" placeholder="Message"></textarea>
+                <textarea class="form-control" required name="message" placeholder="Message"></textarea>
               </div>
             </div>
             <div class="col-sm-12 row">
@@ -67,9 +67,10 @@
             <h2>{{$agency->agency_name}}  Details</h2>
           </div>
           <div class="agetn-contact-2 bottom30">
+            <p><i class="icon-browser2"></i>{{$agency->biography}}</p>
             <p><i class="icon-telephone114"></i>{{$agency->phone}}</p>
             <p><i class=" icon-icons142"></i> {{$agency->email}}</p>
-            <p><i class="icon-browser2"></i>{{$agency->website}}</p>
+           
             <p><i class="icon-icons74"></i>{{$agency->address}}</p>
           </div>
           <ul class="social_share bottom20">

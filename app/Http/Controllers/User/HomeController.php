@@ -12,11 +12,6 @@ use App\Models\Agent;
 
 class HomeController extends Controller
 {
-   
-    public function __construct()
-    {
-        //$this->middleware('auth');
-    }
 
     public function index()
     {
@@ -30,8 +25,16 @@ class HomeController extends Controller
         return view('welcome', compact('agencies','agents','property_types','property_status'));
     }
 
-    public function home()
-    {
-        return view('home');
+    public function contact(){
+        return view('contact');
     }
+
+    public function faq(){
+        return view('faq');
+    }
+
+    public function testimonials(){
+        return view('testimonials');
+    }
+
 }

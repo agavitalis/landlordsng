@@ -33,8 +33,7 @@
                     <li><a href="/submit_property"><i class="icon-icons215"></i> Submit Property</a></li>
                     <li><a href="/favorite_properties"><i class="icon-icons43"></i> Favorite Properties</a></li>
                     <li>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                             <i class="icon-lock-open3"></i>Logout
                         </a>
@@ -49,25 +48,92 @@
     </div>
     <div class="container">
         <div class="row">
+            @include("partials.alert")
             <div class="col-md-3">
                 <div class="container-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Active</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link active" href="/profile">Profile</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Messages</a>
                         </li>
+
                         <hr>
+
+
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="/become_an_agency" tabindex="-1" aria-disabled="true">Become an Agency</a>
+                            <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false">
+                                Agency
+                            </a>
+                            <div class="collapse" id="collapseExample">
+                                <div class="card card-body" style="background-color:#ffffff;">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link disabled" href="/become_an_agency" tabindex="-1"
+                                                aria-disabled="true">Become an Agency</a>
+
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link disabled" href="/edit_agency_details" tabindex="-1"
+                                                aria-disabled="true">Agency Profile</a>
+
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link disabled" href="/agent_requests" tabindex="-1"
+                                                aria-disabled="true">Agent Requests</a>
+
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link disabled" href="/my_agents" tabindex="-1"
+                                                aria-disabled="true">My Agents</a>
+
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link disabled" href="/agents_messages" tabindex="-1"
+                                                aria-disabled="true">Messages</a>
+
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="/agencies" tabindex="-1" aria-disabled="true">Become an Agent</a>
+                            <a data-toggle="collapse" href="#agentDiv" role="button" aria-expanded="false">
+                                Agent
+                            </a>
+                            <div class="collapse" id="agentDiv">
+                                <div class="card card-body" style="background-color:#ffffff;">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link disabled" href="/agencies" tabindex="-1"
+                                                aria-disabled="true">Become an Agent</a>
+
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link disabled" href="/edit_agent_details" tabindex="-1"
+                                                aria-disabled="true">Agent Profile</a>
+
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link disabled" href="/agent_messages" tabindex="-1"
+                                                aria-disabled="true">My Property</a>
+
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link disabled" href="/agent_messages" tabindex="-1"
+                                                aria-disabled="true">Messages</a>
+
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+
                         </li>
+
                     </ul>
                 </div>
             </div>
@@ -85,7 +151,9 @@
                         <div class="col-md-8">
                             <div class="profile-form">
                                 <div class="row">
-                                    <form class="callus" action="{{route('profile')}}">
+                                    <form class="callus" action="{{route('profile')}}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="action" value="profile">
                                         <div class="col-sm-4">
                                             <div class="single-query">
                                                 <label>Your Name:</label>
@@ -93,8 +161,8 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="single-query form-group">
-                                                <input type="text" value="{{Auth::user()->name}}"
-                                                name="name" class="keyword-input">
+                                                <input type="text" value="{{Auth::user()->name}}" name="name"
+                                                    class="keyword-input">
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
@@ -104,21 +172,11 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="single-query form-group">
-                                                <input type="text" placeholder="{{Auth::user()->phone}}"
-                                              name="phone"  class="keyword-input">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="single-query">
-                                                <label>Mobile:</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <div class="single-query form-group">
-                                                <input type="text" placeholder="(+033) 34 56 7890"
+                                                <input type="text" value="{{Auth::user()->phone}}" name="phone"
                                                     class="keyword-input">
                                             </div>
                                         </div>
+
                                         <div class="col-sm-4">
                                             <div class="single-query">
                                                 <label>Email Adress:</label>
@@ -126,8 +184,8 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="single-query form-group">
-                                                <input type="text" value="{{Auth::user()->email}}"
-                                                    class="keyword-input" name="email">
+                                                <input type="text" value="{{Auth::user()->email}}" class="keyword-input"
+                                                    name="email">
                                             </div>
                                         </div>
 
@@ -138,13 +196,13 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="single-query form-group">
-                                                <textarea class="form-control" name="about">
-                                                  {{Auth::user()->about}}
+                                                <textarea class="form-control" name="biography">
+                                                  {{Auth::user()->biography}}
                                                   </textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-sm-12 col-xs-12 text-right">
-                                            <a class="btn-blue border_radius" href="#.">Save Changes</a>
+                                            <input type="submit" class="btn-blue border_radius" value="Save Changes" />
                                         </div>
                                     </form>
                                 </div>
@@ -156,14 +214,96 @@
         </div>
     </div>
 
-    <div class="container" id="app">
+    <div class="container">
         <div class="row">
             <div class="col-md-5 col-sm-6 col-xs-12 profile-form margin40">
-                <social-link-component></social-link-component>
+                <h3 class="bottom30 margin40">My Social Network</h3>
+                <div class="row">
+                <form class="callus" action="{{route('profile')}}" method="post">
+                        @csrf
+                        <input type="hidden" name="action" value="social">
+                        <div class="col-sm-4">
+                            <div class="single-query">
+                                <label>Facebook:</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="single-query form-group">
+                                <input type="text" placeholder="http://facebook.com/" name="facebook_url"
+                                    class="keyword-input" value="{{Auth::user()->facebook_url}}">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="single-query">
+                                <label>Twitter:</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="single-query form-group">
+                                <input type="text" placeholder="http://twitter.com/" name="twitter_url"
+                                    class="keyword-input" value="{{Auth::user()->twitter_url}}">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="single-query">
+                                <label>Linkedin:</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="single-query form-group">
+                                <input type="text" placeholder="http://linkedin.com" name="linkedIn_url"
+                                    class="keyword-input" value="{{Auth::user()->linkedln_url}}">
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+                            <input type="submit" class="btn-blue border_radius" value="Save Changes" />
+                        </div>
+                    </form>
+                </div>
             </div>
             <div class="col-md-2 hidden-xs"></div>
             <div class="col-md-5 col-sm-6 col-xs-12 profile-form margin40">
-                <password-component></password-component>
+            <h3 class=" bottom30 margin40">Change Your Password</h3>
+                <div class="row">
+                    <form class="callus" action="{{route('profile')}}" method="post">
+                        @csrf
+                        <input type="hidden" name="action" value="password">
+                        <div class="col-sm-4">
+                            <div class="single-query">
+                                <label>Current Password:</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="single-query form-group">
+                                <input type="password" class="keyword-input" name="old_password">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="single-query">
+                                <label>New Password:</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="single-query form-group">
+                                <input type="password" class="keyword-input" name="new_password">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="single-query">
+                                <label>Confirm Password:</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="single-query form-group">
+                                <input type="password" class="keyword-input" name="confirm_password">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 text-right">
+                            <input type="submit" class="btn-blue border_radius" value="Save Changes" />
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

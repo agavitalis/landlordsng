@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header')
-    @include("partials.otherHeader")
+    @include("partials.user.otherHeader")
 @endsection
  
 @section('content')
@@ -80,5 +80,5 @@
 @endsection
 
 @section('footer')
-    @include("partials.footer")
+    @include("partials.user.footer")
 @endsection

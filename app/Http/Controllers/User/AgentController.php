@@ -14,19 +14,21 @@ use Auth;
 class AgentController extends Controller
 {
     public function index(){
-      $agents = Agent::all();
-        return view('agents',compact('agents'));
+        $agents = Agent::paginate(50);
+        return view('user.agent.agents',compact('agents'));
     }
 
-    public function agent_profile(){
-        return view('agent_profile');
+    public function agent_profile($id = null){
+
+        $agent = Agent::where(['id'=>$id])->first();
+        return view('user.agent.agent_profile', compact('agent'));
     }
 
     public function become_an_agent(Request $request, $id = null){
         if ($request->isMethod('GET')) {
 
             $agency = Agency::find($id);
-            return view("agent_registration",compact('agency'));
+            return view("user.agent.agent_registration",compact('agency'));
         }
         else if ($request->isMethod('POST')) {
             try {
@@ -52,6 +54,17 @@ class AgentController extends Controller
                 return back()->with('error', $e->getMessage());
             }
 
+        }
+    }
+
+    public function edit_agent_details(Request $request){
+        if($request->isMethod('GET')){
+
+            $agent = Agent::where(['user_id'=>Auth::user()->id])->first();
+            if($agent == null){
+                return back()->with('errors', 'You are not yet an agent');
+            }
+            return view('user.agent.edit_agent_details', compact('agent'));
         }
     }
 

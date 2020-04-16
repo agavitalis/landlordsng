@@ -29,7 +29,7 @@
                 <div class="our-agent-box bottom30">
                     <h2 class="text-center">Agency Information</h2>
                 </div>
-                @if(Auth::user())
+              
                 <form class="callus" action="/become_an_agency" method="post" enctype="multipart/form-data">
                     @csrf
 
@@ -79,9 +79,7 @@
                         </div>
                     </div>
                 </form>
-                @else
-                <h4 class="text-center text-danger">You have to be logged in to register</h4>
-                @endif
+               
                 </div>
 
         </div>

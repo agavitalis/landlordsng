@@ -26,4 +26,9 @@ class Agency extends Model
     {
         return $this->hasMany('App\Models\Agent');
     }
+
+    public function messages()
+    {
+        return $this->morphMany('App\Models\Message', 'messagetable');
+    }
 }

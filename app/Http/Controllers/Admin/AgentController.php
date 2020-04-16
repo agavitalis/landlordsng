@@ -19,9 +19,15 @@ class AgentController extends Controller
     public function become_an_agent(Request $request)
     {
         if ($request->isMethod('GET')) {
-            $agent_requests = Agency::find(Auth::user()->agency_id)->agent_request;
-            return view('admin.become_an_agent', compact('agent_requests'));
+            try{
+                $agent_requests = Agency::find(Auth::user()->agency_id)->agent_request;
+                return view('admin.become_an_agent', compact('agent_requests'));
 
+            }catch(Exception $e){
+                dd($e);
+                return back()->with('errors',$e->getMessage());
+            }
+ 
         } else if ($request->isMethod('POST')) {
             try {
                 if ($request->action == "approve") {
