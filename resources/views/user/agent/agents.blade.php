@@ -49,7 +49,7 @@
                 </tbody>
               </table>
               <hr>
-              <a class="btn-more" href="/agenct_profile/{{$agent->id}}">
+              <a class="btn-more" href="/agent_profile/{{$agent->id}}">
               <i><img alt="arrow" src="images/arrow-yellow.png"></i><span>Full Profile</span><i><img alt="arrow" src="images/arrow-yellow.png"></i>
               </a>
             </div>

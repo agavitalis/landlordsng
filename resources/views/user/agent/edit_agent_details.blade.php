@@ -88,17 +88,15 @@
                                   value="{{$agent->website}}">
                           </div>
                           
+                           
                             <div class="form-group">
                                 <label for="agent_address">Your Address</label>
-
-                                <textarea name="address" class="form-control" placeholder="Message" rows='5' cols='5'>
-                                  Where can clients find you?</textarea>
-
+                                <textarea name="address" class="form-control" placeholder="Message" rows='5' cols='5'> {{$agent->address}}</textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="agent_address">Quick Intro</label>
-                                <textarea name="biography" class="form-control" placeholder="Message" rows='5' cols='5'>A Quick intor about yourself</textarea>
+                                <textarea name="biography" class="form-control" placeholder="Message" rows='5' cols='5'> {{$agent->biography}}</textarea>
                             </div>
                         </div>
 

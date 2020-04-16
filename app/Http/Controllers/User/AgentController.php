@@ -58,21 +58,30 @@ class AgentController extends Controller
     }
 
     public function edit_agent_details(Request $request){
+        
         if($request->isMethod('GET')){
 
             $agent = Agent::where(['user_id'=>Auth::user()->id])->first();
+
             if($agent == null){
                 return back()->with('errors', 'You are not yet an agent');
             }
+
             return view('user.agent.edit_agent_details', compact('agent'));
         }
         else if($request->isMethod('POST')){
+
           if($request->hasFile('profile_picture')){
+
             $profile_picture = self::uploadImage($request, 'profile_picture');
+
           }else{
+
             $agent = Agent::where(['user_id'=>Auth::user()->id])->first();
             $profile_picture = $agent->profile_picture;
+
           }
+
           $agent = Agent::where(['user_id'=>Auth::user()->id])->first();
           $agent->agent_name = $request->agent_name;
           $agent->email = $request->email;
@@ -86,8 +95,8 @@ class AgentController extends Controller
           $agent->website = $request->website;
           $agent->profile_picture = $profile_picture;
           $agent->update();
-          return view('user.agent.edit_agent_details',compact('agent'))
-          ->with("success", "Successfully updated agents profile");
+
+          return back()->with("success", "Successfully updated agents profile");
         }
     }
 
@@ -113,7 +122,7 @@ class AgentController extends Controller
 
     public function uploadImage($request, $file_name)
     {
-        //upload discription image and create garden
+        //upload discription image
         $extension = $request->file($file_name)->getClientOriginalExtension();
         $new_name = round(microtime(true)) . '.' . $extension;
 

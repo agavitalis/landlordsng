@@ -85,13 +85,13 @@
                             <div class="form-group">
                                 <label for="agency_address">Your Address</label>
 
-                                <textarea name="address" class="form-control" placeholder="Message" rows='5' cols='5'>Where can clients find you?</textarea>
+                                <textarea name="address" class="form-control" placeholder="Message" rows='5' cols='5'>{{$agency->address}}</textarea>
 
                             </div>
 
                             <div class="form-group">
                                 <label for="agency_address">Quick Intro</label>
-                                <textarea name="biography" class="form-control" placeholder="Message" rows='5' cols='5'>A Quick intor about yourself</textarea>
+                                <textarea name="biography" class="form-control" placeholder="Message" rows='5' cols='5'>{{$agency->biography}}</textarea>
                             </div>
                         </div>
 

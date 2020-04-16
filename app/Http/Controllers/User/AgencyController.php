@@ -90,17 +90,26 @@ class AgencyController extends Controller
     }
 
     public function edit_agency_details(Request $request){
+       
         if($request->isMethod('GET')){
-          $agency = Agency::where(['user_id'=>Auth::user()->id])->first();
+
+            $agency = Agency::where(['user_id'=>Auth::user()->id])->first();
             return view('user.agency.edit_agency_details',compact('agency'));
+
         }
         else if($request->isMethod('POST')){
+
             if($request->hasFile('profile_picture')){
+
               $profile_picture = self::uploadImage($request, 'profile_picture');
+
             }else{
+
               $agency = Agency::where(['user_id'=>Auth::user()->id])->first();
               $profile_picture = $agent->profile_picture;
+
             }
+
               $agency = Agency::where(['user_id'=>Auth::user()->id])->first();
               $agency->agency_name = $request->agency_name;
               $agency->email = $request->email;
@@ -113,11 +122,12 @@ class AgencyController extends Controller
               $agency->website = $request->website;
               $agency->profile_picture = $profile_picture;
               $agency->update();
-              return view('user.agency.edit_agency_details',compact('agency'))
-              ->with("success", "Successfully updated agents profile");
-          }
-      }
 
+              return back()->with("success", "Successfully updated agents profile");
+        }
+    }
+
+    
     private function getUser($email)
     {
         $user = User::where(['email' => $email])->first();
@@ -140,7 +150,7 @@ class AgencyController extends Controller
 
     public function uploadImage($request, $file_name)
     {
-        //upload discription image and create garden
+        //upload discription image
         $extension = $request->file($file_name)->getClientOriginalExtension();
         $new_name = round(microtime(true)) . '.' . $extension;
 
