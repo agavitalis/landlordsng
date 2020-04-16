@@ -13,7 +13,7 @@ class ProfileController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('edit_password', 'edit_pics', 'edit_links');
+        $this->middleware('auth');
     }
 
     public function profile(Request $request)
@@ -86,5 +86,8 @@ class ProfileController extends Controller
         }
     }
 
+    public function saved_properties(){
+        return view('contact');
+    }
 
 }

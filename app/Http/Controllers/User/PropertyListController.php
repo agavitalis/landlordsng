@@ -19,8 +19,7 @@ class PropertyListController extends Controller
     public function property_list(Request $request)
     {
         if ($request->isMethod('GET')) {
-
-                     
+          
             return view('property_list');
 
         }else if($request->isMethod('POST')){
@@ -29,8 +28,5 @@ class PropertyListController extends Controller
         }
        
     }
-
-   
-
-   
+    
 }

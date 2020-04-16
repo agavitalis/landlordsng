@@ -101,11 +101,6 @@ class PropertyController extends Controller
         return view('user.agent.my_properties',compact('properties'));
     }
 
-    public function favorite_properties()
-    {
-        return view('favorite_properties');
-    }
-
     public function uploadImage($request, $file_name)
     {
         //upload discription image and create garden
