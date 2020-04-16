@@ -29,8 +29,8 @@
                 <div class="our-agency-box bottom30">
                     <h2 class="text-center">Agency Information</h2>
                 </div>
-              
-                <form class="callus" action="/become_an_agency" method="post" enctype="multipart/form-data">
+
+                <form class="callus" action="/edit_agency_details" method="post" enctype="multipart/form-data">
                     @csrf
 
                     <div class="row">
@@ -40,7 +40,7 @@
                                 <input type="text" class="form-control" Placeholder="Agency Name" name="agency_name"
                                     value="{{$agency->agency_name}}">
                             </div>
-                           
+
                             <div class="form-group">
                                 <label for="agency_email">Agency Email</label>
                                 <input type="email" class="form-control" Placeholder="Agency Email" name="email"
@@ -56,42 +56,42 @@
                                 <input type="file" class="form-control" Placeholder="Profile Picture" name="profile_picture"
                                     value="">
                             </div>
-                           
+
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="agency_name">Twitter Handle</label>
-                                <input type="text" class="form-control" Placeholder="Agency Name" name="agency_name"
-                                    value="{{$agency->agency_name}}">
+                                <input type="text" class="form-control" Placeholder="Twitter Handle" name="twitter"
+                                    value="{{$agency->twitter}}">
                             </div>
-                           
+
                             <div class="form-group">
                                 <label for="agency_email">Facebook Handle</label>
-                                <input type="email" class="form-control" Placeholder="Agency Email" name="email"
-                                    value="{{$agency->email}}">
+                                <input type="email" class="form-control" Placeholder="Facebook Handle" name="facebook"
+                                    value="{{$agency->facebook}}">
                             </div>
                             <div class="form-group">
                                 <label for="agency_phone">Instagram Handle</label>
-                                <input type="text" class="form-control" Placeholder="Agency Phone" name="phone"
-                                    value="{{$agency->phone}}">
+                                <input type="text" class="form-control" Placeholder="Instagram Handle" name="instagram"
+                                    value="{{$agency->instagram}}">
                             </div>
                             <div class="form-group">
                                 <label for="agency_address">Website</label>
-                                <input type="text" class="form-control" Placeholder="Agency Office Address" name="address"
-                                    value="">
+                                <input type="text" class="form-control" Placeholder="Agency Office Address" name="website"
+                                    value="{{$agency->website}}">
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="agency_address">Your Address</label>
-                               
-                                <textarea name="message" class="form-control" placeholder="Message" rows='5' cols='5'>Where can clients find you?</textarea>
-                    
+
+                                <textarea name="address" class="form-control" placeholder="Message" rows='5' cols='5'>Where can clients find you?</textarea>
+
                             </div>
-                           
+
                             <div class="form-group">
                                 <label for="agency_address">Quick Intro</label>
-                                <textarea name="message" class="form-control" placeholder="Message" rows='5' cols='5'>A Quick intor about yourself</textarea>
+                                <textarea name="biography" class="form-control" placeholder="Message" rows='5' cols='5'>A Quick intor about yourself</textarea>
                             </div>
                         </div>
 
@@ -102,12 +102,12 @@
                                 <div class="col-sm-6">
                                     <input type="submit" class="btn-blue uppercase border_radius"
                                         value="Update Profile">
-                                </div>
                             </div>
+                          </div>
                         </div>
                     </div>
                 </form>
-               
+
                 </div>
 
         </div>
