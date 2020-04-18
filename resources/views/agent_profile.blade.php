@@ -56,7 +56,7 @@
                             <a class="nav-link active" href="/profile">Profile</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">Messages</a>
+                          <a class="nav-link" href="/agent_messages/{{Auth::user()->id}}">Messages</a>
                         </li>
 
                         <hr>

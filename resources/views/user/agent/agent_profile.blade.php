@@ -64,18 +64,22 @@
                 </div>
             </div>
             <div class="col-sm-4 bottom40">
-                <form class="callus">
+                <form class="callus" action="/agent_messages" method="post">
+                  @csrf
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Name">
+                        <input type="text" class="form-control" placeholder="Name" name="name">
                     </div>
                     <div class="form-group">
-                        <input type="tel" class="form-control" placeholder="Phone Number">
+                        <input type="tel" class="form-control" placeholder="Phone Number" name="phone">
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="email" class="form-control" placeholder="Email" name="email">
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" placeholder="Message"></textarea>
+                      <input type="hidden" name="agent_id" value="{{$agent->id}}">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Message" name="message_body"></textarea>
                     </div>
                     <input type="submit" class="btn-blue uppercase border_radius" value="submit now">
                 </form>
@@ -97,7 +101,7 @@
 
 
             <div class="col-md-12 listing1">
-                <div class="row"> 
+                <div class="row">
                     <div class="col-sm-3">
                         <div class="property_item heading_space">
                             <div class="image">
@@ -114,8 +118,8 @@
                                     <h3 class="captlize"><a href="#.">Historic Town House</a></h3>
                                     <p>45 Regent Street, London, UK</p>
                                 </div>
-                               
-                               
+
+
                                 <div class="favroute clearfix">
                                     <p class="pull-md-left"><i class="icon-calendar2"></i>&nbsp;5 Days ago </p>
                                     <ul class="pull-right">
@@ -151,8 +155,8 @@
                                     <h3 class="captlize"><a href="#.">Historic Town House</a></h3>
                                     <p>45 Regent Street, London, UK</p>
                                 </div>
-                               
-                               
+
+
                                 <div class="favroute clearfix">
                                     <p class="pull-md-left"><i class="icon-calendar2"></i>&nbsp;5 Days ago </p>
                                     <ul class="pull-right">
@@ -186,8 +190,8 @@
                                     <h3 class="captlize"><a href="#.">Historic Town House</a></h3>
                                     <p>45 Regent Street, London, UK</p>
                                 </div>
-                               
-                               
+
+
                                 <div class="favroute clearfix">
                                     <p class="pull-md-left"><i class="icon-calendar2"></i>&nbsp;5 Days ago </p>
                                     <ul class="pull-right">
@@ -221,8 +225,8 @@
                                     <h3 class="captlize"><a href="#.">Historic Town House</a></h3>
                                     <p>45 Regent Street, London, UK</p>
                                 </div>
-                               
-                               
+
+
                                 <div class="favroute clearfix">
                                     <p class="pull-md-left"><i class="icon-calendar2"></i>&nbsp;5 Days ago </p>
                                     <ul class="pull-right">

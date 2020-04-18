@@ -3,7 +3,7 @@
 @section('header')
     @include("partials.user.otherHeader")
 @endsection
- 
+
 @section('content')
 <!-- Page Banner Start-->
 <section class="page-banner padding">
@@ -13,7 +13,7 @@
         <h1 class="text-uppercase">{{$agency->agency_name}} Profile</h1>
         <p>{{$agency->biography}}</p>
         <ol class="breadcrumb text-center ">
-          <li><a href="#">Home</a></li>     
+          <li><a href="#">Home</a></li>
           <li><a href="#">Agency</a></li>
           <li class="active">Profile</li>
         </ol>
@@ -28,7 +28,7 @@
 <section id="agents" class="padding">
   <div class="container">
     <div class="row">
-      
+
       <div class="col-sm-4 bottom40">
         <div class="agent_wrap">
           <h3>{{$agency->agency_name}}</h3>
@@ -64,18 +64,22 @@
         </div>
       </div>
       <div class="col-sm-4 bottom40">
-        <form class="callus">
+        <form class="callus" action="/agency_messages" method="POST">
+          @csrf
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Name">
+            <input type="text" class="form-control" placeholder="Name" name="Name">
           </div>
           <div class="form-group">
-            <input type="tel" class="form-control" placeholder="Phone Number">
+            <input type="tel" class="form-control" placeholder="Phone Number" name="phone">
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" placeholder="Email">
+            <input type="email" class="form-control" placeholder="Email" name="email">
           </div>
           <div class="form-group">
-            <textarea class="form-control" placeholder="Message"></textarea>
+            <input type="hidden" name="agency_id" value="{{$agency->id}}">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" placeholder="Message" name="message_body"></textarea>
           </div>
           <input type="submit" class="btn-blue uppercase border_radius" value="submit now">
         </form>
