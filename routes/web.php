@@ -34,7 +34,7 @@ Route::group(['namespace' => "User"], function () {
     Route::match(['GET', 'POST'], '/favorite_properties/{id?}', 'PropertyController@favorite_properties')->name('favorite_properties');
 
     Route::match(['GET','POST'], '/agency_messages/{id?}', 'AgencyController@message');
-
+    Route::match(['GET','POST'], '/agent_messages/{id?}', 'AgentController@message');
 
 });
 

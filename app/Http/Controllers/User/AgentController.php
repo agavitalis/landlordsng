@@ -8,6 +8,7 @@ use App\Models\Agency;
 use App\Models\Agent;
 use App\Models\User;
 use App\Models\AgentRequest;
+use App\Models\Message;
 use Auth;
 
 
@@ -58,7 +59,7 @@ class AgentController extends Controller
     }
 
     public function edit_agent_details(Request $request){
-        
+
         if($request->isMethod('GET')){
 
             $agent = Agent::where(['user_id'=>Auth::user()->id])->first();
@@ -133,5 +134,22 @@ class AgentController extends Controller
         $profile_picture = \App::make( 'url' )->to( '/' ).'/storage/uploads/'.$new_name;
 
         return $profile_picture;
+    }
+
+    public function message(Request $request, $id=null){
+        if($request->isMethod("POST")){
+          $agent= Agent::find($request->agent_id);
+          $agent->messages()->create([
+            'message_body'=>$request->message_body,
+            'message_reply_body'=>$request->message_reply_body,
+            'user_id'=>Auth::user()->id
+          ]);
+
+          return back()->with('agent',$agent);
+        }else if ($request->isMethod("GET")){
+          $agent = Agent::where('user_id', $id)->first();
+          $messages= $agent->messages;
+          return view('user.agent.agent_messages', compact('messages'));
+        }
     }
 }
