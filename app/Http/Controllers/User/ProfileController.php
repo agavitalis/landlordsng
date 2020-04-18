@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Auth;
 use Hash;
+use App\Models\Agency;
+use App\Models\Agent;
 use Illuminate\Http\Request;
 use View;
 
@@ -20,9 +22,16 @@ class ProfileController extends Controller
     {
 
         if ($request->isMethod('GET')) {
-
+          $agency= Agency::where('user_id', Auth::user()->id)->first();
+          $agent= Agent::where('user_id', Auth::user()->id)->first();
+          if ($agency){
+            return view('agency_profile');
+          } else if($agent){
+              return view('agent_profile');
+          }
+          else{
             return view('profile');
-
+          }
         } else if ($request->isMethod("POST")) {
            if($request->action == "profile"){
 
@@ -55,7 +64,7 @@ class ProfileController extends Controller
                 $user->update();
 
                 return back()->with('success','Social Links Updated Successfully');
-           
+
             }else if($request->action == "password"){
 
                 $this->validate($request, [
@@ -80,9 +89,9 @@ class ProfileController extends Controller
 
                     return back()->with('errors','Passwords  mismatch');
                 }
-                
+
             }
-           
+
         }
     }
 

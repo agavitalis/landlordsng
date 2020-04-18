@@ -26,14 +26,15 @@ Route::group(['namespace' => "User"], function () {
     Route::match(['GET', 'POST'], '/agent_profile/{id}', 'AgentController@agent_profile')->name('agent_profile');
     Route::match(['GET', 'POST'], '/edit_agent_details/{id?}', 'AgentController@edit_agent_details')->name('edit_agent_details');
 
-    
+
     Route::match(['GET', 'POST'], '/profile', 'ProfileController@profile')->name('profile');
-    
+
     Route::match(['GET', 'POST'], '/submit_property/{id?}', 'PropertyController@add_property')->name('submit_property');
     Route::match(['GET', 'POST'], '/my_properties/{id?}', 'PropertyController@my_properties')->name('my_properties');
     Route::match(['GET', 'POST'], '/favorite_properties/{id?}', 'PropertyController@favorite_properties')->name('favorite_properties');
 
-    
+    Route::match(['GET','POST'], '/agency_messages/{id?}', 'AgencyController@message');
+
 
 });
 
