@@ -81,7 +81,7 @@
           <div class="form-group">
             <textarea class="form-control" placeholder="Message" name="message_body"></textarea>
           </div>
-          <input type="submit" class="btn-blue uppercase border_radius" value="submit now">
+          <input type="submit" class="btn-blue uppercase border_radius" value="Send Now">
         </form>
       </div>
 

@@ -8,7 +8,6 @@ use App\Models\AgentRequest;
 use Illuminate\Http\Request;
 use App\Models\Agency;
 use App\Models\Agent;
-use App\Models\Message;
 use App\Models\User;
 use Auth;
 
@@ -93,7 +92,7 @@ class AgencyController extends Controller
         }
     }
 
-    public function edit_agency_details(Request $request){
+    public function agency_details(Request $request){
 
         if($request->isMethod('GET')){
 
@@ -167,20 +166,5 @@ class AgencyController extends Controller
         return $profile_picture;
     }
 
-    public function message(Request $request, $id=null){
-        if($request->isMethod("POST")){
-          $agency= Agency::find($request->agency_id);
-          $agency->messages()->create([
-            'message_body'=>$request->message_body,
-            'message_reply_body'=>$request->message_reply_body,
-            'user_id'=>Auth::user()->id
-          ]);
-
-          return back()->with('agency',$agency);
-        }else if ($request->isMethod("GET")){
-          $agency = Agency::where('user_id', $id)->first();
-          $messages= $agency->messages;
-          return view('user.agency.agency_messages', compact('messages'));
-        }
-    }
+    
 }

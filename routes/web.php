@@ -17,14 +17,14 @@ Route::group(['namespace' => "User"], function () {
     Route::match(['GET', 'POST'], '/approve_agent_requst/{id}', 'AgencyController@agent_requests_approve')->name('agent_requests_approve');
     Route::match(['GET', 'POST'], '/reject_agent_requst/{id}', 'AgencyController@agent_requests_reject')->name('agent_requests_reject');
     Route::match(['GET', 'POST'], '/my_agents', 'AgencyController@my_agents')->name('my_agents');
-    Route::match(['GET', 'POST'], '/edit_agency_details/{id?}', 'AgencyController@edit_agency_details')->name('edit_agency_details');
+    Route::match(['GET', 'POST'], '/agency_details/{id?}', 'AgencyController@agency_details')->name('edit_agency_details');
 
 
 
     Route::match(['GET', 'POST'], '/become_an_agent/{id?}', 'AgentController@become_an_agent')->name('become_an_agent');
     Route::match(['GET', 'POST'], '/agents', 'AgentController@index')->name('agents');
     Route::match(['GET', 'POST'], '/agent_profile/{id}', 'AgentController@agent_profile')->name('agent_profile');
-    Route::match(['GET', 'POST'], '/edit_agent_details/{id?}', 'AgentController@edit_agent_details')->name('edit_agent_details');
+    Route::match(['GET', 'POST'], '/agent_details/{id?}', 'AgentController@agent_details')->name('edit_agent_details');
 
 
     Route::match(['GET', 'POST'], '/profile', 'ProfileController@profile')->name('profile');
@@ -33,8 +33,8 @@ Route::group(['namespace' => "User"], function () {
     Route::match(['GET', 'POST'], '/my_properties/{id?}', 'PropertyController@my_properties')->name('my_properties');
     Route::match(['GET', 'POST'], '/favorite_properties/{id?}', 'PropertyController@favorite_properties')->name('favorite_properties');
 
-    Route::match(['GET','POST'], '/agency_messages/{id?}', 'AgencyController@message');
-    Route::match(['GET','POST'], '/agent_messages/{id?}', 'AgentController@message');
+    Route::match(['GET','POST'], '/agency_messages/{id?}', 'MessageController@agency_messages');
+    Route::match(['GET','POST'], '/agent_messages/{id?}', 'MessageController@agent_messages');
 
 });
 

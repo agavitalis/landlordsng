@@ -136,20 +136,5 @@ class AgentController extends Controller
         return $profile_picture;
     }
 
-    public function message(Request $request, $id=null){
-        if($request->isMethod("POST")){
-          $agent= Agent::find($request->agent_id);
-          $agent->messages()->create([
-            'message_body'=>$request->message_body,
-            'message_reply_body'=>$request->message_reply_body,
-            'user_id'=>Auth::user()->id
-          ]);
-
-          return back()->with('agent',$agent);
-        }else if ($request->isMethod("GET")){
-          $agent = Agent::where('user_id', $id)->first();
-          $messages= $agent->messages;
-          return view('user.agent.agent_messages', compact('messages'));
-        }
-    }
+  
 }

@@ -10,12 +10,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h1 class="text-uppercase">Messages</h1>
+                <h1 class="text-uppercase">My Messages</h1>
                 <p>Serving you since 1999. Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
                 <ol class="breadcrumb text-center">
                     <li><a href="#">Home</a></li>
-                    <li class="active">Agent</li>
-                    <li class="active">Messages</li>
+
+                    <li class="active">My Messages</li>
                 </ol>
             </div>
         </div>
@@ -53,7 +53,7 @@
                     <a class="nav-link active" href="/profile">Profile</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/agent_messages/{{Auth::user()->id}}">Messages</a>
+                  <a class="nav-link" href="/agency_messages/{{Auth::user()->id}}">Messages</a>
                 </li>
 
                 <hr>

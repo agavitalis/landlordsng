@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\user;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\User;
-use Auth;
-use Hash;
 use App\Models\Agency;
 use App\Models\Agent;
-use Illuminate\Http\Request;
-use View;
+use Auth;
+use Hash;
+
 
 class ProfileController extends Controller
 {
@@ -22,16 +22,9 @@ class ProfileController extends Controller
     {
 
         if ($request->isMethod('GET')) {
-          $agency= Agency::where('user_id', Auth::user()->id)->first();
-          $agent= Agent::where('user_id', Auth::user()->id)->first();
-          if ($agency){
-            return view('agency_profile');
-          } else if($agent){
-              return view('agent_profile');
-          }
-          else{
+          
             return view('profile');
-          }
+          
         } else if ($request->isMethod("POST")) {
            if($request->action == "profile"){
 

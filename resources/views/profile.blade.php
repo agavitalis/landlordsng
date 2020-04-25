@@ -56,7 +56,7 @@
                             <a class="nav-link active" href="/profile">Profile</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">Messages</a>
+                          <a class="nav-link" href="/my_messages">My Messages</a>
                         </li>
 
                         <hr>
@@ -75,7 +75,7 @@
 
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link disabled" href="/edit_agency_details" tabindex="-1"
+                                            <a class="nav-link disabled" href="/agency_details" tabindex="-1"
                                                 aria-disabled="true">Agency Profile</a>
 
                                         </li>
@@ -90,7 +90,7 @@
 
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link disabled" href="/agents_messages" tabindex="-1"
+                                            <a class="nav-link disabled" href="/agency_messages" tabindex="-1"
                                                 aria-disabled="true">Messages</a>
 
                                         </li>
@@ -113,7 +113,7 @@
 
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link disabled" href="/edit_agent_details" tabindex="-1"
+                                            <a class="nav-link disabled" href="/agent_details" tabindex="-1"
                                                 aria-disabled="true">Agent Profile</a>
 
                                         </li>
