@@ -97,8 +97,10 @@
                         </div>
 
                     </li>
+
+                  
                     <li class="nav-item">
-                        <a data-toggle="collapse" href="#agentDiv" role="button" aria-expanded="false">
+                        <a data-toggle="collapse" href="#agentDiv" class="dropdown-toggle" role="button" aria-expanded="false">
                             Agent
                         </a>
                         <div class="collapse" id="agentDiv">
@@ -136,97 +138,72 @@
         </div>
         <div class="col-md-9">
             <div class="mt-4">
+        
+                <!-- Message Start -->
                 @if(count($messages)>0)
-                @foreach($messages as $message)
-                <p class="text-center mb-2">{{$message->message_body}}</p>
-                @endforeach
+                   
+                    <div class="panel-group" id="accordion">
+                        @foreach($messages as $message)
+                            <div class="panel panel-default">
+                                <div class="panel-heading active">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle" data-toggle="collapse"
+                                            data-parent="#accordion" href="#panel{{$message->id}}">
+                                            Message to: {{$message->messagetable->agency_name?: $message->messagetable->agent_name}}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="panel{{$message->id}}" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <p class="bottom20">
+                                            {{$message->message_body}}
+                                        </p>
+                                       
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#messageModal">View Reply </button>
+                                            <button type="button" class="btn btn-danger">Delete</button>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                      
+                    </div>
+                   
                 @else
                 <p class="text-danger text-center">You have no messages</p>
                 @endif
-            </div>
-            <!-- Message Start -->
         
-            <div class="panel-group" id="accordion">
-                <div class="panel panel-default">
-                    <div class="panel-heading active">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse"
-                                data-parent="#accordion" href="#panel1">
-                                Suspendisse eleifend massa commodo porta lacus bibendum?
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="panel1" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <p class="bottom20">Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Cras et dui vestibulum,
-                                bibendum purus sit amet, vulputate mauris. Ut adipiscing gravida
-                                tincidunt. Duis euismod placerat rhoncus.
-                                Phasellus mollis imperdiet placerat. Sed ac turpis nisl. Mauris
-                                at ante mauris. Aliquam posuere fermentum lorem,
-                                a aliquam mauris rutrum a. Curabitur sit amet pretium lectus,
-                                nec consequat orci
-                            </p>
-
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-success">Reply </button>
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse"
-                                data-parent="#accordion" href="#panel2">
-                                What is Broker?</a>
-                        </h4>
-                    </div>
-                    <div id="panel2" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <p>Keep away from people who try to belittle your ambitions. Small
-                                people always do that but the really Keep away from people
-                                great. Keep away from people who try to belittle your ambitions.
-                                Small people always do that but the really Keep away from people
-                                great.
-                            </p>
-
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-success">Reply </button>
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            
-
-
-
-
+                <!-- Message End -->
             </div>
-      
-            <!-- Message End -->
         </div>
     </div>
 </div>
 
 <!-- Page Banner End -->
-
-
-<!-- Agent Profile -->
-<section id="agents" class="padding">
-    <div class="container">
-        <div class="row">
-
-
-
-        </div>
+<!-- Reply Message Modal -->
+<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Message Modal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
-</section>
-<!-- Agent Profile End -->
+  </div>
+</div>
+<!-- View Message Modal -->
+
 
 @endsection
 
