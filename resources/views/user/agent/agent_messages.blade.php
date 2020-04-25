@@ -86,7 +86,10 @@
                     </div>
                    
                 @else
-                <p class="text-danger text-center">You have no messages</p>
+                <div class="alert alert-danger text-center">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                   You have no messages
+                </div>
                 @endif
         
                 <!-- Message End -->
