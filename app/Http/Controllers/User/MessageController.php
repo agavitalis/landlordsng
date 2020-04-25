@@ -59,4 +59,15 @@ class MessageController extends Controller
 
         } 
     }
+
+    public function my_messages(Request $request, $id = null)
+    {
+        if ($request->isMethod("GET")) {
+
+            $messages = Message::where('user_id', Auth::user()->id)->all();
+            return view('user.my_messages', compact('messages'));
+
+        }
+      
+    }
 }
