@@ -35,6 +35,7 @@ Route::group(['namespace' => "User"], function () {
 
     Route::match(['GET','POST'], '/agency_messages/{id?}', 'MessageController@agency_messages');
     Route::match(['GET','POST'], '/agent_messages/{id?}', 'MessageController@agent_messages');
+    Route::match(['GET','POST'], '/my_messages/{id?}', 'MessageController@my_messages');
 
 });
 
